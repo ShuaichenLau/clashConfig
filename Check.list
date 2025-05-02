@@ -3,6 +3,7 @@ DOMAIN-SUFFIX,test-ipv6.com
 DOMAIN-SUFFIX,ipw.cn
 DOMAIN-SUFFIX,dns.sb
 DOMAIN-SUFFIX,api-ipv4.ip.sb
+DOMAIN-SUFFIX,api.ipify.org
 
 DOMAIN-SUFFIX,cloudflare.com
 DOMAIN-SUFFIX,fast.com
