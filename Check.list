@@ -4,7 +4,6 @@ DOMAIN-SUFFIX,ipw.cn
 DOMAIN-SUFFIX,dns.sb
 DOMAIN-SUFFIX,api-ipv4.ip.sb
 DOMAIN-SUFFIX,api.ipify.org
-
 DOMAIN-SUFFIX,cloudflare.com
 DOMAIN-SUFFIX,fast.com
 DOMAIN-SUFFIX,speedcheck.org
@@ -16,35 +15,28 @@ DOMAIN-SUFFIX,whoer.net
 DOMAIN-SUFFIX,browserleaks.com
 DOMAIN-SUFFIX,browserleaks.org
 DOMAIN-SUFFIX,browserleaks.net
-
 DOMAIN-SUFFIX,dnsleaktest.com
 DOMAIN-SUFFIX,browserscan.net
 DOMAIN-SUFFIX,surfshark.com
 DOMAIN-SUFFIX,surfsharkdns.com
 DOMAIN-SUFFIX,ip-api.com
-
 DOMAIN-SUFFIX,ipleak.net
 DOMAIN-SUFFIX,ip-score.com
 DOMAIN-SUFFIX,888005.xyz
 DOMAIN-SUFFIX,incolumitas.com
-
 DOMAIN-SUFFIX,null-addr.com
 DOMAIN-SUFFIX,null-addr.net
 DOMAIN-SUFFIX,null-addr.org
 DOMAIN-SUFFIX,null-addr.biz
 DOMAIN-SUFFIX,null-addr.info
 DOMAIN-SUFFIX,addr.tools
-
 DOMAIN-SUFFIX,ifconfig.me
 DOMAIN-SUFFIX,ip125.com
 DOMAIN-SUFFIX,skk.moe
 DOMAIN-SUFFIX,ip111.cn
-DOMAIN-SUFFIX,vultr.com
 DOMAIN-SUFFIX,ping0.cc
-
 DOMAIN-KEYWORD,qichiyu.com
 DOMAIN,qichiyu.com
-
 DOMAIN-KEYWORD,llgjc1.com
 DOMAIN,llgjc1.com
 DOMAIN-KEYWORD,llg01.com
@@ -67,7 +59,6 @@ DOMAIN-KEYWORD,6666b.idsduf.com
 DOMAIN,6666b.idsduf.com
 DOMAIN-KEYWORD,svcloud.one
 DOMAIN,svcloud.one
-
 DOMAIN-SUFFIX,llgjc1.com
 DOMAIN-SUFFIX,llg01.com
 DOMAIN-SUFFIX,hongxingdl.love
@@ -79,4 +70,12 @@ DOMAIN-SUFFIX,ht.idsduf.com
 DOMAIN-SUFFIX,hongxingdl.com
 DOMAIN-SUFFIX,6666b.idsduf.com
 DOMAIN-SUFFIX,svcloud.one
-
+IP-CIDR,142.251.215.0/24,no-resolve
+DOMAIN,speed.cloudflare.com
+# DOMAIN,ichnaea-web.netflix.com
+# DOMAIN-SUFFIX,1.oca.nflxvideo.net
+DOMAIN-SUFFIX,dnsleaktest.org
+DOMAIN-SUFFIX,1-b.net
+DOMAIN-SUFFIX,workers.dev
+DOMAIN-SUFFIX,jsonp-ip.com
+DOMAIN-SUFFIX,sspanel.net
