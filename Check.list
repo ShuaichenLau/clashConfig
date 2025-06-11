@@ -36,7 +36,9 @@ DOMAIN-SUFFIX,skk.moe
 DOMAIN-SUFFIX,ip111.cn
 DOMAIN-SUFFIX,ping0.cc
 DOMAIN-KEYWORD,qichiyu.com
+DOMAIN-KEYWORD,mirrors.vsean.net
 DOMAIN,qichiyu.com
+DOMAIN,mirrors.vsean.net
 DOMAIN-KEYWORD,llgjc1.com
 DOMAIN,llgjc1.com
 DOMAIN-KEYWORD,llg01.com
@@ -79,3 +81,4 @@ DOMAIN-SUFFIX,1-b.net
 DOMAIN-SUFFIX,workers.dev
 DOMAIN-SUFFIX,jsonp-ip.com
 DOMAIN-SUFFIX,sspanel.net
+DOMAIN-SUFFIX,mirrors.vsean.net
