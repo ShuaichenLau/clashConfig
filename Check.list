@@ -72,7 +72,6 @@ DOMAIN-SUFFIX,ht.idsduf.com
 DOMAIN-SUFFIX,hongxingdl.com
 DOMAIN-SUFFIX,6666b.idsduf.com
 DOMAIN-SUFFIX,svcloud.one
-IP-CIDR,142.251.215.0/24,no-resolve
 DOMAIN,speed.cloudflare.com
 DOMAIN-SUFFIX,dnsleaktest.org
 DOMAIN-SUFFIX,1-b.net
