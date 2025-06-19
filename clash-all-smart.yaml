@@ -104,7 +104,7 @@ mode: rule
 log-level: info
 
 geodata-mode: false
-# GEO 文件加载模式（standard：标准加载器/memconservative：专为内存受限 (小内存) 设备优化的加载器 (默认值)）
+# GEO 文件加载模式（standard：标准加载器/memconservative：专为内存受限 (小内存) 设备优化的加载器 (默认值)
 geodata-loader: standard
 geo-auto-update: true
 geo-update-interval: 48
@@ -469,6 +469,6 @@ rule-providers:
   EMBY / IP: {<<: *ip, url: "https://github.moeyy.xyz/https://raw.githubusercontent.com/Lanlan13-14/Rules/refs/heads/main/rules/IP/emby-ip.mrs"}
   Proxy / Domain: {<<: *class, url: "https://github.moeyy.xyz/https://raw.githubusercontent.com/liandu2024/clash/refs/heads/main/list/Proxy.list"}
   Meta AI / Domain: {<<: *class, url: "https://github.moeyy.xyz/https://raw.githubusercontent.com/liandu2024/clash/refs/heads/main/list/MetaAi.list"}
-  Direct / Domain: {<<: *class, url: "https://github.moeyy.xyz/https://raw.githubusercontent.com/liandu2024/clash/refs/heads/main/list/Direct.list"}
+  Direct / Domain: {<<: *class, url: "https://github.moeyy.xyz/https://raw.githubusercontent.com/ShuaichenLau/clashConfig/refs/heads/main/Direct.list"}
 
 #  GateFireWall / Domain: {<<: *domain, url: "https://github.moeyy.xyz/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/gfw.mrs"}
