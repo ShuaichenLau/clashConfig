@@ -1,6 +1,5 @@
 # 直连补充列表(国内域名不解析时，防止走代理使用)
 
-DOMAIN,mashibing.com
 
 # MyList
 # 域名后缀匹配
@@ -19,6 +18,10 @@ DOMAIN-SUFFIX,qingtiantv888.xyz
 DOMAIN-SUFFIX,ynhtbank.com
 DOMAIN-SUFFIX,idsduf.com
 DOMAIN-SUFFIX,mashibing.com
+DOMAIN-SUFFIX,gateway.mashibing.com
+
+DOMAIN,mashibing.com
+DOMAIN,gateway.mashibing.com
 
 # 域名关键字匹配
 DOMAIN-KEYWORD,baidu
