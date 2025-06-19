@@ -1,11 +1,24 @@
 # 直连补充列表(国内域名不解析时，防止走代理使用)
 
+DOMAIN,mashibing.com
+
 # MyList
 # 域名后缀匹配
 DOMAIN-SUFFIX,time.windows.com
 DOMAIN-SUFFIX,lanzov.com
 DOMAIN-SUFFIX,hao123.com
-# DOMAIN-SUFFIX,xn--ngstr-lra8j.com
+DOMAIN-SUFFIX,aerianas.top
+DOMAIN-SUFFIX,sssyun.xyz
+DOMAIN-SUFFIX,qeayr.cn
+DOMAIN-SUFFIX,saojc.xyz
+DOMAIN-SUFFIX,dler.cloud
+DOMAIN-SUFFIX,0tk8a3a1q4t94dler.com
+DOMAIN-SUFFIX,wxda.net
+DOMAIN-SUFFIX,hkmlqxg.xyz
+DOMAIN-SUFFIX,qingtiantv888.xyz
+DOMAIN-SUFFIX,ynhtbank.com
+DOMAIN-SUFFIX,idsduf.com
+DOMAIN-SUFFIX,mashibing.com
 
 # 域名关键字匹配
 DOMAIN-KEYWORD,baidu
@@ -586,4 +599,3 @@ DOMAIN-SUFFIX,zhimg.com
 DOMAIN-SUFFIX,zhipin.com
 DOMAIN-SUFFIX,zhongsou.com
 DOMAIN-SUFFIX,zhuihd.com
-DOMAIN-SUFFIX,aiseet.atianqi.com
