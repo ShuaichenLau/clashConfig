@@ -8,6 +8,9 @@ DOMAIN-SUFFIX,cloudflare.com
 DOMAIN-SUFFIX,speedcheck.org
 DOMAIN-SUFFIX,speedtest.net
 DOMAIN-SUFFIX,speedtest.cn
+DOMAIN-KEYWORD,speedtest
+DOMAIN-KEYWORD,speedtestph
+DOMAIN-SUFFIX,speedtestph.subiway.net
 DOMAIN-SUFFIX,ustc.edu.cn
 DOMAIN-SUFFIX,dnscheck.tools
 DOMAIN-SUFFIX,whoer.net
