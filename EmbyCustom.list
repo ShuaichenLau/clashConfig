@@ -65,3 +65,4 @@ DOMAIN,cf.yunti.online
 DOMAIN-KEYWORD,hongxingyunmovie.vip
 DOMAIN-KEYWORD,candytallymovie.vip
 DOMAIN-KEYWORD,cf.yunti.online
+IP-CIDR,45.144.174.92/32,no-resolve
