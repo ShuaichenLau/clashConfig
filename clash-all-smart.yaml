@@ -401,7 +401,6 @@ rules:
   - RULE-SET,Telegram / IP,Telegram,no-resolve
   - RULE-SET,Amazon / Domain,Amazon
   - RULE-SET,Apple / Domain,Apple
-  - RULE-SET,Apple-CN / Domain,Apple
   - RULE-SET,biliintl1 / Domain,哔哩哔哩
   - RULE-SET,biliintl2 / Domain,哔哩哔哩
   - RULE-SET,biliintl / IP,哔哩哔哩,no-resolve
@@ -425,6 +424,7 @@ rules:
   - RULE-SET,Proxy2 / Domain,国外
   - RULE-SET,Direct / Domain,国内
   - RULE-SET,China / Domain,国内
+  - RULE-SET,Apple-CN / Domain,国内
   - RULE-SET,China / IP,国内,no-resolve
   - MATCH,其他
 
