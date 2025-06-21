@@ -256,7 +256,6 @@ proxy-groups:
     include-all: true
     filter: "^((?!(直连|拒绝|剩余|官网|订阅|免费|异常|流量)).)*$"
 
-
   - name: 所有-智选
     type: smart
     include-all: true
