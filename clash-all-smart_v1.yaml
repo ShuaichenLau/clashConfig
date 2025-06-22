@@ -104,9 +104,10 @@ mode: rule
 log-level: info
 
 geodata-mode: false
+# GEO 文件加载模式（standard：标准加载器/memconservative：专为内存受限 (小内存) 设备优化的加载器 (默认值)
 geodata-loader: standard
 geo-auto-update: true
-geo-update-interval: 120
+geo-update-interval: 48
 geox-url:
   geosite: "https://github.moeyy.xyz/https://github.com/MetaCubeX/meta-rules-dat/releases/download/latest/geosite.dat"
   mmdb: "https://github.moeyy.xyz/https://github.com/MetaCubeX/meta-rules-dat/releases/download/latest/geoip-lite.metadb"
@@ -114,6 +115,9 @@ geox-url:
   asn: "https://github.moeyy.xyz/https://github.com/MetaCubeX/meta-rules-dat/releases/download/latest/GeoLite2-ASN.mmdb"
 
 external-controller: 0.0.0.0:9090
+# external-ui: ui
+# external-ui-name: zashboard
+# external-ui-url: https://github.moeyy.xyz/https://github.com/Zephyruso/zashboard/archive/refs/heads/gh-pages.zip
 secret: "123456"
 
 # ========================
@@ -123,12 +127,14 @@ dns:
   enable: true
   listen: 0.0.0.0:7874
   ipv6: true
+  prefer-h3: true # 是否开启 DoH 支持 HTTP/3，将并发尝试
   enhanced-mode: fake-ip
-  fake-ip-range: 198.18.0.1/16
+  fake-ip-range: 198.20.0.1/16
   nameserver:
     - 219.141.140.10
     - 219.141.136.10
     - 223.5.5.5
+    - 8.8.8.8
   fake-ip-filter:
     - +.lan
     - +.local
@@ -199,7 +205,13 @@ default: &default
     - 直连
     - 所有-手选A
     - 所有-手选B
-    - 所有-自动
+    - 所有-智选
+    - 香港-智选
+    - 台湾-智选
+    - 日本-智选
+    - 新韩-智选
+    - 美国-智选
+    - 其他-智选
     - 香港-自动
     - 台湾-自动
     - 日本-自动
@@ -230,6 +242,7 @@ proxy-groups:
   - {name: Google, <<: *default}
   - {name: Crypto, <<: *default}
   - {name: 国外, <<: *default}
+  - {name: 国内, <<: *default}
   - {name: 其他, <<: *default}
 
   - name: 所有-手选A
@@ -242,13 +255,86 @@ proxy-groups:
     include-all: true
     filter: "^((?!(直连|拒绝|剩余|官网|订阅|免费|异常|流量)).)*$"
 
-  - name: 所有-自动
-    type: url-test
+  - name: 所有-智选
+    type: smart
     include-all: true
     uselightgbm: true
     collectdata: true
     interval: 300
     filter: "^((?!(直连|拒绝|剩余|官网|订阅|免费|异常|流量)).)*$"
+
+  # 香港组
+  - name: 香港-智选
+    type: smart
+    include-all: true
+    uselightgbm: true
+    collectdata: true
+    interval: 300
+    filter: "(?=.*(广港|香港|HK|Hong Kong|🇭🇰|HongKong)).*$"
+    url: "http://www.gstatic.com/generate_204"
+    lazy: true
+    persistent: true
+
+  # 台湾组
+  - name: 台湾-智选
+    type: smart
+    include-all: true
+    uselightgbm: true
+    collectdata: true
+    interval: 300
+    filter: "(?=.*(广台|台湾|台灣|TW|Tai Wan|🇹🇼|🇨🇳|TaiWan|Taiwan)).*$"
+    url: "http://www.gstatic.com/generate_204"
+    lazy: true
+    persistent: true
+
+  # 日本组
+  - name: 日本-智选
+    type: smart
+    include-all: true
+    uselightgbm: true
+    collectdata: true
+    interval: 300
+    filter: "(?=.*(广日|日本|JP|川日|东京|大阪|泉日|埼玉|沪日|深日|🇯🇵|Japan)).*$"
+    url: "http://www.gstatic.com/generate_204"
+    lazy: true
+    persistent: true
+
+  # 新加坡组
+  - name: 新韩-智选
+    type: smart
+    include-all: true
+    uselightgbm: true
+    collectdata: true
+    interval: 300
+    filter: "(?=.*(广新|新加坡|SG|坡|狮城|🇸🇬|Singapore|广韩|韩国|韓國|KR|首尔|春川|🇰🇷|Korea)).*$"
+    url: "http://www.gstatic.com/generate_204"
+    lazy: true
+    persistent: true
+
+
+  # 美国组
+  - name: 美国-智选
+    type: smart
+    include-all: true
+    uselightgbm: true
+    collectdata: true
+    interval: 300
+    filter: "(?=.*(广美|美|US|纽约|波特兰|达拉斯|俄勒|凤凰城|费利蒙|拉斯|洛杉|圣何塞|圣克拉|西雅|芝加|🇺🇸|United States)).*$"
+    url: "http://www.gstatic.com/generate_204"
+    lazy: true
+    persistent: true
+
+  # 其他组
+  - name: 其他-智选
+    type: smart
+    include-all: true
+    uselightgbm: true
+    collectdata: true
+    interval: 300
+    filter: "^((?!(直连|拒绝|广港|香港|HK|Hong Kong|🇭🇰|HongKong|广台|台湾|台灣|TW|Tai Wan|🇹🇼|🇨🇳|TaiWan|Taiwan|广日|日本|JP|川日|东京|大阪|泉日|埼玉|沪日|深日|🇯🇵|Japan|广新|新加坡|SG|坡|狮城|🇸🇬|Singapore|广韩|韩国|韓國|KR|首尔|春川|🇰🇷|Korea|广美|美|US|纽约|波特兰|达拉斯|俄勒|凤凰城|费利蒙|拉斯|洛杉|圣何塞|圣克拉|西雅|芝加|🇺🇸|United States|🇬🇧)).)*$"
+    url: "http://www.gstatic.com/generate_204"
+    lazy: true
+    persistent: true
 
   - name: 香港-自动
     type: url-test
@@ -319,6 +405,8 @@ rules:
   - RULE-SET,biliintl_IP,哔哩哔哩,no-resolve
   - RULE-SET,TikTok_Domain,哔哩哔哩
   - RULE-SET,Microsoft_Domain,Microsoft
+  - RULE-SET,Twitter_Domain,Microsoft
+  - RULE-SET,Facebook_Domain,Microsoft
   - RULE-SET,OKX_Domain,Crypto
   - RULE-SET,Bybit_Domain,Crypto
   - RULE-SET,Binance_Domain,Crypto
@@ -331,13 +419,26 @@ rules:
   - RULE-SET,Google_Domain,Google
   - RULE-SET,Google_IP,Google,no-resolve
   - RULE-SET,Proxy_Domain,国外
-  - RULE-SET,Twitter_Domain,国外
-  - RULE-SET,Facebook_Domain,国外
   - RULE-SET,Proxy1_Domain,国外
   - RULE-SET,Proxy2_Domain,国外
   - RULE-SET,Proxy3_Domain,国外
   - RULE-SET,speedtest_domain,国外
   - RULE-SET,Cloudflare_domain,国外
+  - RULE-SET,Direct1_Domain,国内
+  - RULE-SET,aliyun_domain,国内
+  - RULE-SET,115_domain,国内
+  - RULE-SET,xiaomi_domain,国内
+  - RULE-SET,bank_cn_domain,国内
+  - RULE-SET,ai_cn_domain,国内
+  - RULE-SET,NetEaseMusic_domain,国内
+  - RULE-SET,media_cn_domain,国内
+  - RULE-SET,fakeip_filter_domain,国内
+  - RULE-SET,alibaba_domain,国内
+  - RULE-SET,China_Domain,国内
+  - RULE-SET,wechat_domain,国内
+  - RULE-SET,Apple-CN_Domain,国内
+  - RULE-SET,China_IP,国内,no-resolve
+  - RULE-SET,private_domain,国内,no-resolve
   - MATCH,其他
 
 # ========================
@@ -385,3 +486,18 @@ rule-providers:
   Proxy3_Domain: {<<: *class, url: "https://github.moeyy.xyz/https://raw.githubusercontent.com/ShuaichenLau/clashConfig/refs/heads/main/Check.list"}
   speedtest_domain: { <<: *domain, url: "https://github.moeyy.xyz/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/ookla-speedtest.mrs" }
   Cloudflare_domain: { <<: *domain, url: "https://github.moeyy.xyz/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo/geosite/cloudflare.mrs" }
+  China_Domain: {<<: *domain, url: "https://github.moeyy.xyz/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/cn.mrs"}
+  China_IP: {<<: *ip, url: "https://github.moeyy.xyz/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geoip/cn.mrs"}
+  Direct1_Domain: {<<: *class, url: "https://github.moeyy.xyz/https://raw.githubusercontent.com/ShuaichenLau/clashConfig/refs/heads/main/Direct.list"}
+  alibaba_domain: { <<: *domain, url: "https://github.moeyy.xyz/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo/geosite/alibaba.mrs" }
+  Apple-CN_Domain: {<<: *domain, url: "https://github.moeyy.xyz/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/apple-cn.mrs"}
+  fakeip_filter_domain: { <<: *domain, url: "https://github.moeyy.xyz/https://raw.githubusercontent.com/Lanlan13-14/Rules/refs/heads/main/rules/Domain/fakeip-filter.mrs" }
+  media_cn_domain: { <<: *domain, url: "https://github.moeyy.xyz/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo/geosite/category-media-cn.mrs" }
+  NetEaseMusic_domain: { <<: *domain, url: "https://github.moeyy.xyz/https://raw.githubusercontent.com/Lanlan13-14/Rules/refs/heads/main/rules/Domain/NetEaseMusic-domain.mrs" }
+  ai_cn_domain: { <<: *domain, url: "https://github.moeyy.xyz/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo/geosite/category-ai-cn.mrs" }
+  wechat_domain: { <<: *domain, url: "https://github.moeyy.xyz/https://raw.githubusercontent.com/Lanlan13-14/Rules/refs/heads/main/rules/Domain/WeChat.mrs" }
+  bank_cn_domain: { <<: *domain, url: "https://github.moeyy.xyz/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo/geosite/category-bank-cn.mrs" }
+  xiaomi_domain: { <<: *domain, url: "https://github.moeyy.xyz/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo/geosite/xiaomi.mrs" }
+  115_domain: { <<: *domain, url: "https://github.moeyy.xyz/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo/geosite/115.mrs" }
+  aliyun_domain: { <<: *domain, url: "https://github.moeyy.xyz/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo/geosite/aliyun.mrs" }
+  private_domain: { <<: *domain, url: "https://github.moeyy.xyz/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/private.mrs" }
