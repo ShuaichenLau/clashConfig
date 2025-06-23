@@ -134,12 +134,10 @@ proxy-groups:
   - {name: EMBY, <<: *default, icon: "https://pub-8feead0908f649a8b94397f152fb9cba.r2.dev/emby.png"}
   - {name: HBO, <<: *default}
   - {name: Amazon, <<: *default}
-  - {name: Apple, <<: *default}
   - {name: Microsoft, <<: *default}
   - {name: Google, <<: *default}
   - {name: Crypto, <<: *default}
   - {name: 国外, <<: *default}
-  - {name: 国内, <<: *default}
   - {name: 其他, <<: *default}
 
   - name: 所有-手选A
@@ -300,6 +298,7 @@ rules:
   - RULE-SET,Claude_Domain,Claude
   - RULE-SET,Meta AI_Domain,Meta AI
   - RULE-SET,Perplexity_Domain,Perplexity
+  - RULE-SET,Youtube_Domain,YouTube
   - RULE-SET,Google_Domain,Google
   - RULE-SET,Google_IP,Google,no-resolve
   - RULE-SET,gitbook_domain,GitHub
@@ -307,9 +306,7 @@ rules:
   - RULE-SET,Telegram_Domain,Telegram
   - RULE-SET,Telegram_IP,Telegram,no-resolve
   - RULE-SET,Amazon_Domain,Amazon
-  - RULE-SET,Apple_Domain,Apple
   - RULE-SET,Microsoft_Domain,Microsoft
-  - RULE-SET,Youtube_Domain,YouTube
   - RULE-SET,Netflix_Domain,Netflix
   - RULE-SET,Netflix_IP,Netflix,no-resolve
   - RULE-SET,Disney_Domain,Disney
@@ -319,11 +316,6 @@ rules:
   - RULE-SET,Proxy0_Domain,国外
   - RULE-SET,Proxy1_Domain,国外
   - RULE-SET,Proxy2_Domain,国外
-  - RULE-SET,xiaomi_domain,国内
-  - RULE-SET,bank_cn_domain,国内
-  - RULE-SET,Direct_Domain,国内
-  - RULE-SET,China_IP,国内
-  - RULE-SET,China_Domain,国内
   - MATCH,其他
 
 # ========================
@@ -348,7 +340,6 @@ rule-providers:
   Telegram_Domain: {<<: *domain, url: "https://github.moeyy.xyz/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/telegram.mrs"}
   Telegram_IP: {<<: *ip, url: "https://github.moeyy.xyz/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geoip/telegram.mrs"}
   Amazon_Domain: {<<: *domain, url: "https://github.moeyy.xyz/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/amazon.mrs"}
-  Apple_Domain: {<<: *domain, url: "https://github.moeyy.xyz/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/apple.mrs"}
   Microsoft_Domain: {<<: *domain, url: "https://github.moeyy.xyz/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/microsoft.mrs"}
   Youtube_Domain: {<<: *domain, url: "https://github.moeyy.xyz/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/youtube.mrs"}
   Netflix_Domain: {<<: *domain, url: "https://github.moeyy.xyz/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/netflix.mrs"}
@@ -360,8 +351,3 @@ rule-providers:
   Proxy0_Domain: {<<: *class, url: "https://github.moeyy.xyz/https://raw.githubusercontent.com/ShuaichenLau/clashConfig/refs/heads/main/Check.list"}
   Proxy1_Domain: { <<: *domain, url: "https://github.moeyy.xyz/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo-lite/geosite/proxy.mrs" }
   Proxy2_Domain: {<<: *class, url: "https://github.moeyy.xyz/https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/Global/Global.list"}
-  Direct_Domain: {<<: *class, url: "https://github.moeyy.xyz/https://raw.githubusercontent.com/liandu2024/clash/refs/heads/main/list/Direct.list"}
-  China_Domain: {<<: *domain, url: "https://github.moeyy.xyz/https://github.com/metacubex/meta-rules-dat/raw/refs/heads/meta/geo/geosite/cn.mrs"}
-  China_IP: {<<: *ip, url: "https://github.moeyy.xyz/https://github.com/metacubex/meta-rules-dat/raw/refs/heads/meta/geo/geoip/cn.mrs"}
-  bank_cn_domain: { <<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo/geosite/category-bank-cn.mrs" }
-  xiaomi_domain: { <<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo/geosite/xiaomi.mrs" }
