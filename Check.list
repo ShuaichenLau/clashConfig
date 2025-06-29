@@ -15,10 +15,11 @@ DOMAIN,speed.cloudflare.com
 DOMAIN,subvonehsy.onesubv.site
 DOMAIN,svcloud.one
 DOMAIN,tvyun10.com
-DOMAIN,cpu.userbenchmark.com
+DOMAIN,userbenchmark.com
 
 
 DOMAIN-KEYWORD,6666b.idsduf.com
+DOMAIN-KEYWORD,userbenchmark.com
 DOMAIN-KEYWORD,6bsub.zhunchuanpb.com
 DOMAIN-KEYWORD,hongxingdl.com
 DOMAIN-KEYWORD,hongxingdl.love
@@ -40,6 +41,7 @@ DOMAIN-KEYWORD,svcloud.one
 
 DOMAIN-SUFFIX,1-b.net
 DOMAIN-SUFFIX,6666b.idsduf.com
+DOMAIN-SUFFIX,userbenchmark.com
 DOMAIN-SUFFIX,6bsub.zhunchuanpb.com
 DOMAIN-SUFFIX,888005.xyz
 DOMAIN-SUFFIX,addr.tools
