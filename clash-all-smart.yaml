@@ -76,6 +76,16 @@ proxy-providers:
       udp: true
     proxy: 直连
 
+  NB:
+    url: http://192.168.3.6:3001/T3B9dgzBzdRbBF8Aqx7P/download/NB
+    type: http
+    interval: 86400
+    health-check:
+      enable: true
+      url: https://www.gstatic.com/generate_204
+      interval: 300
+    proxy: 直连
+
 
 proxies:
   - {name: 直连, type: direct}
