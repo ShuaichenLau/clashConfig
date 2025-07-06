@@ -100,6 +100,9 @@ profile:
 # ========================
 default: &default
   type: select
+  tolerance: 20
+  interval: 300
+  url: http://www.gstatic.com/generate_204
   proxies:
     - 直连
     - 所有-智选
@@ -130,10 +133,8 @@ proxy-groups:
   - {name: GitHub, <<: *default}
   - {name: Telegram, <<: *default}
   - {name: YouTube, <<: *default}
-  - {name: Disney, <<: *default}
   - {name: Netflix, <<: *default}
   - {name: EMBY, <<: *default}
-  - {name: HBO, <<: *default}
   - {name: Microsoft, <<: *default}
   - {name: Google, <<: *default}
   - {name: 国外, <<: *default}
@@ -224,9 +225,9 @@ proxy-groups:
   - name: 所有-自动
     type: url-test
     include-all: true
-    uselightgbm: true
-    collectdata: true
+    tolerance: 20
     interval: 300
+    url: http://www.gstatic.com/generate_204
     filter: "^((?!(直连|拒绝|剩余|官网|订阅|免费|异常|流量)).)*$"
 
   - name: 香港-自动
@@ -234,6 +235,7 @@ proxy-groups:
     include-all: true
     tolerance: 20
     interval: 300
+    url: http://www.gstatic.com/generate_204
     filter: "(?=.*(广港|香港|HK|Hong Kong|🇭🇰|HongKong)).*$"
 
   # 台湾组
@@ -242,6 +244,7 @@ proxy-groups:
     include-all: true
     tolerance: 20
     interval: 300
+    url: http://www.gstatic.com/generate_204
     filter: "(?=.*(广台|台湾|台灣|TW|Tai Wan|🇹🇼|🇨🇳|TaiWan|Taiwan)).*$"
 
 
@@ -251,6 +254,7 @@ proxy-groups:
     include-all: true
     tolerance: 20
     interval: 300
+    url: http://www.gstatic.com/generate_204
     filter: "(?=.*(广日|日本|JP|川日|东京|大阪|泉日|埼玉|沪日|深日|🇯🇵|Japan)).*$"
 
   # 新加坡组
@@ -259,6 +263,7 @@ proxy-groups:
     include-all: true
     tolerance: 20
     interval: 300
+    url: http://www.gstatic.com/generate_204
     filter: "(?=.*(广新|新加坡|SG|坡|狮城|🇸🇬|Singapore|广韩|韩国|韓國|KR|首尔|春川|🇰🇷|Korea)).*$"
 
   # 美国组
@@ -267,6 +272,7 @@ proxy-groups:
     include-all: true
     tolerance: 20
     interval: 300
+    url: http://www.gstatic.com/generate_204
     filter: "(?=.*(广美|美|US|纽约|波特兰|达拉斯|俄勒|凤凰城|费利蒙|拉斯|洛杉|圣何塞|圣克拉|西雅|芝加|🇺🇸|United States)).*$"
 
   # 其他组
@@ -275,6 +281,7 @@ proxy-groups:
     include-all: true
     tolerance: 20
     interval: 300
+    url: http://www.gstatic.com/generate_204
     filter: "^((?!(直连|拒绝|剩余|官网|订阅|免费|异常|流量|广港|香港|深港|HK|Hong Kong|🇭🇰|HongKong|广台|台湾|台灣|TW|Tai Wan|🇹🇼|🇨🇳|TaiWan|Taiwan|广日|日本|JP|川日|东京|大阪|泉日|埼玉|沪日|深日|🇯🇵|Japan|广新|新加坡|SG|坡|狮城|🇸🇬|Singapore|广韩|韩国|韓國|KR|首尔|春川|🇰🇷|Korea|广美|美|US|纽约|波特兰|达拉斯|俄勒|凤凰城|费利蒙|拉斯|洛杉|圣何塞|圣克拉|西雅|芝加|🇺🇸|United States|🇬🇧)).)*$"
 
   - name: 所有-手选A
@@ -295,7 +302,7 @@ rules:
   - RULE-SET,EMBY_IP,EMBY,no-resolve
   - RULE-SET,ChatGPT_Domain,ChatGPT
   - RULE-SET,Claude_Domain,Claude
-  - RULE-SET,Meta AI_Domain,Meta AI
+  - RULE-SET,Meta_AI_Domain,Meta AI
   - RULE-SET,Perplexity_Domain,Perplexity
   - RULE-SET,Youtube_Domain,YouTube
   - RULE-SET,Google_Domain,Google
@@ -307,8 +314,8 @@ rules:
   - RULE-SET,Microsoft_Domain,Microsoft
   - RULE-SET,Netflix_Domain,Netflix
   - RULE-SET,Netflix_IP,Netflix,no-resolve
-  - RULE-SET,Disney_Domain,Disney
-  - RULE-SET,HBO_Domain,HBO
+  - RULE-SET,Disney_Domain,Netflix
+  - RULE-SET,HBO_Domain,Netflix
   - RULE-SET,speedtest_domain,国外
   - RULE-SET,Cloudflare_domain,国外
   - RULE-SET,Proxy0_Domain,国外
@@ -329,7 +336,7 @@ rule-providers:
   EMBY_Domain: {<<: *class, url: "https://raw.githubusercontent.com/ShuaichenLau/clashConfig/refs/heads/main/EmbyCustom.list"}
   EMBY_IP: {<<: *ip, url: "https://raw.githubusercontent.com/Lanlan13-14/Rules/refs/heads/main/rules/IP/emby-ip.mrs"}
   Google_Domain: {<<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/google.mrs"}
-  Meta AI_Domain: {<<: *class, url: "https://raw.githubusercontent.com/liandu2024/clash/refs/heads/main/list/MetaAi.list"}
+  Meta_AI_Domain: {<<: *class, url: "https://raw.githubusercontent.com/liandu2024/clash/refs/heads/main/list/MetaAi.list"}
   ChatGPT_Domain: {<<: *domain, url: "https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geosite/openai.mrs"}
   Claude_Domain: {<<: *class, url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/Claude/Claude.list"}
   Perplexity_Domain: {<<: *domain, url: "https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geosite/perplexity.mrs"}
