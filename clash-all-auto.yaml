@@ -12,8 +12,7 @@ proxy-providers:
     interval: 86400
     health-check:
       enable: true
-      url: https://www.gstatic.com/generate_204
-      interval: 300
+      interval: 500
     override:
       additional-prefix: '[cordCloud]'
       skip-cert-verify: true
@@ -26,8 +25,7 @@ proxy-providers:
     interval: 86400
     health-check:
       enable: true
-      url: https://www.gstatic.com/generate_204
-      interval: 300
+      interval: 500
     override:
       # additional-prefix: '红杏-'
       skip-cert-verify: true
@@ -40,8 +38,7 @@ proxy-providers:
     interval: 86400
     health-check:
       enable: true
-      url: https://www.gstatic.com/generate_204
-      interval: 300
+      interval: 500
     override:
       # additional-prefix: 'svcloud-'
       skip-cert-verify: true
@@ -54,8 +51,7 @@ proxy-providers:
     interval: 86400
     health-check:
       enable: true
-      url: https://www.gstatic.com/generate_204
-      interval: 300
+      interval: 500
     override:
       # additional-prefix: '流量光-'
       skip-cert-verify: true
@@ -68,22 +64,11 @@ proxy-providers:
     interval: 86400
     health-check:
       enable: true
-      url: https://www.gstatic.com/generate_204
-      interval: 300
+      interval: 500
     override:
       # additional-prefix: '猫2云-'
       skip-cert-verify: true
       udp: true
-    proxy: 直连
-
-  NB:
-    url: http://192.168.3.6:3001/T3B9dgzBzdRbBF8Aqx7P/download/NB
-    type: http
-    interval: 86400
-    health-check:
-      enable: true
-      url: https://www.gstatic.com/generate_204
-      interval: 300
     proxy: 直连
 
 proxies:
@@ -100,7 +85,7 @@ profile:
 default: &default
   type: select
   tolerance: 20
-  interval: 300
+  interval: 500
   url: http://www.gstatic.com/generate_204
   proxies:
     - 直连
@@ -118,8 +103,7 @@ default: &default
     - 美国-智选
     - 其他-自动
     - 其他-智选
-    - 所有-手选A
-    - 所有-手选B
+    - 所有-手选
     - 拒绝
 
 proxy-groups:
@@ -144,7 +128,7 @@ proxy-groups:
     include-all: true
     uselightgbm: true
     collectdata: true
-    interval: 300
+    interval: 500
     filter: "^((?!(直连|拒绝|剩余|官网|订阅|免费|异常|流量)).)*$"
 
   # 香港组
@@ -153,7 +137,7 @@ proxy-groups:
     include-all: true
     uselightgbm: true
     collectdata: true
-    interval: 300
+    interval: 500
     filter: "(?=.*(广港|香港|HK|Hong Kong|🇭🇰|HongKong)).*$"
     url: "http://www.gstatic.com/generate_204"
     lazy: true
@@ -165,7 +149,7 @@ proxy-groups:
     include-all: true
     uselightgbm: true
     collectdata: true
-    interval: 300
+    interval: 500
     filter: "(?=.*(广台|台湾|台灣|TW|Tai Wan|🇹🇼|🇨🇳|TaiWan|Taiwan)).*$"
     url: "http://www.gstatic.com/generate_204"
     lazy: true
@@ -177,7 +161,7 @@ proxy-groups:
     include-all: true
     uselightgbm: true
     collectdata: true
-    interval: 300
+    interval: 500
     filter: "(?=.*(广日|日本|JP|川日|东京|大阪|泉日|埼玉|沪日|深日|🇯🇵|Japan)).*$"
     url: "http://www.gstatic.com/generate_204"
     lazy: true
@@ -189,7 +173,7 @@ proxy-groups:
     include-all: true
     uselightgbm: true
     collectdata: true
-    interval: 300
+    interval: 500
     filter: "(?=.*(广新|新加坡|SG|坡|狮城|🇸🇬|Singapore|广韩|韩国|韓國|KR|首尔|春川|🇰🇷|Korea)).*$"
     url: "http://www.gstatic.com/generate_204"
     lazy: true
@@ -202,7 +186,7 @@ proxy-groups:
     include-all: true
     uselightgbm: true
     collectdata: true
-    interval: 300
+    interval: 500
     filter: "(?=.*(广美|美|US|纽约|波特兰|达拉斯|俄勒|凤凰城|费利蒙|拉斯|洛杉|圣何塞|圣克拉|西雅|芝加|🇺🇸|United States)).*$"
     url: "http://www.gstatic.com/generate_204"
     lazy: true
@@ -214,7 +198,7 @@ proxy-groups:
     include-all: true
     uselightgbm: true
     collectdata: true
-    interval: 300
+    interval: 500
     filter: "^((?!(直连|拒绝|广港|香港|HK|Hong Kong|🇭🇰|HongKong|广台|台湾|台灣|TW|Tai Wan|🇹🇼|🇨🇳|TaiWan|Taiwan|广日|日本|JP|川日|东京|大阪|泉日|埼玉|沪日|深日|🇯🇵|Japan|广新|新加坡|SG|坡|狮城|🇸🇬|Singapore|广韩|韩国|韓國|KR|首尔|春川|🇰🇷|Korea|广美|美|US|纽约|波特兰|达拉斯|俄勒|凤凰城|费利蒙|拉斯|洛杉|圣何塞|圣克拉|西雅|芝加|🇺🇸|United States|🇬🇧)).)*$"
     url: "http://www.gstatic.com/generate_204"
     lazy: true
@@ -225,7 +209,7 @@ proxy-groups:
     type: url-test
     include-all: true
     tolerance: 20
-    interval: 300
+    interval: 500
     url: http://www.gstatic.com/generate_204
     filter: "^((?!(直连|拒绝|剩余|官网|订阅|免费|异常|流量)).)*$"
 
@@ -233,7 +217,7 @@ proxy-groups:
     type: url-test
     include-all: true
     tolerance: 20
-    interval: 300
+    interval: 500
     url: http://www.gstatic.com/generate_204
     filter: "(?=.*(广港|香港|HK|Hong Kong|🇭🇰|HongKong)).*$"
 
@@ -242,7 +226,7 @@ proxy-groups:
     type: url-test
     include-all: true
     tolerance: 20
-    interval: 300
+    interval: 500
     url: http://www.gstatic.com/generate_204
     filter: "(?=.*(广台|台湾|台灣|TW|Tai Wan|🇹🇼|🇨🇳|TaiWan|Taiwan)).*$"
 
@@ -252,7 +236,7 @@ proxy-groups:
     type: url-test
     include-all: true
     tolerance: 20
-    interval: 300
+    interval: 500
     url: http://www.gstatic.com/generate_204
     filter: "(?=.*(广日|日本|JP|川日|东京|大阪|泉日|埼玉|沪日|深日|🇯🇵|Japan)).*$"
 
@@ -261,7 +245,7 @@ proxy-groups:
     type: url-test
     include-all: true
     tolerance: 20
-    interval: 300
+    interval: 500
     url: http://www.gstatic.com/generate_204
     filter: "(?=.*(广新|新加坡|SG|坡|狮城|🇸🇬|Singapore|广韩|韩国|韓國|KR|首尔|春川|🇰🇷|Korea)).*$"
 
@@ -270,7 +254,7 @@ proxy-groups:
     type: url-test
     include-all: true
     tolerance: 20
-    interval: 300
+    interval: 500
     url: http://www.gstatic.com/generate_204
     filter: "(?=.*(广美|美|US|纽约|波特兰|达拉斯|俄勒|凤凰城|费利蒙|拉斯|洛杉|圣何塞|圣克拉|西雅|芝加|🇺🇸|United States)).*$"
 
@@ -279,16 +263,11 @@ proxy-groups:
     type: url-test
     include-all: true
     tolerance: 20
-    interval: 300
+    interval: 500
     url: http://www.gstatic.com/generate_204
     filter: "^((?!(直连|拒绝|剩余|官网|订阅|免费|异常|流量|广港|香港|深港|HK|Hong Kong|🇭🇰|HongKong|广台|台湾|台灣|TW|Tai Wan|🇹🇼|🇨🇳|TaiWan|Taiwan|广日|日本|JP|川日|东京|大阪|泉日|埼玉|沪日|深日|🇯🇵|Japan|广新|新加坡|SG|坡|狮城|🇸🇬|Singapore|广韩|韩国|韓國|KR|首尔|春川|🇰🇷|Korea|广美|美|US|纽约|波特兰|达拉斯|俄勒|凤凰城|费利蒙|拉斯|洛杉|圣何塞|圣克拉|西雅|芝加|🇺🇸|United States|🇬🇧)).)*$"
 
-  - name: 所有-手选A
-    type: select
-    include-all: true
-    filter: "^((?!(直连|拒绝|剩余|官网|订阅|免费|异常|流量)).)*$"
-
-  - name: 所有-手选B
+  - name: 所有-手选
     type: select
     include-all: true
     filter: "^((?!(直连|拒绝|剩余|官网|订阅|免费|异常|流量)).)*$"
@@ -320,7 +299,6 @@ rules:
   - RULE-SET,Proxy0_Domain,国外
   - RULE-SET,Proxy1_Domain,国外
   - RULE-SET,Proxy2_Domain,国外
-  - RULE-SET,Proxy3_Domain,国外
   - MATCH,其他
 
 # ========================
@@ -354,5 +332,4 @@ rule-providers:
   Cloudflare_domain: { <<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo/geosite/cloudflare.mrs" }
   Proxy0_Domain: {<<: *class, url: "https://raw.githubusercontent.com/ShuaichenLau/clashConfig/refs/heads/main/Check.list"}
   Proxy1_Domain: { <<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/debian.mrs" }
-  Proxy2_Domain: { <<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo-lite/geosite/proxy.mrs" }
-  Proxy3_Domain: {<<: *class, url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/Proxy/Proxy.list"}
+  Proxy2_Domain: {<<: *class, url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/Proxy/Proxy.list"}
