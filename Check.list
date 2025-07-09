@@ -20,6 +20,7 @@ DOMAIN,subvonehsy.onesubv.site
 DOMAIN,svcloud.one
 DOMAIN,tvyun10.com
 DOMAIN,userbenchmark.com
+DOMAIN,index.docker.io
 
 
 DOMAIN-KEYWORD,6666b.idsduf.com
@@ -46,8 +47,7 @@ DOMAIN-KEYWORD,speedtestph
 DOMAIN-KEYWORD,subvonehsy.onesubv.site
 DOMAIN-KEYWORD,svcloud.one
 
-DOMAIN-SUFFIX,1-b.net
-DOMAIN-SUFFIX,pan.tuio.cc
+DOMAIN-SUFFIX,index.docker.io
 DOMAIN-SUFFIX,6666b.idsduf.com
 DOMAIN-SUFFIX,userbenchmark.com
 DOMAIN-SUFFIX,6bsub.zhunchuanpb.com
