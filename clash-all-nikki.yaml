@@ -14,6 +14,10 @@ proxy-providers:
       enable: true
       url: https://www.gstatic.com/generate_204
       interval: 555
+    override:
+      additional-prefix: 'cordCloud |'
+      skip-cert-verify: true
+      udp: true
     proxy: 直连
 
   红杏:
@@ -24,6 +28,9 @@ proxy-providers:
       enable: true
       url: https://www.gstatic.com/generate_204
       interval: 555
+    override:
+      skip-cert-verify: true
+      udp: true
     proxy: 直连
 
   硅谷云:
@@ -34,6 +41,9 @@ proxy-providers:
       enable: true
       url: https://www.gstatic.com/generate_204
       interval: 555
+    override:
+      skip-cert-verify: true
+      udp: true
     proxy: 直连
 
   流量光:
@@ -44,6 +54,9 @@ proxy-providers:
       enable: true
       url: https://www.gstatic.com/generate_204
       interval: 555
+    override:
+      skip-cert-verify: true
+      udp: true
     proxy: 直连
 
   猫2云:
@@ -54,6 +67,9 @@ proxy-providers:
       enable: true
       url: https://www.gstatic.com/generate_204
       interval: 555
+    override:
+      skip-cert-verify: true
+      udp: true
     proxy: 直连
 
 proxies:
@@ -74,8 +90,8 @@ unified-delay: true
 tcp-concurrent: true
 log-level: warning
 find-process-mode: 'off'
-# interface-name: en0
-global-client-fingerprint: chrome
+interface-name: eth0
+#global-client-fingerprint: chrome
 keep-alive-idle: 600
 keep-alive-interval: 15
 disable-keep-alive: false
@@ -112,7 +128,6 @@ sniffer:
     - "+.baidu.com"
     - "+.qq.com"
 
-
 # DNS模块
 dns:
   enable: true
@@ -130,9 +145,9 @@ dns:
     - "+.market.xiaomi.com"
     - "+.ipw.cn"
   default-nameserver:
-    - 223.5.5.5
     - 219.141.136.10
     - 219.141.140.10
+    - 223.5.5.5
   proxy-server-nameserver:
     - https://223.5.5.5/dns-query
     - 219.141.136.10
@@ -206,7 +221,7 @@ proxy-groups:
   # ALL
   - name: 所有-故转
     type: fallback
-    url: 'https://www.gstatic.com/generate_204'
+    url: https://www.gstatic.com/generate_204
     interval: 300
     lazy: false
     proxies:
@@ -217,7 +232,7 @@ proxy-groups:
   # 香港组
   - name: 香港-故转
     type: fallback
-    url: 'https://www.gstatic.com/generate_204'
+    url: https://www.gstatic.com/generate_204
     interval: 300
     lazy: false
     proxies:
@@ -228,7 +243,7 @@ proxy-groups:
   # 台湾组
   - name: 台湾-故转
     type: fallback
-    url: 'https://www.gstatic.com/generate_204'
+    url: https://www.gstatic.com/generate_204
     interval: 300
     lazy: false
     proxies:
@@ -239,7 +254,7 @@ proxy-groups:
   # 美国组
   - name: 美国-故转
     type: fallback
-    url: 'https://www.gstatic.com/generate_204'
+    url: https://www.gstatic.com/generate_204
     interval: 300
     lazy: false
     proxies:
@@ -250,7 +265,7 @@ proxy-groups:
   # 日本组
   - name: 日本-故转
     type: fallback
-    url: 'https://www.gstatic.com/generate_204'
+    url: https://www.gstatic.com/generate_204
     interval: 300
     lazy: false
     proxies:
@@ -261,7 +276,7 @@ proxy-groups:
   # 新韩
   - name: 新韩-故转
     type: fallback
-    url: 'https://www.gstatic.com/generate_204'
+    url: https://www.gstatic.com/generate_204
     interval: 300
     lazy: false
     proxies:
@@ -272,7 +287,7 @@ proxy-groups:
   # 其他组
   - name: 其他-故转
     type: fallback
-    url: 'https://www.gstatic.com/generate_204'
+    url: https://www.gstatic.com/generate_204
     interval: 300
     lazy: false
     proxies:
@@ -310,7 +325,7 @@ proxy-groups:
     collectdata: true
     interval: 333
     filter: "(?=.*(广港|香港|HK|Hong Kong|🇭🇰|HongKong|澳门)).*$"
-    url: "http://www.gstatic.com/generate_204"
+    url: https://www.gstatic.com/generate_204
     strategy: sticky-sessions
 
   - name: 香港-自动
@@ -334,7 +349,7 @@ proxy-groups:
     collectdata: true
     interval: 333
     filter: "(?=.*(广台|台湾|台灣|TW|Tai Wan|🇹🇼|🇨🇳|TaiWan|Taiwan)).*$"
-    url: "http://www.gstatic.com/generate_204"
+    url: https://www.gstatic.com/generate_204
     strategy: sticky-sessions
 
   # 台湾组
@@ -359,7 +374,7 @@ proxy-groups:
     collectdata: true
     interval: 333
     filter: "(?=.*(广美|美|US|纽约|波特兰|达拉斯|俄勒|凤凰城|费利蒙|拉斯|洛杉|圣何塞|圣克拉|西雅|芝加|🇺🇸|United States)).*$"
-    url: "http://www.gstatic.com/generate_204"
+    url: https://www.gstatic.com/generate_204
     strategy: sticky-sessions
 
   # 美国组
@@ -384,7 +399,7 @@ proxy-groups:
     collectdata: true
     interval: 333
     filter: "(?=.*(广日|日本|JP|川日|东京|大阪|泉日|埼玉|沪日|深日|🇯🇵|Japan)).*$"
-    url: "http://www.gstatic.com/generate_204"
+    url: https://www.gstatic.com/generate_204
     strategy: sticky-sessions
 
   # 日本组
@@ -409,7 +424,7 @@ proxy-groups:
     collectdata: true
     interval: 333
     filter: "(?=.*(广新|新加坡|SG|坡|狮城|🇸🇬|Singapore|广韩|韩国|韓國|KR|首尔|春川|🇰🇷|Korea)).*$"
-    url: "http://www.gstatic.com/generate_204"
+    url: https://www.gstatic.com/generate_204
     strategy: sticky-sessions
 
   # 新加坡组
