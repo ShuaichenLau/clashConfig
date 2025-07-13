@@ -182,6 +182,7 @@ proxy-groups:
 
   # 业务分流组
   - {name: ChatGPT, <<: *default}
+  - {name: Gemini, <<: *default}
   - {name: Claude, <<: *default}
   - {name: Meta AI, <<: *default}
   - {name: Perplexity, <<: *default}
@@ -450,6 +451,7 @@ rules:
   - RULE-SET,EMBY_Domain,EMBY
   - RULE-SET,EMBY_IP,EMBY,no-resolve
   - RULE-SET,ChatGPT_Domain,ChatGPT
+  - RULE-SET,Gemini_Domain,Gemini
   - RULE-SET,Claude_Domain,Claude
   - RULE-SET,Meta_AI_Domain,Meta AI
   - RULE-SET,Facebook_Domain,Meta AI
@@ -484,6 +486,7 @@ rule-providers:
   EMBY_Domain: {<<: *class, url: "https://raw.githubusercontent.com/ShuaichenLau/clashConfig/refs/heads/main/EmbyCustom.list"}
   EMBY_IP: {<<: *ip, url: "https://raw.githubusercontent.com/Lanlan13-14/Rules/refs/heads/main/rules/IP/emby-ip.mrs"}
   Google_Domain: {<<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/google.mrs"}
+  Gemini_Domain: {<<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/google-gemini.mrs"}
   Google_IP: {<<: *ip, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geoip/google.mrs"}
   Meta_AI_Domain: {<<: *class, url: "https://raw.githubusercontent.com/liandu2024/clash/refs/heads/main/list/MetaAi.list"}
   ChatGPT_Domain: {<<: *domain, url: "https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geosite/openai.mrs"}
