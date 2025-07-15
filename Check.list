@@ -21,6 +21,10 @@ DOMAIN,svcloud.one
 DOMAIN,tvyun10.com
 DOMAIN,userbenchmark.com
 DOMAIN,index.docker.io
+DOMAIN,ubuntu.com
+DOMAIN,ubuntu.net
+DOMAIN,ubuntuforums.org
+DOMAIN,ubuntu-touch.io
 
 
 DOMAIN-KEYWORD,6666b.idsduf.com
@@ -106,3 +110,7 @@ DOMAIN-SUFFIX,whoer.net
 DOMAIN-SUFFIX,workers.dev
 DOMAIN-SUFFIX,mihomo.party
 DOMAIN-SUFFIX,nikkinikki.pages.dev
+DOMAIN-SUFFIX,ubuntu.com
+DOMAIN-SUFFIX,ubuntu.net
+DOMAIN-SUFFIX,ubuntuforums.org
+DOMAIN-SUFFIX,ubuntu-touch.io
