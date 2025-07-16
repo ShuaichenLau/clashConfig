@@ -120,12 +120,7 @@ sniffer:
   force-domain:
     - "+.v2ex.com"
   skip-domain:
-    - "dlg.io.mi.com"
-    - "+.push.apple.com"
-    - "+.apple.com"
-    - "+.163.com"
     - "+.baidu.com"
-    - "+.qq.com"
 
 # DNS模块
 dns:
@@ -139,6 +134,7 @@ dns:
   fake-ip-filter:
     - '+.lan'
     - "+.local"
+    - "rule-set:private_domain,cn_domain"
     - "+.msftconnecttest.com"
     - "+.msftncsi.com"
     - "+.market.xiaomi.com"
@@ -488,7 +484,6 @@ proxy-groups:
 # ========================
 rules:
   - RULE-SET,private_domain,直连
-  - RULE-SET,private-ip,直连
   - RULE-SET,AppleCN_Domain,直连
   - RULE-SET,bankCN_domain,直连
   - RULE-SET,Tencent_domain,直连
@@ -516,6 +511,7 @@ rules:
   - RULE-SET,Proxy0_Domain,国外
   - RULE-SET,Proxy1_Domain,国外
   - RULE-SET,Proxy2_Domain,国外
+  - RULE-SET,cn_domain,直连
   - MATCH,其他
 
 # ========================
@@ -548,7 +544,7 @@ rule-providers:
   AppleCN_Domain: {<<: *domain, url: "https://gh-proxy.com/github.com/metacubex/meta-rules-dat/raw/refs/heads/meta/geo/geosite/apple-cn.mrs"}
   Facebook_Domain: {<<: *domain, url: "https://gh-proxy.com/github.com/metacubex/meta-rules-dat/raw/refs/heads/meta/geo/geosite/facebook.mrs"}
   private_domain: { <<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/private.mrs"}
-  private-ip: {<<: *ip, url: "https://gh-proxy.com/raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geoip/private.mrs"}
+  cn_domain: { <<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/cn.mrs"}
   bankCN_domain: { <<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo/geosite/category-bank-cn.mrs"}
   Tencent_domain: { <<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo/geosite/tencent.mrs"}
   speedtest_domain: { <<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/ookla-speedtest.mrs" }
