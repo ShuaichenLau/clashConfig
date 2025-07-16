@@ -27,6 +27,7 @@ DOMAIN,ubuntuforums.org
 DOMAIN,ubuntu-touch.io
 DOMAIN,immortalwrt.org
 DOMAIN,downloads.immortalwrt.org
+DOMAIN,api.qrserver.com
 
 DOMAIN-KEYWORD,6666b.idsduf.com
 DOMAIN-KEYWORD,userbenchmark.com
@@ -53,6 +54,7 @@ DOMAIN-KEYWORD,subvonehsy.onesubv.site
 DOMAIN-KEYWORD,svcloud.one
 DOMAIN-KEYWORD,immortalwrt.org
 DOMAIN-KEYWORD,downloads.immortalwrt.org
+DOMAIN-KEYWORD,api.qrserver.com
 
 DOMAIN-SUFFIX,index.docker.io
 DOMAIN-SUFFIX,6666b.idsduf.com
@@ -119,3 +121,4 @@ DOMAIN-SUFFIX,ubuntuforums.org
 DOMAIN-SUFFIX,ubuntu-touch.io
 DOMAIN-SUFFIX,immortalwrt.org
 DOMAIN-SUFFIX,downloads.immortalwrt.org
+DOMAIN-SUFFIX,api.qrserver.com
