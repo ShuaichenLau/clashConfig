@@ -28,6 +28,7 @@ DOMAIN,ubuntu-touch.io
 DOMAIN,immortalwrt.org
 DOMAIN,downloads.immortalwrt.org
 DOMAIN,api.qrserver.com
+DOMAIN,ip138.com
 
 DOMAIN-KEYWORD,6666b.idsduf.com
 DOMAIN-KEYWORD,userbenchmark.com
@@ -55,6 +56,7 @@ DOMAIN-KEYWORD,apple-bing.sbs
 DOMAIN-KEYWORD,immortalwrt.org
 DOMAIN-KEYWORD,downloads.immortalwrt.org
 DOMAIN-KEYWORD,api.qrserver.com
+DOMAIN-KEYWORD,ip138.com
 
 DOMAIN-SUFFIX,index.docker.io
 DOMAIN-SUFFIX,6666b.idsduf.com
@@ -122,3 +124,4 @@ DOMAIN-SUFFIX,ubuntu-touch.io
 DOMAIN-SUFFIX,immortalwrt.org
 DOMAIN-SUFFIX,downloads.immortalwrt.org
 DOMAIN-SUFFIX,api.qrserver.com
+DOMAIN-SUFFIX,ip138.com
