@@ -58,6 +58,10 @@ DOMAIN-KEYWORD,downloads.immortalwrt.org
 DOMAIN-KEYWORD,api.qrserver.com
 DOMAIN-KEYWORD,ip138.com
 
+DOMAIN-SUFFIX,speedcheck.org
+DOMAIN-SUFFIX,speedtest.net
+DOMAIN-SUFFIX,speedtest.cn
+
 DOMAIN-SUFFIX,index.docker.io
 DOMAIN-SUFFIX,6666b.idsduf.com
 DOMAIN-SUFFIX,userbenchmark.com
