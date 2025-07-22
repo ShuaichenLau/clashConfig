@@ -12,7 +12,7 @@ proxy-providers:
     interval: 86400
     health-check:
       enable: true
-      url: http://cp.cloudflare.com/generate_204
+      url: https://www.gstatic.com/generate_204
       interval: 600
     override:
       skip-cert-verify: true
@@ -25,7 +25,7 @@ proxy-providers:
     interval: 86400
     health-check:
       enable: true
-      url: http://cp.cloudflare.com/generate_204
+      url: https://www.gstatic.com/generate_204
       interval: 600
     override:
       skip-cert-verify: true
@@ -38,7 +38,7 @@ proxy-providers:
     interval: 86400
     health-check:
       enable: true
-      url: http://cp.cloudflare.com/generate_204
+      url: https://www.gstatic.com/generate_204
       interval: 600
     override:
       skip-cert-verify: true
@@ -51,7 +51,7 @@ proxy-providers:
     interval: 86400
     health-check:
       enable: true
-      url: http://cp.cloudflare.com/generate_204
+      url: https://www.gstatic.com/generate_204
       interval: 600
     override:
       skip-cert-verify: true
@@ -64,7 +64,7 @@ proxy-providers:
     interval: 86400
     health-check:
       enable: true
-      url: http://cp.cloudflare.com/generate_204
+      url: https://www.gstatic.com/generate_204
       interval: 600
     override:
       skip-cert-verify: true
@@ -380,7 +380,7 @@ proxy-groups:
   # ALL
   - name: 所有-智能
     type: fallback
-    url: http://cp.cloudflare.com/generate_204
+    url: https://www.gstatic.com/generate_204
     expected-status: 204
     interval: 444
     timeout: 3000
@@ -394,7 +394,7 @@ proxy-groups:
   # 香港组
   - name: 香港-智能
     type: fallback
-    url: http://cp.cloudflare.com/generate_204
+    url: https://www.gstatic.com/generate_204
     expected-status: 204
     interval: 444
     timeout: 3000
@@ -408,7 +408,7 @@ proxy-groups:
   # 台湾组
   - name: 台湾-智能
     type: fallback
-    url: http://cp.cloudflare.com/generate_204
+    url: https://www.gstatic.com/generate_204
     expected-status: 204
     interval: 444
     timeout: 3000
@@ -422,7 +422,7 @@ proxy-groups:
   # 美国组
   - name: 美国-智能
     type: fallback
-    url: http://cp.cloudflare.com/generate_204
+    url: https://www.gstatic.com/generate_204
     expected-status: 204
     interval: 444
     timeout: 3000
@@ -436,7 +436,7 @@ proxy-groups:
   # 日本组
   - name: 日本-智能
     type: fallback
-    url: http://cp.cloudflare.com/generate_204
+    url: https://www.gstatic.com/generate_204
     expected-status: 204
     interval: 444
     timeout: 3000
@@ -450,7 +450,7 @@ proxy-groups:
   # 新韩
   - name: 新韩-智能
     type: fallback
-    url: http://cp.cloudflare.com/generate_204
+    url: https://www.gstatic.com/generate_204
     expected-status: 204
     interval: 444
     timeout: 3000
@@ -464,7 +464,7 @@ proxy-groups:
   # 其他组
   - name: 其他-智能
     type: fallback
-    url: http://cp.cloudflare.com/generate_204
+    url: https://www.gstatic.com/generate_204
     expected-status: 204
     interval: 444
     timeout: 3000
@@ -493,7 +493,7 @@ proxy-groups:
     collectdata: true
     interval: 333
     filter: "(?=.*(广港|香港|HK|Hong Kong|🇭🇰|HongKong|澳门)).*$"
-    url: http://cp.cloudflare.com/generate_204
+    url: https://www.gstatic.com/generate_204
     strategy: sticky-sessions
     lazy: false
 
@@ -505,7 +505,7 @@ proxy-groups:
     collectdata: true
     interval: 333
     filter: "(?=.*(广台|台湾|台灣|TW|Tai Wan|🇹🇼|🇨🇳|TaiWan|Taiwan)).*$"
-    url: http://cp.cloudflare.com/generate_204
+    url: https://www.gstatic.com/generate_204
     strategy: sticky-sessions
     lazy: false
 
@@ -517,7 +517,7 @@ proxy-groups:
     collectdata: true
     interval: 333
     filter: "(?=.*(广美|美|US|纽约|波特兰|达拉斯|俄勒|凤凰城|费利蒙|拉斯|洛杉|圣何塞|圣克拉|西雅|芝加|🇺🇸|United States)).*$"
-    url: http://cp.cloudflare.com/generate_204
+    url: https://www.gstatic.com/generate_204
     strategy: sticky-sessions
     lazy: false
 
@@ -529,7 +529,7 @@ proxy-groups:
     collectdata: true
     interval: 333
     filter: "(?=.*(广日|日本|JP|川日|东京|大阪|泉日|埼玉|沪日|深日|🇯🇵|Japan)).*$"
-    url: http://cp.cloudflare.com/generate_204
+    url: https://www.gstatic.com/generate_204
     strategy: sticky-sessions
     lazy: false
 
@@ -541,7 +541,7 @@ proxy-groups:
     collectdata: true
     interval: 333
     filter: "(?=.*(广新|新加坡|SG|坡|狮城|🇸🇬|Singapore|广韩|韩国|韓國|KR|首尔|春川|🇰🇷|Korea)).*$"
-    url: http://cp.cloudflare.com/generate_204
+    url: https://www.gstatic.com/generate_204
     strategy: sticky-sessions
     lazy: false
 
@@ -558,9 +558,9 @@ proxy-groups:
   - name: 所有-自动
     type: url-test
     include-all: true
-    tolerance: 100
+    tolerance: 80
     interval: 333
-    url: http://cp.cloudflare.com/generate_204
+    url: https://www.gstatic.com/generate_204
     expected-status: 204
     filter: "^((?!(直连|拒绝|剩余|官网|订阅|免费|异常|流量)).)*$"
     lazy: false
@@ -568,9 +568,9 @@ proxy-groups:
   - name: 香港-自动
     type: url-test
     include-all: true
-    tolerance: 100
+    tolerance: 80
     interval: 333
-    url: http://cp.cloudflare.com/generate_204
+    url: https://www.gstatic.com/generate_204
     expected-status: 204
     filter: "(?=.*(广港|香港|HK|Hong Kong|🇭🇰|HongKong|澳门)).*$"
     lazy: false
@@ -579,9 +579,9 @@ proxy-groups:
   - name: 台湾-自动
     type: url-test
     include-all: true
-    tolerance: 100
+    tolerance: 80
     interval: 333
-    url: http://cp.cloudflare.com/generate_204
+    url: https://www.gstatic.com/generate_204
     expected-status: 204
     filter: "(?=.*(广台|台湾|台灣|TW|Tai Wan|🇹🇼|🇨🇳|TaiWan|Taiwan)).*$"
     lazy: false
@@ -590,9 +590,9 @@ proxy-groups:
   - name: 美国-自动
     type: url-test
     include-all: true
-    tolerance: 100
+    tolerance: 80
     interval: 333
-    url: http://cp.cloudflare.com/generate_204
+    url: https://www.gstatic.com/generate_204
     expected-status: 204
     filter: "(?=.*(广美|美|US|纽约|波特兰|达拉斯|俄勒|凤凰城|费利蒙|拉斯|洛杉|圣何塞|圣克拉|西雅|芝加|🇺🇸|United States)).*$"
     lazy: false
@@ -601,9 +601,9 @@ proxy-groups:
   - name: 日本-自动
     type: url-test
     include-all: true
-    tolerance: 100
+    tolerance: 80
     interval: 333
-    url: http://cp.cloudflare.com/generate_204
+    url: https://www.gstatic.com/generate_204
     expected-status: 204
     filter: "(?=.*(广日|日本|JP|川日|东京|大阪|泉日|埼玉|沪日|深日|🇯🇵|Japan)).*$"
     lazy: false
@@ -612,9 +612,9 @@ proxy-groups:
   - name: 新韩-自动
     type: url-test
     include-all: true
-    tolerance: 100
+    tolerance: 80
     interval: 333
-    url: http://cp.cloudflare.com/generate_204
+    url: https://www.gstatic.com/generate_204
     expected-status: 204
     filter: "(?=.*(广新|新加坡|SG|坡|狮城|🇸🇬|Singapore|广韩|韩国|韓國|KR|首尔|春川|🇰🇷|Korea)).*$"
     lazy: false
@@ -623,16 +623,16 @@ proxy-groups:
   - name: 其他-自动
     type: url-test
     include-all: true
-    tolerance: 100
+    tolerance: 80
     interval: 333
-    url: http://cp.cloudflare.com/generate_204
+    url: https://www.gstatic.com/generate_204
     expected-status: 204
     filter: "^((?!(直连|拒绝|剩余|官网|订阅|免费|异常|流量|广港|香港|深港|HK|Hong Kong|🇭🇰|HongKong|澳门|广台|台湾|台灣|TW|Tai Wan|🇹🇼|🇨🇳|TaiWan|Taiwan|广日|日本|JP|川日|东京|大阪|泉日|埼玉|沪日|深日|🇯🇵|Japan|广新|新加坡|SG|坡|狮城|🇸🇬|Singapore|广韩|韩国|韓國|KR|首尔|春川|🇰🇷|Korea|广美|美|US|纽约|波特兰|达拉斯|俄勒|凤凰城|费利蒙|拉斯|洛杉|圣何塞|圣克拉|西雅|芝加|🇺🇸|United States|🇬🇧)).)*$"
     lazy: false
 
   - name: 所有-故转
     type: fallback
-    url: http://cp.cloudflare.com/generate_204
+    url: https://www.gstatic.com/generate_204
     expected-status: 204
     interval: 555
     timeout: 3000
@@ -643,7 +643,7 @@ proxy-groups:
 
   - name: 香港-故转
     type: fallback
-    url: http://cp.cloudflare.com/generate_204
+    url: https://www.gstatic.com/generate_204
     expected-status: 204
     interval: 555
     timeout: 3000
@@ -654,7 +654,7 @@ proxy-groups:
 
   - name: 台湾-故转
     type: fallback
-    url: http://cp.cloudflare.com/generate_204
+    url: https://www.gstatic.com/generate_204
     expected-status: 204
     interval: 555
     timeout: 3000
@@ -665,7 +665,7 @@ proxy-groups:
 
   - name: 美国-故转
     type: fallback
-    url: http://cp.cloudflare.com/generate_204
+    url: https://www.gstatic.com/generate_204
     expected-status: 204
     interval: 555
     timeout: 3000
@@ -676,7 +676,7 @@ proxy-groups:
 
   - name: 日本-故转
     type: fallback
-    url: http://cp.cloudflare.com/generate_204
+    url: https://www.gstatic.com/generate_204
     expected-status: 204
     interval: 555
     timeout: 3000
@@ -687,7 +687,7 @@ proxy-groups:
 
   - name: 新韩-故转
     type: fallback
-    url: http://cp.cloudflare.com/generate_204
+    url: https://www.gstatic.com/generate_204
     expected-status: 204
     interval: 555
     timeout: 3000
@@ -698,7 +698,7 @@ proxy-groups:
 
   - name: 其他-故转
     type: fallback
-    url: http://cp.cloudflare.com/generate_204
+    url: https://www.gstatic.com/generate_204
     expected-status: 204
     interval: 555
     timeout: 3000
@@ -740,6 +740,8 @@ rules:
   - RULE-SET,Disney_Domain,Netflix
   - RULE-SET,HBO_Domain,Netflix
   - RULE-SET,speedtest_domain,国外
+  - RULE-SET,speedtest1_domain,国外
+  - RULE-SET,speedtest2_domain,国外
   - RULE-SET,Cloudflare_domain,国外
   - RULE-SET,Proxy0_Domain,国外
   - RULE-SET,Proxy1_Domain,国外
@@ -779,6 +781,8 @@ rule-providers:
   bankCN_domain: { <<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo/geosite/category-bank-cn.mrs"}
   Tencent_domain: { <<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo/geosite/tencent.mrs"}
   speedtest_domain: { <<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/ookla-speedtest.mrs" }
+  speedtest1_domain: { <<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo/geosite/speedtest.mrs" }
+  speedtest2_domain: { <<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo/geosite/category-speedtest.mrs" }
   Cloudflare_domain: { <<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo/geosite/cloudflare.mrs" }
   Proxy0_Domain: {<<: *class, url: "https://raw.githubusercontent.com/ShuaichenLau/clashConfig/refs/heads/main/Check.list"}
   Proxy1_Domain: { <<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/debian.mrs" }
