@@ -34,9 +34,14 @@ DOMAIN-SUFFIX,fast.com
 DOMAIN-SUFFIX,ooklaserver.net
 DOMAIN-SUFFIX,speed.cloudflare.com
 DOMAIN-SUFFIX,speed.dler.io
-DOMAIN-KEYWORD,speedtest
-USER-AGENT,SpeedTest*
 
+DOMAIN-SUFFIX,speedcheck.org
+DOMAIN-SUFFIX,speedtestph.subiway.net
+
+DOMAIN-KEYWORD,speed.coe
+DOMAIN-KEYWORD,speed.udx
+DOMAIN-KEYWORD,speedtest
+DOMAIN-KEYWORD,speedtestph
 DOMAIN-KEYWORD,6666b.idsduf.com
 DOMAIN-KEYWORD,userbenchmark.com
 DOMAIN-KEYWORD,6bsub.zhunchuanpb.com
