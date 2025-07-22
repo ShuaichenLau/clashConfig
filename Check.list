@@ -30,13 +30,6 @@ DOMAIN,downloads.immortalwrt.org
 DOMAIN,api.qrserver.com
 DOMAIN,ip138.com
 
-DOMAIN-SUFFIX,fast.com
-DOMAIN-SUFFIX,ooklaserver.net
-DOMAIN-SUFFIX,speed.cloudflare.com
-DOMAIN-SUFFIX,speed.dler.io
-DOMAIN-SUFFIX,speedcheck.org
-DOMAIN-SUFFIX,speedtestph.subiway.net
-
 DOMAIN-KEYWORD,speed.coe
 DOMAIN-KEYWORD,speed.udx
 
