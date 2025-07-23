@@ -802,6 +802,7 @@ rules:
   - RULE-SET,AppleCN_Domain,直连
   - RULE-SET,bankCN_domain,直连
   - RULE-SET,Tencent_domain,直连
+  - RULE-SET,Direct_Domain,直连
   - RULE-SET,EMBY_Domain,EMBY
   - RULE-SET,EMBY_IP,EMBY,no-resolve
   - RULE-SET,ChatGPT_Domain,ChatGPT
@@ -863,6 +864,7 @@ rule-providers:
   private_domain: { <<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/private.mrs"}
   bankCN_domain: { <<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo/geosite/category-bank-cn.mrs"}
   Tencent_domain: { <<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo/geosite/tencent.mrs"}
+  Direct_Domain: {<<: *class, url: "https://raw.githubusercontent.com/ShuaichenLau/clashConfig/refs/heads/main/Direct.list"}
   speedtest_domain: { <<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/ookla-speedtest.mrs" }
   speedtest1_domain: { <<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo/geosite/speedtest.mrs" }
   speedtest2_domain: { <<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo/geosite/category-speedtest.mrs" }
