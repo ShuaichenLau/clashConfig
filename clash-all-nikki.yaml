@@ -356,6 +356,13 @@ default: &default
     - 日本-故转
     - 新韩-故转
     - 其他-故转
+    - 所有-负载
+    - 香港-负载
+    - 台湾-负载
+    - 美国-负载
+    - 日本-负载
+    - 新韩-负载
+    - 其他-负载
     - EMBY专用
     - 拒绝
 
@@ -390,6 +397,7 @@ proxy-groups:
       - 所有-智选
       - 所有-自动
       - 所有-故转
+      - 所有-负载
 
   # 香港组
   - name: 香港-智能
@@ -404,6 +412,7 @@ proxy-groups:
       - 香港-智选
       - 香港-自动
       - 香港-故转
+      - 香港-负载
 
   # 台湾组
   - name: 台湾-智能
@@ -418,6 +427,7 @@ proxy-groups:
       - 台湾-智选
       - 台湾-自动
       - 台湾-故转
+      - 台湾-负载
 
   # 美国组
   - name: 美国-智能
@@ -432,6 +442,7 @@ proxy-groups:
       - 美国-智选
       - 美国-自动
       - 美国-故转
+      - 美国-负载
 
   # 日本组
   - name: 日本-智能
@@ -446,6 +457,7 @@ proxy-groups:
       - 日本-智选
       - 日本-自动
       - 日本-故转
+      - 日本-负载
 
   # 新韩
   - name: 新韩-智能
@@ -460,6 +472,7 @@ proxy-groups:
       - 新韩-智选
       - 新韩-自动
       - 新韩-故转
+      - 新韩-负载
 
   # 其他组
   - name: 其他-智能
@@ -474,6 +487,7 @@ proxy-groups:
       - 其他-智选
       - 其他-自动
       - 其他-故转
+      - 其他-负载
 
   - name: 所有-智选
     type: smart
@@ -705,6 +719,73 @@ proxy-groups:
     max-failed-times: 3
     include-all: true
     filter: "^((?!(直连|拒绝|剩余|官网|订阅|免费|异常|流量|广港|香港|深港|HK|Hong Kong|🇭🇰|HongKong|澳门|广台|台湾|台灣|TW|Tai Wan|🇹🇼|🇨🇳|TaiWan|Taiwan|广日|日本|JP|川日|东京|大阪|泉日|埼玉|沪日|深日|🇯🇵|Japan|广新|新加坡|SG|坡|狮城|🇸🇬|Singapore|广韩|韩国|韓國|KR|首尔|春川|🇰🇷|Korea|广美|美|US|纽约|波特兰|达拉斯|俄勒|凤凰城|费利蒙|拉斯|洛杉|圣何塞|圣克拉|西雅|芝加|🇺🇸|United States|🇬🇧)).)*$"
+    lazy: false
+
+  - name: 所有-负载
+    type: load-balance
+    include-all: true
+    interval: 333
+    filter: "^((?!(直连|拒绝|剩余|官网|订阅|免费|异常|流量)).)*$"
+    strategy: sticky-sessions
+    lazy: false
+
+  # 香港组
+  - name: 香港-负载
+    type: load-balance
+    include-all: true
+    interval: 333
+    filter: "(?=.*(广港|香港|HK|Hong Kong|🇭🇰|HongKong|澳门)).*$"
+    url: https://www.gstatic.com/generate_204
+    strategy: sticky-sessions
+    lazy: false
+
+  # 台湾组
+  - name: 台湾-负载
+    type: load-balance
+    include-all: true
+    interval: 333
+    filter: "(?=.*(广台|台湾|台灣|TW|Tai Wan|🇹🇼|🇨🇳|TaiWan|Taiwan)).*$"
+    url: https://www.gstatic.com/generate_204
+    strategy: sticky-sessions
+    lazy: false
+
+  # 美国组
+  - name: 美国-负载
+    type: load-balance
+    include-all: true
+    interval: 333
+    filter: "(?=.*(广美|美|US|纽约|波特兰|达拉斯|俄勒|凤凰城|费利蒙|拉斯|洛杉|圣何塞|圣克拉|西雅|芝加|🇺🇸|United States)).*$"
+    url: https://www.gstatic.com/generate_204
+    strategy: sticky-sessions
+    lazy: false
+
+  # 日本组
+  - name: 日本-负载
+    type: load-balance
+    include-all: true
+    interval: 333
+    filter: "(?=.*(广日|日本|JP|川日|东京|大阪|泉日|埼玉|沪日|深日|🇯🇵|Japan)).*$"
+    url: https://www.gstatic.com/generate_204
+    strategy: sticky-sessions
+    lazy: false
+
+  # 新加坡组
+  - name: 新韩-负载
+    type: load-balance
+    include-all: true
+    interval: 333
+    filter: "(?=.*(广新|新加坡|SG|坡|狮城|🇸🇬|Singapore|广韩|韩国|韓國|KR|首尔|春川|🇰🇷|Korea)).*$"
+    url: https://www.gstatic.com/generate_204
+    strategy: sticky-sessions
+    lazy: false
+
+  # 其他组
+  - name: 其他-负载
+    type: load-balance
+    include-all: true
+    interval: 333
+    filter: "^((?!(直连|拒绝|剩余|官网|订阅|免费|异常|流量|广港|香港|深港|HK|Hong Kong|🇭🇰|HongKong|澳门|广台|台湾|台灣|TW|Tai Wan|🇹🇼|🇨🇳|TaiWan|Taiwan|广日|日本|JP|川日|东京|大阪|泉日|埼玉|沪日|深日|🇯🇵|Japan|广新|新加坡|SG|坡|狮城|🇸🇬|Singapore|广韩|韩国|韓國|KR|首尔|春川|🇰🇷|Korea|广美|美|US|纽约|波特兰|达拉斯|俄勒|凤凰城|费利蒙|拉斯|洛杉|圣何塞|圣克拉|西雅|芝加|🇺🇸|United States|🇬🇧)).)*$"
+    strategy: sticky-sessions
     lazy: false
 
   - name: EMBY专用
