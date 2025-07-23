@@ -381,6 +381,7 @@ proxy-groups:
   - {name: EMBY, <<: *default}
   - {name: Netflix, <<: *default}
   - {name: Microsoft, <<: *default}
+  - {name: Test, <<: *default}
   - {name: 国外, <<: *default}
   - {name: 其他, <<: *default}
 
@@ -820,11 +821,11 @@ rules:
   - RULE-SET,Netflix_IP,Netflix,no-resolve
   - RULE-SET,Disney_Domain,Netflix
   - RULE-SET,HBO_Domain,Netflix
-  - RULE-SET,speedtest_domain,国外
-  - RULE-SET,speedtest1_domain,国外
-  - RULE-SET,speedtest2_domain,国外
+  - RULE-SET,Check_Domain,Test
+  - RULE-SET,speedtest_domain,Test
+  - RULE-SET,speedtest1_domain,Test
+  - RULE-SET,speedtest2_domain,Test
   - RULE-SET,Cloudflare_domain,国外
-  - RULE-SET,Proxy0_Domain,国外
   - RULE-SET,Proxy1_Domain,国外
   - RULE-SET,Proxy2_Domain,国外
   - RULE-SET,Proxy3_Domain,国外
@@ -866,7 +867,7 @@ rule-providers:
   speedtest1_domain: { <<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo/geosite/speedtest.mrs" }
   speedtest2_domain: { <<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo/geosite/category-speedtest.mrs" }
   Cloudflare_domain: { <<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo/geosite/cloudflare.mrs" }
-  Proxy0_Domain: {<<: *class, url: "https://raw.githubusercontent.com/ShuaichenLau/clashConfig/refs/heads/main/Check.list"}
+  Check_Domain: {<<: *class, url: "https://raw.githubusercontent.com/ShuaichenLau/clashConfig/refs/heads/main/Check.list"}
   Proxy1_Domain: { <<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/debian.mrs" }
   Proxy2_Domain: { <<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/gfw.mrs" }
   Proxy3_Domain: {<<: *class, url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/Proxy/Proxy.list"}

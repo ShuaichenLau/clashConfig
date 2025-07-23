@@ -15,7 +15,6 @@ DOMAIN,m2dy.zhunchuanpb.com
 DOMAIN,mirrors.vsean.net
 DOMAIN,qichiyu.com
 DOMAIN,rgergergergerg6555.saojc.xyz
-DOMAIN,speed.cloudflare.com
 DOMAIN,subvonehsy.onesubv.site
 DOMAIN,apple-bing.sbs
 DOMAIN,tvyun10.com
@@ -29,6 +28,33 @@ DOMAIN,immortalwrt.org
 DOMAIN,downloads.immortalwrt.org
 DOMAIN,api.qrserver.com
 DOMAIN,ip138.com
+DOMAIN,speedtest.net
+DOMAIN,speedtest.cn
+DOMAIN,speedtest.coe
+DOMAIN,speedtest.udx
+DOMAIN,speedtest.org
+DOMAIN,ooklaserver.net
+DOMAIN,speed.cloudflare.com
+DOMAIN,speedtest.dstel.vn
+DOMAIN,speedtestkv2a.viettel.vn
+DOMAIN,custom.tbcnet.net.tw
+
+DOMAIN-SUFFIX,speedcheck.org
+DOMAIN-SUFFIX,speedtest.net
+DOMAIN-SUFFIX,speedtest.cn
+
+
+DOMAIN-SUFFIX,ooklaserver.net
+DOMAIN-SUFFIX,speed.cloudflare.com
+DOMAIN-SUFFIX,speed.dler.io
+DOMAIN-SUFFIX,speedcheck.org
+DOMAIN-SUFFIX,speedtestph.subiway.net
+DOMAIN-KEYWORD,speedtest
+DOMAIN-KEYWORD,speedtestph
+
+DOMAIN-KEYWORD,speed.coe
+DOMAIN-KEYWORD,speed.udx
+DOMAIN-KEYWORD,speedtestkv2a
 
 DOMAIN-KEYWORD,6666b.idsduf.com
 DOMAIN-KEYWORD,userbenchmark.com
@@ -54,6 +80,7 @@ DOMAIN-KEYWORD,immortalwrt.org
 DOMAIN-KEYWORD,downloads.immortalwrt.org
 DOMAIN-KEYWORD,api.qrserver.com
 DOMAIN-KEYWORD,ip138.com
+
 
 DOMAIN-SUFFIX,index.docker.io
 DOMAIN-SUFFIX,6666b.idsduf.com
@@ -100,7 +127,6 @@ DOMAIN-SUFFIX,ping0.cc
 DOMAIN-SUFFIX,rgergergergerg6555.saojc.xyz
 DOMAIN-SUFFIX,skk.moe
 
-DOMAIN-SUFFIX,sspanel.net
 DOMAIN-SUFFIX,subvonehsy.onesubv.site
 DOMAIN-SUFFIX,surfshark.com
 DOMAIN-SUFFIX,surfsharkdns.com
