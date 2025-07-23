@@ -37,12 +37,12 @@ DOMAIN,ooklaserver.net
 DOMAIN,speed.cloudflare.com
 DOMAIN,speedtest.dstel.vn
 DOMAIN,speedtestkv2a.viettel.vn
-DOMAIN,custom.tbcnet.net.tw
+DOMAIN,custom.tbcnet.net
 
 DOMAIN-SUFFIX,speedcheck.org
 DOMAIN-SUFFIX,speedtest.net
 DOMAIN-SUFFIX,speedtest.cn
-
+DOMAIN-SUFFIX,custom.tbcnet.net
 
 DOMAIN-SUFFIX,ooklaserver.net
 DOMAIN-SUFFIX,speed.cloudflare.com
