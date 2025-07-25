@@ -38,6 +38,7 @@ DOMAIN,speed.cloudflare.com
 DOMAIN,speedtest.dstel.vn
 DOMAIN,speedtestkv2a.viettel.vn
 DOMAIN,custom.tbcnet.net
+DOMAIN,hongxingyun.help
 
 DOMAIN-SUFFIX,speedcheck.org
 DOMAIN-SUFFIX,speedtest.net
@@ -105,6 +106,7 @@ DOMAIN-SUFFIX,hongxingyun.blog
 DOMAIN-SUFFIX,hongxingyun.club
 DOMAIN-SUFFIX,hongxingyun.pro
 DOMAIN-SUFFIX,hongxingyun.xyz
+DOMAIN-SUFFIX,hongxingyun.help
 DOMAIN-SUFFIX,ht.idsduf.com
 DOMAIN-SUFFIX,ifconfig.me
 DOMAIN-SUFFIX,incolumitas.com
