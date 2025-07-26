@@ -84,6 +84,19 @@ proxy-providers:
       udp: true
     proxy: 直连
 
+  极速云:
+    url: http://192.168.3.6:3001/T3B9dgzBzdRbBF8Aqx7P/download/%E6%9E%81%E9%80%9F%E4%BA%91
+    type: http
+    interval: 86400
+    health-check:
+      enable: true
+      url: https://www.gstatic.com/generate_204
+      interval: 600
+    override:
+      skip-cert-verify: true
+      udp: true
+    proxy: 直连
+
 proxies:
   - {name: 直连, type: direct}
   - {name: 拒绝, type: reject}
