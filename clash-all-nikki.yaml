@@ -58,6 +58,19 @@ proxy-providers:
       udp: true
     proxy: 直连
 
+  肥猫云:
+    url: http://192.168.3.6:3001/T3B9dgzBzdRbBF8Aqx7P/download/%E8%82%A5%E7%8C%AB%E4%BA%91
+    type: http
+    interval: 86400
+    health-check:
+      enable: true
+      url: https://www.gstatic.com/generate_204
+      interval: 600
+    override:
+      skip-cert-verify: true
+      udp: true
+    proxy: 直连
+
   猫2云:
     url: http://192.168.3.6:3001/T3B9dgzBzdRbBF8Aqx7P/download/%E7%8C%AB2%E4%BA%91
     type: http

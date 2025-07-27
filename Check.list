@@ -39,11 +39,13 @@ DOMAIN,speedtest.dstel.vn
 DOMAIN,speedtestkv2a.viettel.vn
 DOMAIN,custom.tbcnet.net
 DOMAIN,hongxingyun.help
+DOMAIN,dailijichang.com
 
 DOMAIN-SUFFIX,speedcheck.org
 DOMAIN-SUFFIX,speedtest.net
 DOMAIN-SUFFIX,speedtest.cn
 DOMAIN-SUFFIX,custom.tbcnet.net
+DOMAIN-SUFFIX,dailijichang.com
 
 DOMAIN-SUFFIX,ooklaserver.net
 DOMAIN-SUFFIX,speed.cloudflare.com
