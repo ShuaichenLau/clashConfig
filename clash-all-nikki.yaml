@@ -361,34 +361,34 @@ default: &default
   proxies:
     - 直连
     - 香港-智能
-    - 香港-智选
-    - 香港-自动
-    - 香港-故转
-    - 香港-手动
     - 台湾-智能
-    - 台湾-智选
-    - 台湾-自动
-    - 台湾-故转
-    - 台湾-手动
     - 美国-智能
-    - 美国-智选
-    - 美国-自动
-    - 美国-故转
-    - 美国-手动
     - 日本-智能
-    - 日本-智选
-    - 日本-自动
-    - 日本-故转
-    - 日本-手动
     - 新韩-智能
+    - 香港-智选
+    - 台湾-智选
+    - 美国-智选
+    - 日本-智选
     - 新韩-智选
+    - 香港-自动
+    - 台湾-自动
+    - 美国-自动
+    - 日本-自动
     - 新韩-自动
-    - 新韩-故转
-    - 新韩-手动
-    - 所有-手动
-    - 其他-手动
     - 其他-自动
+    - 香港-故转
+    - 台湾-故转
+    - 美国-故转
+    - 日本-故转
+    - 新韩-故转
     - 其他-故转
+    - 香港-手动
+    - 台湾-手动
+    - 美国-手动
+    - 日本-手动
+    - 新韩-手动
+    - 其他-手动
+    - 所有-手动
     - 拒绝
 
 proxy-groups:
@@ -405,6 +405,7 @@ proxy-groups:
   - {name: Netflix, <<: *default}
   - {name: Microsoft, <<: *default}
   - {name: Test, <<: *default}
+  - {name: 国内, <<: *default}
   - {name: 国外, <<: *default}
   - {name: 其他, <<: *default}
 
@@ -714,11 +715,11 @@ proxy-groups:
 # 规则引擎（rules）
 # ========================
 rules:
-  - RULE-SET,private_domain,直连
-  - RULE-SET,AppleCN_Domain,直连
-  - RULE-SET,Tencent_domain,直连
-  - RULE-SET,bankCN_domain,直连
-  - RULE-SET,Direct_Domain,直连
+  - RULE-SET,private_domain,国内
+  - RULE-SET,AppleCN_Domain,国内
+  - RULE-SET,Tencent_domain,国内
+  - RULE-SET,bankCN_domain,国内
+  - RULE-SET,Direct_Domain,国内
   - RULE-SET,ChatGPT_Domain,ChatGPT
   - RULE-SET,Gemini_Domain,Gemini
   - RULE-SET,Claude_Domain,Claude
@@ -748,8 +749,8 @@ rules:
   - RULE-SET,Apple_Domain,国外
   - RULE-SET,Proxy1_Domain,国外
   - RULE-SET,Proxy2_Domain,国外
-  - RULE-SET,China-ip,直连,no-resolve
-  - RULE-SET,China_Domain,直连
+  - RULE-SET,China-ip,国内,no-resolve
+  - RULE-SET,China_Domain,国内
   - MATCH,其他
 
 # ========================
