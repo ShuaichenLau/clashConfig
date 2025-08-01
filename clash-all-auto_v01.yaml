@@ -694,10 +694,11 @@ rule-providers:
 # ========================
 rules:
   - RULE-SET,Private_Domain,国内
-  - RULE-SET,AppleCN_Domain,国内
+  - RULE-SET,Direct_Classical,国内
   - RULE-SET,Tencent_Domain,国内
   - RULE-SET,BankCN_Domain,国内
-  - RULE-SET,Direct_Classical,国内
+  - RULE-SET,AppleCN_Domain,国内
+  - RULE-SET,Apple_Domain,国外
   - RULE-SET,ChatGPT_Domain,ChatGPT
   - RULE-SET,Google_Gemini_Domain,Gemini
   - RULE-SET,Claude_Classical,Claude
@@ -724,7 +725,6 @@ rules:
   - RULE-SET,Speedtest_Domain,Test
   - RULE-SET,Speedtest_Category_Domain,Test
   - RULE-SET,Cloudflare_Domain,国外
-  - RULE-SET,Apple_Domain,国外
   - RULE-SET,Proxy1_Domain,国外
   - RULE-SET,Proxy2_Classical,国外
   - RULE-SET,China_IP,国内,no-resolve
