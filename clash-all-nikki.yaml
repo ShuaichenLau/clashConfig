@@ -139,7 +139,7 @@ dns:
   fake-ip-filter:
     - "+.lan"
     - "+.local"
-    - "rule-set:Private_Domain,BankCN_Domain,China_Domain"
+    - "rule-set:Private_Domain,BankCN_Domain,China_Domain,AppleCN_Domain"
     - "+.msftconnecttest.com"
     - "+.msftncsi.com"
     - "+.market.xiaomi.com"
