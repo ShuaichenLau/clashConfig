@@ -128,32 +128,9 @@ sniffer:
       ports: [443, 8443]
     QUIC:
       ports: [443, 8443]
-  force-domain:
-    - "+.v2ex.com"
-    - +.openai.com
-    - +.perplexity.ai
-    - +.huggingface.co
-    - +.discord.com
-    - +.cloudflare.com
-    - +.google.com
-    - +.bing.com
-
   skip-domain:
-    - 'Mijia Cloud'
-    - 'dlg.io.mi.com'
-    - dlg.io.mi.com
+    - "Mijia Cloud"
     - "+.push.apple.com"
-    - '+.apple.com'
-    - "+.baidu.com"
-    - '+.jd.com'
-    - '+.qq.com'
-    - +.oray.com
-    - +.sunlogin.net
-    - +.lan
-    - +.local
-    - +.home.arpa
-    - +.aliddns.com
-    - +.routerlogin.net
 
 dns:
   enable: true
@@ -166,11 +143,14 @@ dns:
   fake-ip-filter:
     - "+.lan"
     - "+.local"
-    - "rule-set:Private_Domain,BankCN_Domain,China_Domain,AppleCN_Domain"
+    - "rule-set:Private_Domain"
     - "+.msftconnecttest.com"
     - "+.msftncsi.com"
     - "+.market.xiaomi.com"
     - "time.*.com"
+    - "xbox.*.microsoft.com"
+    - "+.xboxlive.com"
+    - localhost.ptlogin2.qq.com
 
   default-nameserver:
     - 219.141.136.10
@@ -260,10 +240,9 @@ proxy-groups:
   - {name: 美国-手动, type: select, include-all: true, filter: "(?=.*(广美|美|US|纽约|波特兰|达拉斯|俄勒|凤凰城|费利蒙|拉斯|洛杉|圣何塞|圣克拉|西雅|芝加|🇺🇸|United States)).*$"}
   - {name: 日本-手动, type: select, include-all: true, filter: "(?=.*(广日|日本|JP|川日|东京|大阪|泉日|埼玉|沪日|深日|🇯🇵|Japan)).*$"}
   - {name: 新韩-手动, type: select, include-all: true, filter: "(?=.*(广新|新加坡|SG|坡|狮城|🇸🇬|Singapore|广韩|韩国|韓國|KR|首尔|春川|🇰🇷|Korea)).*$"}
-  - {name: 所有-手动, type: select, include-all: true, filter: "^((?!(直连|拒绝|剩余|官网|订阅|免费|异常|流量)).)*$"}
   - {name: 其他-手动, type: select, include-all: true, filter: "^((?!(直连|拒绝|剩余|官网|订阅|免费|异常|流量|广港|香港|深港|HK|Hong Kong|🇭🇰|HongKong|澳门|广台|台湾|台灣|TW|Tai Wan|🇹🇼|🇨🇳|TaiWan|Taiwan|广日|日本|JP|川日|东京|大阪|泉日|埼玉|沪日|深日|🇯🇵|Japan|广新|新加坡|SG|坡|狮城|🇸🇬|Singapore|广韩|韩国|韓國|KR|首尔|春川|🇰🇷|Korea|广美|美|US|纽约|波特兰|达拉斯|俄勒|凤凰城|费利蒙|拉斯|洛杉|圣何塞|圣克拉|西雅|芝加|🇺🇸|United States|🇬🇧)).)*$"}
   - {name: 其他-自动, type: url-test, include-all: true, tolerance: 80, interval: 300, url: https://www.google-analytics.com/generate_204, expected-status: 204, filter: "^((?!(直连|拒绝|剩余|官网|订阅|免费|异常|流量|广港|香港|深港|HK|Hong Kong|🇭🇰|HongKong|澳门|广台|台湾|台灣|TW|Tai Wan|🇹🇼|🇨🇳|TaiWan|Taiwan|广日|日本|JP|川日|东京|大阪|泉日|埼玉|沪日|深日|🇯🇵|Japan|广新|新加坡|SG|坡|狮城|🇸🇬|Singapore|广韩|韩国|韓國|KR|首尔|春川|🇰🇷|Korea|广美|美|US|纽约|波特兰|达拉斯|俄勒|凤凰城|费利蒙|拉斯|洛杉|圣何塞|圣克拉|西雅|芝加|🇺🇸|United States|🇬🇧)).)*$", lazy: false}
-  - {name: 其他-故转, type: fallback, url: https://www.google-analytics.com/generate_204, expected-status: 204, interval: 480, timeout: 3000, max-failed-times: 3, include-all: true, filter: "^((?!(直连|拒绝|剩余|官网|订阅|免费|异常|流量|广港|香港|深港|HK|Hong Kong|🇭🇰|HongKong|澳门|广台|台湾|台灣|TW|Tai Wan|🇹🇼|🇨🇳|TaiWan|Taiwan|广日|日本|JP|川日|东京|大阪|泉日|埼玉|沪日|深日|🇯🇵|Japan|广新|新加坡|SG|坡|狮城|🇸🇬|Singapore|广韩|韩国|韓國|KR|首尔|春川|🇰🇷|Korea|广美|美|US|纽约|波特兰|达拉斯|俄勒|凤凰城|费利蒙|拉斯|洛杉|圣何塞|圣克拉|西雅|芝加|🇺🇸|United States|🇬🇧)).)*$", lazy: false}
+  - {name: 所有-手动, type: select, include-all: true, filter: "^((?!(直连|拒绝|剩余|官网|订阅|免费|异常|流量)).)*$"}
 
 
 # ========================
@@ -313,10 +292,15 @@ rule-providers:
   Proxy2_Classical: {<<: *classical, url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/Proxy/Proxy.list"}
   Direct_Classical: {<<: *classical, url: "https://raw.githubusercontent.com/ShuaichenLau/clashConfig/refs/heads/main/Direct.list"}
   Private_Domain: {<<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/private.mrs"}
+  Private_IP: {<<: *ip, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo/geoip/private.mrs"}
   Tencent_Domain: {<<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo/geosite/tencent.mrs"}
   BankCN_Domain: {<<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo/geosite/category-bank-cn.mrs"}
   AppleCN_Domain: {<<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/apple-cn.mrs"}
   Apple_Domain: {<<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/apple.mrs"}
+  Amap_Domain: {<<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/amap.mrs"}
+  Ali_Domain: {<<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/aliyun.mrs"}
+  xiaomi_Domain: {<<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/xiaomi.mrs"}
+  huawei_Domain: {<<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/huawei.mrs"}
   China_Domain: {<<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/cn.mrs"}
   China_IP: {<<: *ip, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo/geoip/cn.mrs"}
 
@@ -325,8 +309,13 @@ rule-providers:
 # ========================
 rules:
   - RULE-SET,Private_Domain,国内
+  - RULE-SET,Private_IP,国内,no-resolve
   - RULE-SET,Direct_Classical,国内
   - RULE-SET,Tencent_Domain,国内
+  - RULE-SET,Amap_Domain,国内
+  - RULE-SET,Ali_Domain,国内
+  - RULE-SET,xiaomi_Domain,国内
+  - RULE-SET,huawei_Domain,国内
   - RULE-SET,BankCN_Domain,国内
   - RULE-SET,AppleCN_Domain,国内
   - RULE-SET,Apple_Domain,Apple
