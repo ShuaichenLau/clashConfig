@@ -237,7 +237,7 @@ rule-providers:
   Google_Domain: {<<: *domain, url: "https://raw.githubusercontent.com/ShuaichenLau/meta-rules-dat/meta/geo/geosite/google.mrs"}
   Google_Gemini_Domain: {<<: *domain, url: "https://raw.githubusercontent.com/ShuaichenLau/meta-rules-dat/meta/geo/geosite/google-gemini.mrs"}
   Google_IP: {<<: *ip, url: "https://raw.githubusercontent.com/ShuaichenLau/meta-rules-dat/meta/geo/geoip/google.mrs"}
-  MetaAI_Classical: {<<: *classical, url: "https://raw.githubusercontent.com/liandu2024/clash/refs/heads/main/list/MetaAi.list"}
+  MetaAI_Classical: {<<: *classical, url: "https://raw.githubusercontent.com/ShuaichenLau/clash/refs/heads/main/MetaAi.list"}
   MetaAI_domain: {<<: *domain, url: "https://raw.githubusercontent.com/ShuaichenLau/meta-rules-dat/refs/heads/meta/geo/geosite/x.mrs"}
   Facebook_IP: {<<: *ip, url: "https://raw.githubusercontent.com/ShuaichenLau/meta-rules-dat/refs/heads/meta/geo/geoip/facebook.mrs"}
   Facebook_Domain: {<<: *domain, url: "https://raw.githubusercontent.com/ShuaichenLau/meta-rules-dat/refs/heads/meta/geo/geosite/facebook.mrs"}
