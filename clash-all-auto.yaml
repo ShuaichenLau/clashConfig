@@ -237,8 +237,8 @@ rule-providers:
   Google_Domain: {<<: *domain, url: "https://raw.githubusercontent.com/ShuaichenLau/meta-rules-dat/meta/geo/geosite/google.mrs"}
   Google_Gemini_Domain: {<<: *domain, url: "https://raw.githubusercontent.com/ShuaichenLau/meta-rules-dat/meta/geo/geosite/google-gemini.mrs"}
   Google_IP: {<<: *ip, url: "https://raw.githubusercontent.com/ShuaichenLau/meta-rules-dat/meta/geo/geoip/google.mrs"}
-  MetaAI_Classical: {<<: *classical, url: "https://raw.githubusercontent.com/ShuaichenLau/clash/refs/heads/main/MetaAi.list"}
-  MetaAI_domain: {<<: *domain, url: "https://raw.githubusercontent.com/ShuaichenLau/meta-rules-dat/refs/heads/meta/geo/geosite/x.mrs"}
+  MetaAI_domain: {<<: *domain, url: "https://raw.githubusercontent.com/ShuaichenLau/meta-rules-dat/refs/heads/meta/geo/geosite/meta.mrs"}
+  x_domain: {<<: *domain, url: "https://raw.githubusercontent.com/ShuaichenLau/meta-rules-dat/refs/heads/meta/geo/geosite/x.mrs"}
   Facebook_IP: {<<: *ip, url: "https://raw.githubusercontent.com/ShuaichenLau/meta-rules-dat/refs/heads/meta/geo/geoip/facebook.mrs"}
   Facebook_Domain: {<<: *domain, url: "https://raw.githubusercontent.com/ShuaichenLau/meta-rules-dat/refs/heads/meta/geo/geosite/facebook.mrs"}
   ChatGPT_Domain: {<<: *domain, url: "https://raw.githubusercontent.com/ShuaichenLau/meta-rules-dat/refs/heads/meta/geo/geosite/openai.mrs"}
@@ -301,8 +301,8 @@ rules:
   - RULE-SET,ChatGPT_Domain,ChatGPT
   - RULE-SET,Google_Gemini_Domain,Gemini
   - RULE-SET,Claude_Classical,Claude
-  - RULE-SET,MetaAI_Classical,Meta AI
   - RULE-SET,MetaAI_domain,Meta AI
+  - RULE-SET,x_domain,Meta AI
   - RULE-SET,Facebook_IP,Meta AI,no-resolve
   - RULE-SET,Facebook_Domain,Meta AI
   - RULE-SET,Perplexity_Domain,Perplexity
