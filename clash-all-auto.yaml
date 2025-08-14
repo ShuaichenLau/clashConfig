@@ -6,53 +6,8 @@
 
 proxy-providers:
 
-  cordCloud:
-    url: http://192.168.3.6:3001/T3B9dgzBzdRbBF8Aqx7P/download/cordCloud
-    type: http
-    interval: 86400
-    override:
-      skip-cert-verify: true
-      udp: true
-    proxy: 直连
-
-  流量光:
-    url: http://192.168.3.6:3001/T3B9dgzBzdRbBF8Aqx7P/download/%E6%B5%81%E9%87%8F%E5%85%89
-    type: http
-    interval: 86400
-    override:
-      skip-cert-verify: true
-      udp: true
-    proxy: 直连
-
-  硅谷云:
-    url: http://192.168.3.6:3001/T3B9dgzBzdRbBF8Aqx7P/download/%E7%A1%85%E8%B0%B7%E4%BA%91
-    type: http
-    interval: 86400
-    override:
-      skip-cert-verify: true
-      udp: true
-    proxy: 直连
-
-  红杏:
-    url: http://192.168.3.6:3001/T3B9dgzBzdRbBF8Aqx7P/download/%E7%BA%A2%E6%9D%8FME
-    type: http
-    interval: 86400
-    override:
-      skip-cert-verify: true
-      udp: true
-    proxy: 直连
-
-  猫2云:
-    url: http://192.168.3.6:3001/T3B9dgzBzdRbBF8Aqx7P/download/%E7%8C%AB2%E4%BA%91
-    type: http
-    interval: 86400
-    override:
-      skip-cert-verify: true
-      udp: true
-    proxy: 直连
-
-  肥猫云:
-    url: http://192.168.3.6:3001/T3B9dgzBzdRbBF8Aqx7P/download/%E8%82%A5%E7%8C%AB%E4%BA%91
+  AllProxy:
+    url: http://192.168.3.6:3001/T3B9dgzBzdRbBF8Aqx7P/download/collection/AllProxy?target=ClashMeta
     type: http
     interval: 86400
     override:
@@ -140,7 +95,6 @@ dns:
     - 219.141.136.10
     - 219.141.140.10
     - 223.5.5.5
-    - 119.29.29.29
   proxy-server-nameserver:
     - https://223.5.5.5/dns-query
     - 219.141.136.10
@@ -150,12 +104,9 @@ dns:
     - 219.141.136.10
     - 219.141.140.10
     - 223.5.5.5
-    - 119.29.29.29
 
-# 入站
 tun:
   enable: true
-  # system/gvisor/mixed
   stack: mixed
   dns-hijack:
     - "any:53"
@@ -183,7 +134,7 @@ default: &default
     - 新韩-手动
     - 其他-手动
     - 所有-手动
-    - 拒绝
+#    - 拒绝
 
 proxy-groups:
   - {name: ChatGPT, <<: *default}
