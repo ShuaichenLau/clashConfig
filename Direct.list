@@ -23,6 +23,7 @@ DOMAIN,dlcv2.cnspeedtest.cn
 
 DOMAIN,mashibing.com
 DOMAIN,gateway.mashibing.com
+DOMAIN,download-cdn.jetbrains.com
 
 # 域名关键字匹配
 DOMAIN-KEYWORD,baidu
