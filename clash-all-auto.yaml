@@ -38,7 +38,6 @@ proxies:
   - {name: 拒绝, type: reject}
 
 
-# 全局配置
 port: 7890
 socks-port: 7891
 redir-port: 7892
@@ -133,9 +132,6 @@ tun:
   auto-redirect: true
   auto-detect-interface: true
 
-# ========================
-# 策略组定义
-# ========================
 default: &default
   type: select
   proxies:
@@ -152,7 +148,7 @@ default: &default
     - 新韩-手动
     - 其他-手动
     - 所有-手动
-#    - 拒绝
+    - 拒绝
 
 proxy-groups:
   - {name: ChatGPT, <<: *default}
