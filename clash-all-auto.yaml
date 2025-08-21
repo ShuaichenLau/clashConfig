@@ -27,7 +27,7 @@ proxy-providers:
   AllProxy:
     url: http://192.168.3.6:3001/T3B9dgzBzdRbBF8Aqx7P/download/collection/AllProxy?target=ClashMeta
     type: http
-    interval: 99999
+    interval: 86400
     override:
       skip-cert-verify: true
       udp: true
@@ -202,9 +202,9 @@ proxy-groups:
 # 规则锚点（统一命名）
 # ========================
 rule-anchor:
-  ip: &ip {type: http, interval: 99999, behavior: ipcidr, format: mrs}
-  domain: &domain {type: http, interval: 99999, behavior: domain, format: mrs}
-  classical: &classical {type: http, interval: 99999, behavior: classical, format: text}
+  ip: &ip {type: http, interval: 86400, behavior: ipcidr, format: mrs}
+  domain: &domain {type: http, interval: 86400, behavior: domain, format: mrs}
+  classical: &classical {type: http, interval: 86400, behavior: classical, format: text}
 
 # ========================
 # 规则提供者（命名规范化）
@@ -266,15 +266,10 @@ rule-providers:
 # 规则列表（同步命名）
 # ========================
 rules:
-  - RULE-SET,Private_Domain,国内
   - RULE-SET,Private_IP,国内,no-resolve
+  - RULE-SET,Private_Domain,国内
   - RULE-SET,Direct_Classical,国内
   - RULE-SET,BankCN_Domain,国内
-  - RULE-SET,Tencent_Domain,国内
-  - RULE-SET,Amap_Domain,国内
-  - RULE-SET,Ali_Domain,国内
-  - RULE-SET,xiaomi_Domain,国内
-  - RULE-SET,huawei_Domain,国内
   - RULE-SET,AppleCN_Domain,国内
   - RULE-SET,Apple_Domain,Apple
   - RULE-SET,ChatGPT_Domain,ChatGPT
@@ -312,6 +307,11 @@ rules:
   - RULE-SET,Cloudflare_Domain,国外
   - RULE-SET,Proxy1_Domain,国外
   - RULE-SET,Proxy2_Classical,国外
+  - RULE-SET,Tencent_Domain,国内
+  - RULE-SET,Amap_Domain,国内
+  - RULE-SET,Ali_Domain,国内
+  - RULE-SET,xiaomi_Domain,国内
+  - RULE-SET,huawei_Domain,国内
   - RULE-SET,JD_Domain,国内
   - RULE-SET,alibaba_Domain,国内
   - RULE-SET,baidu_Domain,国内,no-resolve
