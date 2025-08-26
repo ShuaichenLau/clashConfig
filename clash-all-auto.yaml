@@ -252,11 +252,20 @@ rule-providers:
   Direct_Classical: { <<: *classical, url: "https://raw.githubusercontent.com/ShuaichenLau/clashConfig/refs/heads/main/Direct.list" }
   Private_Domain: { <<: *domain, url: "https://raw.githubusercontent.com/ShuaichenLau/meta-rules-dat/meta/geo/geosite/private.mrs" }
   Private_IP: { <<: *ip, url: "https://raw.githubusercontent.com/ShuaichenLau/meta-rules-dat/refs/heads/meta/geo/geoip/private.mrs" }
+  Tencent_Domain: { <<: *domain, url: "https://raw.githubusercontent.com/ShuaichenLau/meta-rules-dat/refs/heads/meta/geo/geosite/tencent.mrs" }
   BankCN_Domain: { <<: *domain, url: "https://raw.githubusercontent.com/ShuaichenLau/meta-rules-dat/refs/heads/meta/geo/geosite/category-bank-cn.mrs" }
   AppleCN_Domain: { <<: *domain, url: "https://raw.githubusercontent.com/ShuaichenLau/meta-rules-dat/meta/geo/geosite/apple-cn.mrs" }
   Apple_Domain: { <<: *domain, url: "https://raw.githubusercontent.com/ShuaichenLau/meta-rules-dat/meta/geo/geosite/apple.mrs" }
+  Amap_Domain: { <<: *domain, url: "https://raw.githubusercontent.com/ShuaichenLau/meta-rules-dat/meta/geo/geosite/amap.mrs" }
+  Ali_Domain: { <<: *domain, url: "https://raw.githubusercontent.com/ShuaichenLau/meta-rules-dat/meta/geo/geosite/aliyun.mrs" }
+  JD_Domain: { <<: *domain, url: "https://raw.githubusercontent.com/ShuaichenLau/meta-rules-dat/refs/heads/meta/geo/geosite/jd.mrs" }
+  xiaomi_Domain: { <<: *domain, url: "https://raw.githubusercontent.com/ShuaichenLau/meta-rules-dat/meta/geo/geosite/xiaomi.mrs" }
+  huawei_Domain: { <<: *domain, url: "https://raw.githubusercontent.com/ShuaichenLau/meta-rules-dat/meta/geo/geosite/huawei.mrs" }
+  alibaba_Domain: { <<: *domain, url: "https://raw.githubusercontent.com/ShuaichenLau/meta-rules-dat/refs/heads/meta/geo/geosite/alibaba.mrs" }
+  baidu_Domain: { <<: *domain, url: "https://raw.githubusercontent.com/ShuaichenLau/meta-rules-dat/refs/heads/meta/geo/geosite/baidu.mrs" }
   China_Domain: { <<: *domain, url: "https://raw.githubusercontent.com/ShuaichenLau/meta-rules-dat/meta/geo/geosite/cn.mrs" }
   China_IP: { <<: *ip, url: "https://raw.githubusercontent.com/ShuaichenLau/meta-rules-dat/refs/heads/meta/geo/geoip/cn.mrs" }
+
 
 # ========================
 # 规则列表（同步命名）
@@ -303,6 +312,14 @@ rules:
   - RULE-SET,Cloudflare_Domain,国外
   - RULE-SET,Proxy1_Domain,国外
   - RULE-SET,Proxy2_Classical,国外
+  - RULE-SET,Tencent_Domain,国内
+  - RULE-SET,Amap_Domain,国内
+  - RULE-SET,Ali_Domain,国内
+  - RULE-SET,xiaomi_Domain,国内
+  - RULE-SET,huawei_Domain,国内
+  - RULE-SET,JD_Domain,国内
+  - RULE-SET,alibaba_Domain,国内
+  - RULE-SET,baidu_Domain,国内,no-resolve
   - RULE-SET,China_IP,国内,no-resolve
   - RULE-SET,China_Domain,国内
   - MATCH,其他
