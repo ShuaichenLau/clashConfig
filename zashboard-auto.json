@@ -15,7 +15,7 @@
   "config/use-connecticon-card": "false",
   "config/min-proxy-card-width": "130",
   "config/swipe-in-tabs": "false",
-  "config/import-settings-url": "http://192.168.3.8:8080/zashboard-0714.json",
+  "config/import-settings-url": "https://raw.githubusercontent.com/ShuaichenLau/clashConfig/refs/heads/main/zashboard-auto.json",
   "config/proxy-preview-type": "dots",
   "config/use-smart-group-sort": "true",
   "config/table-width-mode": "auto",
