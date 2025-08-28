@@ -15,6 +15,15 @@ proxy-providers:
       udp: true
     proxy: 直连
 
+  肥猫云:
+    url: http://192.168.3.6:3001/T3B9dgzBzdRbBF8Aqx7P/download/%E8%82%A5%E7%8C%AB%E4%BA%91
+    type: http
+    interval: 86400
+    override:
+      skip-cert-verify: true
+      udp: true
+    proxy: 直连
+
   流量光:
     url: http://192.168.3.6:3001/T3B9dgzBzdRbBF8Aqx7P/download/%E6%B5%81%E9%87%8F%E5%85%89
     type: http
