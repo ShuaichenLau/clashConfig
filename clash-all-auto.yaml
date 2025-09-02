@@ -275,8 +275,7 @@ rule-providers:
   Binance_Domain: { <<: *domain, url: "https://gh-proxy.com/github.com/ShuaichenLau/meta-rules-dat/raw/refs/heads/meta/geo/geosite/binance.mrs" }
   WhatsApp_Domain: { <<: *classical, url: "https://gh-proxy.com/raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/Whatsapp/Whatsapp.list" }
   Jetbrains_Domain: { <<: *domain, url: "https://raw.githubusercontent.com/ShuaichenLau/meta-rules-dat/refs/heads/meta/geo/geosite/jetbrains.mrs" }
-  Proxy1_Domain: { <<: *domain, url: "https://raw.githubusercontent.com/ShuaichenLau/meta-rules-dat/meta/geo/geosite/debian.mrs" }
-  Proxy2_Classical: { <<: *classical, url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/Proxy/Proxy.list" }
+  debian_Domain: { <<: *domain, url: "https://raw.githubusercontent.com/ShuaichenLau/meta-rules-dat/meta/geo/geosite/debian.mrs" }
   gfw_domain: { <<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/gfw.mrs" }
   geolocation-!cn: { <<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/geolocation-!cn.mrs" }
   Direct_Classical: { <<: *classical, url: "https://raw.githubusercontent.com/ShuaichenLau/clashConfig/refs/heads/main/Direct.list" }
@@ -339,8 +338,7 @@ rules:
   - RULE-SET,Speedtest_Category_Domain,Test
   - RULE-SET,Jetbrains_Domain,国外
   - RULE-SET,Cloudflare_Domain,国外
-  - RULE-SET,Proxy1_Domain,国外
-  - RULE-SET,Proxy2_Classical,国外
+  - RULE-SET,debian_Domain,国外
   - RULE-SET,gfw_domain,国外
   - RULE-SET,geolocation-!cn,国外
   - RULE-SET,Tencent_Domain,国内
