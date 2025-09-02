@@ -25,7 +25,7 @@
   "config/connecticon-table-size": "small",
   "config/display-latency-in-rule": "true",
   "config/scroll-animation-effect": "false",
-  "config/custom-background-image": "https://wallpapercave.com/wp/wp3801693.jpg",
+  "config/custom-background-image": "http://192.168.3.6:19092/fd96224c33c3e879cf4d7b18bdc3033f.jpg",
   "config/log-retention-limit": "1000",
   "config/medium-latency": "800",
   "config/number-of-charts-in-sidebar": "3",
