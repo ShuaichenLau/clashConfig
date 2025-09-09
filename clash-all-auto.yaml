@@ -82,7 +82,6 @@ proxies:
   - { name: 直连, type: direct }
   - { name: 拒绝, type: reject }
 
-
 port: 7890
 socks-port: 7891
 redir-port: 7892
@@ -153,7 +152,6 @@ dns:
     - "rule-set:BankCN_Domain"
     - "rule-set:China_Domain"
     - "rule-set:AppleCN_Domain"
-    - "rule-set:huawei_Domain"
     - "+.msftconnecttest.com"
     - "+.msftncsi.com"
     - "+.market.xiaomi.com"
@@ -167,18 +165,13 @@ dns:
     - '*.bt-tracker.*'
     - '*.steamcontent.com'
     - localhost.ptlogin2.qq.com
-
-  default-nameserver:
+  nameserver:
     - 219.141.136.10
     - 219.141.140.10
     - 223.5.5.5
   proxy-server-nameserver:
     - https://doh.pub/dns-query
     - https://dns.alidns.com/dns-query
-  nameserver:
-    - 219.141.136.10
-    - 219.141.140.10
-    - 223.5.5.5
 
 tun:
   enable: true
@@ -233,11 +226,11 @@ proxy-groups:
   - { name: 国内, <<: *default }
   - { name: 其他, <<: *default }
 
-  - { name: 香港-智能, type: fallback, url: https://www.google-analytics.com/generate_204, expected-status: 204, interval: 350, timeout: 2000, max-failed-times: 3, lazy: false, proxies: [ 香港-手动, 香港-自动, 香港-智选, 香港-故转 ] }
-  - { name: 台湾-智能, type: fallback, url: https://www.google-analytics.com/generate_204, expected-status: 204, interval: 350, timeout: 2000, max-failed-times: 3, lazy: false, proxies: [ 台湾-手动, 台湾-自动, 台湾-智选, 台湾-故转 ] }
-  - { name: 美国-智能, type: fallback, url: https://www.google-analytics.com/generate_204, expected-status: 204, interval: 350, timeout: 2000, max-failed-times: 3, lazy: false, proxies: [ 美国-手动, 美国-自动, 美国-智选, 美国-故转 ] }
-  - { name: 日本-智能, type: fallback, url: https://www.google-analytics.com/generate_204, expected-status: 204, interval: 350, timeout: 2000, max-failed-times: 3, lazy: false, proxies: [ 日本-手动, 日本-自动, 日本-智选, 日本-故转 ] }
-  - { name: 新韩-智能, type: fallback, url: https://www.google-analytics.com/generate_204, expected-status: 204, interval: 350, timeout: 2000, max-failed-times: 3, lazy: false, proxies: [ 新韩-手动, 新韩-自动, 新韩-智选, 新韩-故转 ] }
+  - { name: 香港-智能, type: fallback, url: https://www.google-analytics.com/generate_204, expected-status: 204, interval: 350, timeout: 1800, max-failed-times: 3, lazy: false, proxies: [ 香港-手动, 香港-自动, 香港-智选, 香港-故转 ] }
+  - { name: 台湾-智能, type: fallback, url: https://www.google-analytics.com/generate_204, expected-status: 204, interval: 350, timeout: 1800, max-failed-times: 3, lazy: false, proxies: [ 台湾-手动, 台湾-自动, 台湾-智选, 台湾-故转 ] }
+  - { name: 美国-智能, type: fallback, url: https://www.google-analytics.com/generate_204, expected-status: 204, interval: 350, timeout: 1800, max-failed-times: 3, lazy: false, proxies: [ 美国-手动, 美国-自动, 美国-智选, 美国-故转 ] }
+  - { name: 日本-智能, type: fallback, url: https://www.google-analytics.com/generate_204, expected-status: 204, interval: 350, timeout: 1800, max-failed-times: 3, lazy: false, proxies: [ 日本-手动, 日本-自动, 日本-智选, 日本-故转 ] }
+  - { name: 新韩-智能, type: fallback, url: https://www.google-analytics.com/generate_204, expected-status: 204, interval: 350, timeout: 1800, max-failed-times: 3, lazy: false, proxies: [ 新韩-手动, 新韩-自动, 新韩-智选, 新韩-故转 ] }
 
   - { name: 香港-手动, type: select, include-all: true, filter: "(?=.*(广港|香港|HK|Hong Kong|🇭🇰|HongKong)).*$" }
   - { name: 台湾-手动, type: select, include-all: true, filter: "(?=.*(广台|台湾|台灣|TW|Tai Wan|🇹🇼|🇨🇳|TaiWan|Taiwan)).*$" }
@@ -245,23 +238,23 @@ proxy-groups:
   - { name: 日本-手动, type: select, include-all: true, filter: "(?=.*(广日|日本|JP|川日|东京|大阪|泉日|埼玉|沪日|深日|🇯🇵|Japan)).*$" }
   - { name: 新韩-手动, type: select, include-all: true, filter: "(?=.*(广新|新加坡|SG|坡|狮城|🇸🇬|Singapore|广韩|韩国|韓國|KR|首尔|春川|🇰🇷|Korea)).*$" }
 
-  - { name: 香港-智选, type: smart, include-all: true, uselightgbm: true, collectdata: false, interval: 360, url: https://www.google-analytics.com/generate_204, strategy: sticky-sessions, lazy: false, filter: '(?=.*(广港|香港|HK|Hong Kong|🇭🇰|HongKong)).*$'}
-  - { name: 台湾-智选, type: smart, include-all: true, uselightgbm: true, collectdata: false, interval: 360, url: https://www.google-analytics.com/generate_204, strategy: sticky-sessions, lazy: false, filter: '(?=.*(广台|台湾|台灣|TW|Tai Wan|🇹🇼|🇨🇳|TaiWan|Taiwan)).*$'}
-  - { name: 美国-智选, type: smart, include-all: true, uselightgbm: true, collectdata: false, interval: 360, url: https://www.google-analytics.com/generate_204, strategy: sticky-sessions, lazy: false, filter: '(?=.*(广美|美|US|纽约|波特兰|达拉斯|俄勒|凤凰城|费利蒙|拉斯|洛杉|圣何塞|圣克拉|西雅|芝加|🇺🇸|United States)).*$'}
-  - { name: 日本-智选, type: smart, include-all: true, uselightgbm: true, collectdata: false, interval: 360, url: https://www.google-analytics.com/generate_204, strategy: sticky-sessions, lazy: false, filter: '(?=.*(广日|日本|JP|川日|东京|大阪|泉日|埼玉|沪日|深日|🇯🇵|Japan)).*$'}
-  - { name: 新韩-智选, type: smart, include-all: true, uselightgbm: true, collectdata: false, interval: 360, url: https://www.google-analytics.com/generate_204, strategy: sticky-sessions, lazy: false, filter: '(?=.*(广新|新加坡|SG|坡|狮城|🇸🇬|Singapore|广韩|韩国|韓國|KR|首尔|春川|🇰🇷|Korea)).*$'}
+  - { name: 香港-智选, type: smart, include-all: true, uselightgbm: true, collectdata: false, interval: 360, url: https://www.google-analytics.com/generate_204, expected-status: 204, strategy: sticky-sessions, lazy: false, filter: '(?=.*(广港|香港|HK|Hong Kong|🇭🇰|HongKong)).*$'}
+  - { name: 台湾-智选, type: smart, include-all: true, uselightgbm: true, collectdata: false, interval: 360, url: https://www.google-analytics.com/generate_204, expected-status: 204, strategy: sticky-sessions, lazy: false, filter: '(?=.*(广台|台湾|台灣|TW|Tai Wan|🇹🇼|🇨🇳|TaiWan|Taiwan)).*$'}
+  - { name: 美国-智选, type: smart, include-all: true, uselightgbm: true, collectdata: false, interval: 360, url: https://www.google-analytics.com/generate_204, expected-status: 204, strategy: sticky-sessions, lazy: false, filter: '(?=.*(广美|美|US|纽约|波特兰|达拉斯|俄勒|凤凰城|费利蒙|拉斯|洛杉|圣何塞|圣克拉|西雅|芝加|🇺🇸|United States)).*$'}
+  - { name: 日本-智选, type: smart, include-all: true, uselightgbm: true, collectdata: false, interval: 360, url: https://www.google-analytics.com/generate_204, expected-status: 204, strategy: sticky-sessions, lazy: false, filter: '(?=.*(广日|日本|JP|川日|东京|大阪|泉日|埼玉|沪日|深日|🇯🇵|Japan)).*$'}
+  - { name: 新韩-智选, type: smart, include-all: true, uselightgbm: true, collectdata: false, interval: 360, url: https://www.google-analytics.com/generate_204, expected-status: 204, strategy: sticky-sessions, lazy: false, filter: '(?=.*(广新|新加坡|SG|坡|狮城|🇸🇬|Singapore|广韩|韩国|韓國|KR|首尔|春川|🇰🇷|Korea)).*$'}
 
-  - { name: 香港-自动, type: url-test, url: https://www.google-analytics.com/generate_204, include-all: true, expected-status: 204, interval: 512, timeout: 1800, max-failed-times: 3, tolerance: 80, lazy: false, filter: "(?=.*(广港|香港|HK|Hong Kong|🇭🇰|HongKong)).*$" }
-  - { name: 台湾-自动, type: url-test, url: https://www.google-analytics.com/generate_204, include-all: true, expected-status: 204, interval: 512, timeout: 1800, max-failed-times: 3, tolerance: 80, lazy: false, filter: "(?=.*(广台|台湾|台灣|TW|Tai Wan|🇹🇼|🇨🇳|TaiWan|Taiwan)).*$" }
-  - { name: 美国-自动, type: url-test, url: https://www.google-analytics.com/generate_204, include-all: true, expected-status: 204, interval: 512, timeout: 1800, max-failed-times: 3, tolerance: 80, lazy: false, filter: "(?=.*(广美|美|US|纽约|波特兰|达拉斯|俄勒|凤凰城|费利蒙|拉斯|洛杉|圣何塞|圣克拉|西雅|芝加|🇺🇸|United States)).*$" }
-  - { name: 日本-自动, type: url-test, url: https://www.google-analytics.com/generate_204, include-all: true, expected-status: 204, interval: 512, timeout: 1800, max-failed-times: 3, tolerance: 80, lazy: false, filter: "(?=.*(广日|日本|JP|川日|东京|大阪|泉日|埼玉|沪日|深日|🇯🇵|Japan)).*$" }
-  - { name: 新韩-自动, type: url-test, url: https://www.google-analytics.com/generate_204, include-all: true, expected-status: 204, interval: 512, timeout: 1800, max-failed-times: 3, tolerance: 80, lazy: false, filter: "(?=.*(广新|新加坡|SG|坡|狮城|🇸🇬|Singapore|广韩|韩国|韓國|KR|首尔|春川|🇰🇷|Korea)).*$" }
+  - { name: 香港-自动, type: url-test, url: https://www.google-analytics.com/generate_204, include-all: true, expected-status: 204, interval: 512, timeout: 2000, max-failed-times: 3, tolerance: 80, lazy: false, filter: "(?=.*(广港|香港|HK|Hong Kong|🇭🇰|HongKong)).*$" }
+  - { name: 台湾-自动, type: url-test, url: https://www.google-analytics.com/generate_204, include-all: true, expected-status: 204, interval: 512, timeout: 2000, max-failed-times: 3, tolerance: 80, lazy: false, filter: "(?=.*(广台|台湾|台灣|TW|Tai Wan|🇹🇼|🇨🇳|TaiWan|Taiwan)).*$" }
+  - { name: 美国-自动, type: url-test, url: https://www.google-analytics.com/generate_204, include-all: true, expected-status: 204, interval: 512, timeout: 2000, max-failed-times: 3, tolerance: 80, lazy: false, filter: "(?=.*(广美|美|US|纽约|波特兰|达拉斯|俄勒|凤凰城|费利蒙|拉斯|洛杉|圣何塞|圣克拉|西雅|芝加|🇺🇸|United States)).*$" }
+  - { name: 日本-自动, type: url-test, url: https://www.google-analytics.com/generate_204, include-all: true, expected-status: 204, interval: 512, timeout: 2000, max-failed-times: 3, tolerance: 80, lazy: false, filter: "(?=.*(广日|日本|JP|川日|东京|大阪|泉日|埼玉|沪日|深日|🇯🇵|Japan)).*$" }
+  - { name: 新韩-自动, type: url-test, url: https://www.google-analytics.com/generate_204, include-all: true, expected-status: 204, interval: 512, timeout: 2000, max-failed-times: 3, tolerance: 80, lazy: false, filter: "(?=.*(广新|新加坡|SG|坡|狮城|🇸🇬|Singapore|广韩|韩国|韓國|KR|首尔|春川|🇰🇷|Korea)).*$" }
 
-  - { name: 香港-故转, type: fallback, url: https://www.google-analytics.com/generate_204, include-all: true, expected-status: 204, interval: 333, timeout: 1800, max-failed-times: 3, lazy: false, filter: "(?=.*(广港|香港|HK|Hong Kong|🇭🇰|HongKong)).*$" }
-  - { name: 台湾-故转, type: fallback, url: https://www.google-analytics.com/generate_204, include-all: true, expected-status: 204, interval: 333, timeout: 1800, max-failed-times: 3, lazy: false, filter: "(?=.*(广台|台湾|台灣|TW|Tai Wan|🇹🇼|🇨🇳|TaiWan|Taiwan)).*$" }
-  - { name: 美国-故转, type: fallback, url: https://www.google-analytics.com/generate_204, include-all: true, expected-status: 204, interval: 333, timeout: 1800, max-failed-times: 3, lazy: false, filter: "(?=.*(广美|美|US|纽约|波特兰|达拉斯|俄勒|凤凰城|费利蒙|拉斯|洛杉|圣何塞|圣克拉|西雅|芝加|🇺🇸|United States)).*$" }
-  - { name: 日本-故转, type: fallback, url: https://www.google-analytics.com/generate_204, include-all: true, expected-status: 204, interval: 333, timeout: 1800, max-failed-times: 3, lazy: false, filter: "(?=.*(广日|日本|JP|川日|东京|大阪|泉日|埼玉|沪日|深日|🇯🇵|Japan)).*$" }
-  - { name: 新韩-故转, type: fallback, url: https://www.google-analytics.com/generate_204, include-all: true, expected-status: 204, interval: 333, timeout: 1800, max-failed-times: 3, lazy: false, filter: "(?=.*(广新|新加坡|SG|坡|狮城|🇸🇬|Singapore|广韩|韩国|韓國|KR|首尔|春川|🇰🇷|Korea)).*$" }
+  - { name: 香港-故转, type: fallback, url: https://www.google-analytics.com/generate_204, include-all: true, expected-status: 204, interval: 333, timeout: 2000, max-failed-times: 3, lazy: false, filter: "(?=.*(广港|香港|HK|Hong Kong|🇭🇰|HongKong)).*$" }
+  - { name: 台湾-故转, type: fallback, url: https://www.google-analytics.com/generate_204, include-all: true, expected-status: 204, interval: 333, timeout: 2000, max-failed-times: 3, lazy: false, filter: "(?=.*(广台|台湾|台灣|TW|Tai Wan|🇹🇼|🇨🇳|TaiWan|Taiwan)).*$" }
+  - { name: 美国-故转, type: fallback, url: https://www.google-analytics.com/generate_204, include-all: true, expected-status: 204, interval: 333, timeout: 2000, max-failed-times: 3, lazy: false, filter: "(?=.*(广美|美|US|纽约|波特兰|达拉斯|俄勒|凤凰城|费利蒙|拉斯|洛杉|圣何塞|圣克拉|西雅|芝加|🇺🇸|United States)).*$" }
+  - { name: 日本-故转, type: fallback, url: https://www.google-analytics.com/generate_204, include-all: true, expected-status: 204, interval: 333, timeout: 2000, max-failed-times: 3, lazy: false, filter: "(?=.*(广日|日本|JP|川日|东京|大阪|泉日|埼玉|沪日|深日|🇯🇵|Japan)).*$" }
+  - { name: 新韩-故转, type: fallback, url: https://www.google-analytics.com/generate_204, include-all: true, expected-status: 204, interval: 333, timeout: 2000, max-failed-times: 3, lazy: false, filter: "(?=.*(广新|新加坡|SG|坡|狮城|🇸🇬|Singapore|广韩|韩国|韓國|KR|首尔|春川|🇰🇷|Korea)).*$" }
 
   - { name: 其他-智选, type: smart, include-all: true, uselightgbm: true, collectdata: false, interval: 360, url: https://www.google-analytics.com/generate_204, strategy: sticky-sessions, lazy: false, filter: "^((?!(直连|拒绝|剩余|官网|订阅|免费|异常|流量|广港|香港|深港|HK|Hong Kong|🇭🇰|HongKong|广台|台湾|台灣|TW|Tai Wan|🇹🇼|🇨🇳|TaiWan|Taiwan|广日|日本|JP|川日|东京|大阪|泉日|埼玉|沪日|深日|🇯🇵|Japan|广新|新加坡|SG|坡|狮城|🇸🇬|Singapore|广韩|韩国|韓國|KR|首尔|春川|🇰🇷|Korea|广美|美|US|纽约|波特兰|达拉斯|俄勒|凤凰城|费利蒙|拉斯|洛杉|圣何塞|圣克拉|西雅|芝加|🇺🇸|United States|🇬🇧)).)*$"}
 
