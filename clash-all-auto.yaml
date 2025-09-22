@@ -104,13 +104,22 @@ tcp-concurrent: true
 log-level: info
 find-process-mode: 'off'
 interface-name: eth0
-global-client-fingerprint: chrome
+global-client-fingerprint: random
 keep-alive-idle: 600
-keep-alive-interval: 15
+keep-alive-interval: 1800
 disable-keep-alive: false
 profile:
   store-selected: true
   store-fake-ip: true
+
+# 自动同步时间以防止时间不准导致无法正常联网
+ntp:
+  enable: true
+  # 是否同步至系统时间，需要 root/管理员权限
+  write-to-system: false
+  server: time.apple.com
+  port: 123
+  interval: 30
 
 external-controller: 0.0.0.0:9090
 secret: "127853"
@@ -124,6 +133,23 @@ lgbm-auto-update: true
 lgbm-update-interval: 168
 # model update url
 lgbm-url: "https://github.com/vernesong/mihomo/releases/download/LightGBM-Model/Model.bin"
+
+geodata-mode: true
+geodata-loader: standard
+geo-auto-update: true
+geo-update-interval: 168
+#geox-url:
+#  geosite: "https://cdn.jsdelivr.net/gh/Loyalsoldier/v2ray-rules-dat@release/geosite.dat"
+#  mmdb: "https://cdn.jsdelivr.net/gh/Loyalsoldier/geoip@release/Country.mmdb"
+#  geoip: "https://cdn.jsdelivr.net/gh/Loyalsoldier/v2ray-rules-dat@release/geoip.dat"
+#  asn: "https://cdn.jsdelivr.net/gh/Loyalsoldier/geoip@release/GeoLite2-ASN.mmdb"
+
+geox-url:
+  geoip: "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@release/geoip.dat"
+  geosite: "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@release/geosite.dat"
+  mmdb: "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@release/country.mmdb"
+  asn: "https://github.com/xishang0128/geoip/releases/download/latest/GeoLite2-ASN.mmdb"
+
 
 # 嗅探
 sniffer:
@@ -167,6 +193,7 @@ dns:
     - '*.bt-tracker.*'
     - '*.steamcontent.com'
     - localhost.ptlogin2.qq.com
+
   nameserver:
     - 219.141.136.10
     - 219.141.140.10
