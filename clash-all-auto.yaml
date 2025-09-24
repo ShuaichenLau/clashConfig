@@ -6,15 +6,6 @@
 
 proxy-providers:
 
-  优速通:
-    url: http://192.168.3.6:3001/T3B9dgzBzdRbBF8Aqx7P/download/%E4%BC%98%E9%80%9F%E9%80%9A
-    type: http
-    interval: 86400
-    override:
-      skip-cert-verify: true
-      udp: true
-    proxy: 直连
-
   cordCloud:
     url: http://192.168.3.6:3001/T3B9dgzBzdRbBF8Aqx7P/download/cordCloud
     type: http
@@ -136,20 +127,11 @@ lgbm-url: "https://github.com/vernesong/mihomo/releases/download/LightGBM-Model/
 
 geodata-mode: true
 geodata-loader: standard
-geo-auto-update: true
-geo-update-interval: 168
-#geox-url:
-#  geosite: "https://cdn.jsdelivr.net/gh/Loyalsoldier/v2ray-rules-dat@release/geosite.dat"
-#  mmdb: "https://cdn.jsdelivr.net/gh/Loyalsoldier/geoip@release/Country.mmdb"
-#  geoip: "https://cdn.jsdelivr.net/gh/Loyalsoldier/v2ray-rules-dat@release/geoip.dat"
-#  asn: "https://cdn.jsdelivr.net/gh/Loyalsoldier/geoip@release/GeoLite2-ASN.mmdb"
-
 geox-url:
-  geoip: "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@release/geoip.dat"
-  geosite: "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@release/geosite.dat"
-  mmdb: "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@release/country.mmdb"
-  asn: "https://github.com/xishang0128/geoip/releases/download/latest/GeoLite2-ASN.mmdb"
-
+  mmdb: https://testingcf.jsdelivr.net/gh/alecthw/mmdb_china_ip_list@release/lite/Country.mmdb
+  geoip: https://testingcf.jsdelivr.net/gh/Loyalsoldier/v2ray-rules-dat@release/geoip.dat
+  geosite: https://testingcf.jsdelivr.net/gh/Loyalsoldier/v2ray-rules-dat@release/geosite.dat
+  asn: https://testingcf.jsdelivr.net/gh/xishang0128/geoip@release/GeoLite2-ASN.mmdb
 
 # 嗅探
 sniffer:
@@ -163,9 +145,13 @@ sniffer:
     QUIC:
       ports: [ 443, 8443 ]
   skip-domain:
-    - "Mijia Cloud"
+    - "+.apple.com"
+    - Mijia Cloud
+    - dlg.io.mi.com
+    - "+.oray.com"
+    - "+.sunlogin.net"
     - "+.push.apple.com"
-    - 'dlg.io.mi.com'
+  parse-pure-ip: true
 
 dns:
   enable: true
@@ -176,23 +162,152 @@ dns:
   fake-ip-range: 28.0.0.1/8
   fake-ip-filter-mode: blacklist
   fake-ip-filter:
-    - "+.lan"
-    - "+.local"
-    - "rule-set:Private_Domain"
-    - "rule-set:BankCN_Domain"
+    - "*.lan"
+    - "*.localdomain"
+    - "*.example"
+    - "*.invalid"
+    - "*.localhost"
+    - "*.test"
+    - "*.local"
+    - "*.home.arpa"
+    - "*.direct"
+    - cable.auth.com
+    - network-test.debian.org
+    - detectportal.firefox.com
+    - resolver1.opendns.com
+    - global.turn.twilio.com
+    - global.stun.twilio.com
+    - app.yinxiang.com
+    - injections.adguard.org
+    - localhost.*.weixin.qq.com
+    - "*.blzstatic.cn"
+    - "*.cmpassport.com"
+    - id6.me
+    - open.e.189.cn
+    - opencloud.wostore.cn
+    - id.mail.wo.cn
+    - mdn.open.wo.cn
+    - hmrz.wo.cn
+    - nishub1.10010.com
+    - enrichgw.10010.com
+    - "*.wosms.cn"
+    - "*.jegotrip.com.cn"
+    - "*.icitymobile.mobi"
+    - "*.pingan.com.cn"
+    - "*.cmbchina.com"
+    - "*.10099.com.cn"
+    - "*.microdone.cn"
+    - PDC._msDCS.*.*
+    - DC._msDCS.*.*
+    - GC._msDCS.*.*
+    - time.*.com
+    - time.*.gov
+    - time.*.edu.cn
+    - time.*.apple.com
+    - time-ios.apple.com
+    - time1.*.com
+    - time2.*.com
+    - time3.*.com
+    - time4.*.com
+    - time5.*.com
+    - time6.*.com
+    - time7.*.com
+    - ntp.*.com
+    - ntp1.*.com
+    - ntp2.*.com
+    - ntp3.*.com
+    - ntp4.*.com
+    - ntp5.*.com
+    - ntp6.*.com
+    - ntp7.*.com
+    - "*.time.edu.cn"
+    - "*.ntp.org.cn"
+    - "+.pool.ntp.org"
+    - time1.cloud.tencent.com
+    - music.163.com
+    - "*.music.163.com"
+    - "*.126.net"
+    - musicapi.taihe.com
+    - music.taihe.com
+    - songsearch.kugou.com
+    - trackercdn.kugou.com
+    - "*.kuwo.cn"
+    - api-jooxtt.sanook.com
+    - api.joox.com
+    - joox.com
+    - y.qq.com
+    - "*.y.qq.com"
+    - streamoc.music.tc.qq.com
+    - mobileoc.music.tc.qq.com
+    - isure.stream.qqmusic.qq.com
+    - dl.stream.qqmusic.qq.com
+    - aqqmusic.tc.qq.com
+    - amobile.music.tc.qq.com
+    - "*.xiami.com"
+    - "*.music.migu.cn"
+    - music.migu.cn
     - "+.msftconnecttest.com"
     - "+.msftncsi.com"
-    - "+.market.xiaomi.com"
-    - "time.*.com"
-    - "xbox.*.microsoft.com"
-    - "+.xboxlive.com"
-    - 'localhost'
-    - 'www.msftconnecttest.com'
-    - 'www.msftncsi.com'
-    - '+.nflxvideo.net'
-    - '*.bt-tracker.*'
-    - '*.steamcontent.com'
     - localhost.ptlogin2.qq.com
+    - localhost.sec.qq.com
+    - "+.qq.com"
+    - "+.tencent.com"
+    - "+.srv.nintendo.net"
+    - "*.n.n.srv.nintendo.net"
+    - "+.cdn.nintendo.net"
+    - "+.stun.playstation.net"
+    - xbox.*.*.microsoft.com
+    - "*.*.xboxlive.com"
+    - xbox.*.microsoft.com
+    - xnotify.xboxlive.com
+    - "+.battle.net"
+    - "+.battlenet.com.cn"
+    - "+.wotgame.cn"
+    - "+.wggames.cn"
+    - "+.wowsgame.cn"
+    - "+.wargaming.net"
+    - proxy.golang.org
+    - stun.*.*
+    - stun.*.*.*
+    - "+.stun.*.*"
+    - "+.stun.*.*.*"
+    - "+.stun.*.*.*.*"
+    - "+.stun.*.*.*.*.*"
+    - heartbeat.belkin.com
+    - "*.linksys.com"
+    - "*.linksyssmartwifi.com"
+    - "*.router.asus.com"
+    - mesu.apple.com
+    - swscan.apple.com
+    - swquery.apple.com
+    - swdownload.apple.com
+    - swcdn.apple.com
+    - swdist.apple.com
+    - lens.l.google.com
+    - stun.l.google.com
+    - na.b.g-tun.com
+    - "+.nflxvideo.net"
+    - "*.square-enix.com"
+    - "*.finalfantasyxiv.com"
+    - "*.ffxiv.com"
+    - "*.ff14.sdo.com"
+    - ff.dorado.sdo.com
+    - "*.mcdn.bilivideo.cn"
+    - "+.media.dssott.com"
+    - shark007.net
+    - Mijia Cloud
+    - "+.cmbchina.com"
+    - "+.cmbimg.com"
+    - local.adguard.org
+    - "+.sandai.net"
+    - "+.n0808.com"
+    - "+.uu.163.com"
+    - ps.res.netease.com
+    - "+.pub.3gppnetwork.org"
+    - "+.services.googleapis.cn"
+    - "+.googleapis.cn"
+    - "+.xn--ngstr-lra8j.com"
+    - geosite:cn
 
   nameserver:
     - 219.141.136.10
