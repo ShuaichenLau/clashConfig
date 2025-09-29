@@ -42,8 +42,17 @@ proxy-providers:
       udp: true
     proxy: 直连
 
-  红杏:
+  红杏云:
     url: http://192.168.3.6:3001/T3B9dgzBzdRbBF8Aqx7P/download/%E7%BA%A2%E6%9D%8FME
+    type: http
+    interval: 172800
+    override:
+      skip-cert-verify: true
+      udp: true
+    proxy: 直连
+
+  硅谷云:
+    url: http://192.168.3.6:3001/T3B9dgzBzdRbBF8Aqx7P/download/%E7%A1%85%E8%B0%B7%E4%BA%91?target=ClashMeta
     type: http
     interval: 172800
     override:
@@ -53,24 +62,6 @@ proxy-providers:
 
   AllProxy:
     url: http://192.168.3.6:3001/T3B9dgzBzdRbBF8Aqx7P/download/collection/AllProxy
-    type: http
-    interval: 172800
-    override:
-      skip-cert-verify: true
-      udp: true
-    proxy: 直连
-
-  nbCloud:
-    url: http://192.168.3.6:3001/T3B9dgzBzdRbBF8Aqx7P/download/NB
-    type: http
-    interval: 172800
-    override:
-      skip-cert-verify: true
-      udp: true
-    proxy: 直连
-
-  猫2云:
-    url: http://192.168.3.6:3001/T3B9dgzBzdRbBF8Aqx7P/download/%E7%8C%AB2%E4%BA%91
     type: http
     interval: 172800
     override:
