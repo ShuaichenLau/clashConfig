@@ -9,7 +9,7 @@ proxy-providers:
   cordCloud:
     url: http://192.168.3.6:3001/T3B9dgzBzdRbBF8Aqx7P/download/cordCloud
     type: http
-    interval: 172800
+    interval: 86400
     override:
       skip-cert-verify: true
       udp: true
@@ -18,7 +18,7 @@ proxy-providers:
   肥猫云:
     url: http://192.168.3.6:3001/T3B9dgzBzdRbBF8Aqx7P/download/%E8%82%A5%E7%8C%AB%E4%BA%91
     type: http
-    interval: 172800
+    interval: 86400
     override:
       skip-cert-verify: true
       udp: true
@@ -27,7 +27,7 @@ proxy-providers:
   流量光:
     url: http://192.168.3.6:3001/T3B9dgzBzdRbBF8Aqx7P/download/%E6%B5%81%E9%87%8F%E5%85%89
     type: http
-    interval: 172800
+    interval: 86400
     override:
       skip-cert-verify: true
       udp: true
@@ -36,7 +36,7 @@ proxy-providers:
   神龙:
     url: http://192.168.3.6:3001/T3B9dgzBzdRbBF8Aqx7P/download/%E7%A5%9E%E9%BE%99
     type: http
-    interval: 172800
+    interval: 86400
     override:
       skip-cert-verify: true
       udp: true
@@ -45,7 +45,7 @@ proxy-providers:
   红杏云:
     url: http://192.168.3.6:3001/T3B9dgzBzdRbBF8Aqx7P/download/%E7%BA%A2%E6%9D%8FME
     type: http
-    interval: 172800
+    interval: 86400
     override:
       skip-cert-verify: true
       udp: true
@@ -54,7 +54,7 @@ proxy-providers:
   硅谷云:
     url: http://192.168.3.6:3001/T3B9dgzBzdRbBF8Aqx7P/download/%E7%A1%85%E8%B0%B7%E4%BA%91?target=ClashMeta
     type: http
-    interval: 172800
+    interval: 86400
     override:
       skip-cert-verify: true
       udp: true
@@ -63,7 +63,7 @@ proxy-providers:
   AllProxy:
     url: http://192.168.3.6:3001/T3B9dgzBzdRbBF8Aqx7P/download/collection/AllProxy
     type: http
-    interval: 172800
+    interval: 86400
     override:
       skip-cert-verify: true
       udp: true
@@ -150,171 +150,30 @@ dns:
   listen: 0.0.0.0:1053
   ipv6: true
   respect-rules: true
-  enhanced-mode: fake-ip
-  fake-ip-range: 28.0.0.1/8
-  fake-ip-filter-mode: blacklist
-  fake-ip-filter:
-    - "*.lan"
-    - "*.localdomain"
-    - "*.example"
-    - "*.invalid"
-    - "*.localhost"
-    - "*.test"
-    - "*.local"
-    - "*.home.arpa"
-    - "*.direct"
-    - cable.auth.com
-    - network-test.debian.org
-    - detectportal.firefox.com
-    - resolver1.opendns.com
-    - global.turn.twilio.com
-    - global.stun.twilio.com
-    - app.yinxiang.com
-    - injections.adguard.org
-    - localhost.*.weixin.qq.com
-    - "*.blzstatic.cn"
-    - "*.cmpassport.com"
-    - id6.me
-    - open.e.189.cn
-    - opencloud.wostore.cn
-    - id.mail.wo.cn
-    - mdn.open.wo.cn
-    - hmrz.wo.cn
-    - nishub1.10010.com
-    - enrichgw.10010.com
-    - "*.wosms.cn"
-    - "*.jegotrip.com.cn"
-    - "*.icitymobile.mobi"
-    - "*.pingan.com.cn"
-    - "*.cmbchina.com"
-    - "*.10099.com.cn"
-    - "*.microdone.cn"
-    - PDC._msDCS.*.*
-    - DC._msDCS.*.*
-    - GC._msDCS.*.*
-    - time.*.com
-    - time.*.gov
-    - time.*.edu.cn
-    - time.*.apple.com
-    - time-ios.apple.com
-    - time1.*.com
-    - time2.*.com
-    - time3.*.com
-    - time4.*.com
-    - time5.*.com
-    - time6.*.com
-    - time7.*.com
-    - ntp.*.com
-    - ntp1.*.com
-    - ntp2.*.com
-    - ntp3.*.com
-    - ntp4.*.com
-    - ntp5.*.com
-    - ntp6.*.com
-    - ntp7.*.com
-    - "*.time.edu.cn"
-    - "*.ntp.org.cn"
-    - "+.pool.ntp.org"
-    - time1.cloud.tencent.com
-    - music.163.com
-    - "*.music.163.com"
-    - "*.126.net"
-    - musicapi.taihe.com
-    - music.taihe.com
-    - songsearch.kugou.com
-    - trackercdn.kugou.com
-    - "*.kuwo.cn"
-    - api-jooxtt.sanook.com
-    - api.joox.com
-    - joox.com
-    - y.qq.com
-    - "*.y.qq.com"
-    - streamoc.music.tc.qq.com
-    - mobileoc.music.tc.qq.com
-    - isure.stream.qqmusic.qq.com
-    - dl.stream.qqmusic.qq.com
-    - aqqmusic.tc.qq.com
-    - amobile.music.tc.qq.com
-    - "*.xiami.com"
-    - "*.music.migu.cn"
-    - music.migu.cn
-    - "+.msftconnecttest.com"
-    - "+.msftncsi.com"
-    - localhost.ptlogin2.qq.com
-    - localhost.sec.qq.com
-    - "+.qq.com"
-    - "+.tencent.com"
-    - "+.srv.nintendo.net"
-    - "*.n.n.srv.nintendo.net"
-    - "+.cdn.nintendo.net"
-    - "+.stun.playstation.net"
-    - xbox.*.*.microsoft.com
-    - "*.*.xboxlive.com"
-    - xbox.*.microsoft.com
-    - xnotify.xboxlive.com
-    - "+.battle.net"
-    - "+.battlenet.com.cn"
-    - "+.wotgame.cn"
-    - "+.wggames.cn"
-    - "+.wowsgame.cn"
-    - "+.wargaming.net"
-    - proxy.golang.org
-    - stun.*.*
-    - stun.*.*.*
-    - "+.stun.*.*"
-    - "+.stun.*.*.*"
-    - "+.stun.*.*.*.*"
-    - "+.stun.*.*.*.*.*"
-    - heartbeat.belkin.com
-    - "*.linksys.com"
-    - "*.linksyssmartwifi.com"
-    - "*.router.asus.com"
-    - mesu.apple.com
-    - swscan.apple.com
-    - swquery.apple.com
-    - swdownload.apple.com
-    - swcdn.apple.com
-    - swdist.apple.com
-    - lens.l.google.com
-    - stun.l.google.com
-    - na.b.g-tun.com
-    - "+.nflxvideo.net"
-    - "*.square-enix.com"
-    - "*.finalfantasyxiv.com"
-    - "*.ffxiv.com"
-    - "*.ff14.sdo.com"
-    - ff.dorado.sdo.com
-    - "*.mcdn.bilivideo.cn"
-    - "+.media.dssott.com"
-    - shark007.net
-    - Mijia Cloud
-    - "+.cmbchina.com"
-    - "+.cmbimg.com"
-    - local.adguard.org
-    - "+.sandai.net"
-    - "+.n0808.com"
-    - "+.uu.163.com"
-    - ps.res.netease.com
-    - "+.pub.3gppnetwork.org"
-    - "+.services.googleapis.cn"
-    - "+.googleapis.cn"
-    - "+.xn--ngstr-lra8j.com"
-    - geosite:cn
+  enhanced-mode: redir-host
 
+  # 上游解析 —— 先走 DoH，减少污染；备份再走公共 DoH
   nameserver:
-    - 219.141.136.10
-    - 219.141.140.10
-    - 223.5.5.5
+    - https://doh.pub/dns-query
+    - https://dns.alidns.com/dns-query
+    - https://dns.google/dns-query
+  fallback:
+    - https://cloudflare-dns.com/dns-query
+    - https://1.1.1.1/dns-query
+    - https://8.8.8.8/dns-query
+
+  # 仅代理服务器自身的解析可继续使用你原本的 proxy-server-nameserver（已配）
   proxy-server-nameserver:
     - https://doh.pub/dns-query
     - https://dns.alidns.com/dns-query
+    - https://dns.google/dns-query
 
 tun:
   enable: true
-  stack: mixed
+  stack: system
   dns-hijack:
-    - "any:53"
-    - "tcp://any:53"
+    - any:53
+    - tcp://any:53
   auto-route: true
   auto-redirect: true
   auto-detect-interface: true
@@ -369,11 +228,11 @@ proxy-groups:
   - { name: 日本-手动, type: select, include-all: true, filter: "(?=.*(广日|日本|JP|川日|东京|大阪|泉日|埼玉|沪日|深日|🇯🇵|Japan)).*$" }
   - { name: 新韩-手动, type: select, include-all: true, filter: "(?=.*(广新|新加坡|SG|坡|狮城|🇸🇬|Singapore|广韩|韩国|韓國|KR|首尔|春川|🇰🇷|Korea)).*$" }
 
-  - { name: 香港-智选, type: smart, include-all: true, uselightgbm: true, collectdata: false, interval: 512, url: https://www.google-analytics.com/generate_204, expected-status: 204, timeout: 2000, max-failed-times: 3, strategy: sticky-sessions, lazy: false, filter: '(?=.*(广港|香港|HK|Hong Kong|🇭🇰|HongKong)).*$' }
-  - { name: 台湾-智选, type: smart, include-all: true, uselightgbm: true, collectdata: false, interval: 512, url: https://www.google-analytics.com/generate_204, expected-status: 204, timeout: 2000, max-failed-times: 3, strategy: sticky-sessions, lazy: false, filter: '(?=.*(广台|台湾|台灣|TW|Tai Wan|🇹🇼|🇨🇳|TaiWan|Taiwan)).*$' }
-  - { name: 美国-智选, type: smart, include-all: true, uselightgbm: true, collectdata: false, interval: 512, url: https://www.google-analytics.com/generate_204, expected-status: 204, timeout: 2000, max-failed-times: 3, strategy: sticky-sessions, lazy: false, filter: '(?=.*(广美|美|US|纽约|波特兰|达拉斯|俄勒|凤凰城|费利蒙|拉斯|洛杉|圣何塞|圣克拉|西雅|芝加|🇺🇸|United States)).*$' }
-  - { name: 日本-智选, type: smart, include-all: true, uselightgbm: true, collectdata: false, interval: 512, url: https://www.google-analytics.com/generate_204, expected-status: 204, timeout: 2000, max-failed-times: 3, strategy: sticky-sessions, lazy: false, filter: '(?=.*(广日|日本|JP|川日|东京|大阪|泉日|埼玉|沪日|深日|🇯🇵|Japan)).*$' }
-  - { name: 新韩-智选, type: smart, include-all: true, uselightgbm: true, collectdata: false, interval: 512, url: https://www.google-analytics.com/generate_204, expected-status: 204, timeout: 2000, max-failed-times: 3, strategy: sticky-sessions, lazy: false, filter: '(?=.*(广新|新加坡|SG|坡|狮城|🇸🇬|Singapore|广韩|韩国|韓國|KR|首尔|春川|🇰🇷|Korea)).*$' }
+  - { name: 香港-智选, type: smart, include-all: true, uselightgbm: true, collectdata: false, interval: 333, url: https://www.google-analytics.com/generate_204, expected-status: 204, timeout: 2000, max-failed-times: 3, strategy: sticky-sessions, lazy: false, filter: '(?=.*(广港|香港|HK|Hong Kong|🇭🇰|HongKong)).*$' }
+  - { name: 台湾-智选, type: smart, include-all: true, uselightgbm: true, collectdata: false, interval: 333, url: https://www.google-analytics.com/generate_204, expected-status: 204, timeout: 2000, max-failed-times: 3, strategy: sticky-sessions, lazy: false, filter: '(?=.*(广台|台湾|台灣|TW|Tai Wan|🇹🇼|🇨🇳|TaiWan|Taiwan)).*$' }
+  - { name: 美国-智选, type: smart, include-all: true, uselightgbm: true, collectdata: false, interval: 333, url: https://www.google-analytics.com/generate_204, expected-status: 204, timeout: 2000, max-failed-times: 3, strategy: sticky-sessions, lazy: false, filter: '(?=.*(广美|美|US|纽约|波特兰|达拉斯|俄勒|凤凰城|费利蒙|拉斯|洛杉|圣何塞|圣克拉|西雅|芝加|🇺🇸|United States)).*$' }
+  - { name: 日本-智选, type: smart, include-all: true, uselightgbm: true, collectdata: false, interval: 333, url: https://www.google-analytics.com/generate_204, expected-status: 204, timeout: 2000, max-failed-times: 3, strategy: sticky-sessions, lazy: false, filter: '(?=.*(广日|日本|JP|川日|东京|大阪|泉日|埼玉|沪日|深日|🇯🇵|Japan)).*$' }
+  - { name: 新韩-智选, type: smart, include-all: true, uselightgbm: true, collectdata: false, interval: 333, url: https://www.google-analytics.com/generate_204, expected-status: 204, timeout: 2000, max-failed-times: 3, strategy: sticky-sessions, lazy: false, filter: '(?=.*(广新|新加坡|SG|坡|狮城|🇸🇬|Singapore|广韩|韩国|韓國|KR|首尔|春川|🇰🇷|Korea)).*$' }
 
   - { name: 香港-自动, type: url-test, url: https://www.google-analytics.com/generate_204, include-all: true, expected-status: 204, interval: 512, timeout: 2000, max-failed-times: 3, tolerance: 88, lazy: false, filter: "(?=.*(广港|香港|HK|Hong Kong|🇭🇰|HongKong)).*$" }
   - { name: 台湾-自动, type: url-test, url: https://www.google-analytics.com/generate_204, include-all: true, expected-status: 204, interval: 512, timeout: 2000, max-failed-times: 3, tolerance: 88, lazy: false, filter: "(?=.*(广台|台湾|台灣|TW|Tai Wan|🇹🇼|🇨🇳|TaiWan|Taiwan)).*$" }
@@ -381,16 +240,16 @@ proxy-groups:
   - { name: 日本-自动, type: url-test, url: https://www.google-analytics.com/generate_204, include-all: true, expected-status: 204, interval: 512, timeout: 2000, max-failed-times: 3, tolerance: 88, lazy: false, filter: "(?=.*(广日|日本|JP|川日|东京|大阪|泉日|埼玉|沪日|深日|🇯🇵|Japan)).*$" }
   - { name: 新韩-自动, type: url-test, url: https://www.google-analytics.com/generate_204, include-all: true, expected-status: 204, interval: 512, timeout: 2000, max-failed-times: 3, tolerance: 88, lazy: false, filter: "(?=.*(广新|新加坡|SG|坡|狮城|🇸🇬|Singapore|广韩|韩国|韓國|KR|首尔|春川|🇰🇷|Korea)).*$" }
 
-  - { name: 所有-自动, type: url-test, url: https://www.google-analytics.com/generate_204, include-all: true, expected-status: 204, interval: 512, timeout: 2000, max-failed-times: 3, tolerance: 88, lazy: false, filter: "(?=.*(广日|日本|JP|川日|东京|大阪|泉日|埼玉|沪日|深日|🇯🇵|Japan|广新|新加坡|SG|坡|狮城|🇸🇬|Singapore|广台|台湾|台灣|TW|Tai Wan|🇹🇼|🇨🇳|TaiWan|Taiwan))(?=.*(SV|牛逼|猫2云|YBT|红杏)).*$" }
+  - { name: 所有-自动, type: url-test, url: https://www.google-analytics.com/generate_204, include-all: true, expected-status: 204, interval: 512, timeout: 2000, max-failed-times: 3, tolerance: 88, lazy: false, filter: "(?=.*(广日|日本|JP|川日|东京|大阪|泉日|埼玉|沪日|深日|🇯🇵|Japan|广新|新加坡|SG|坡|狮城|🇸🇬|Singapore|广台|台湾|台灣|TW|Tai Wan|🇹🇼|🇨🇳|TaiWan|Taiwan))(?=.*(SV|牛逼|猫2云|红杏)).*$" }
   - { name: 其他-自动, type: url-test, url: https://www.google-analytics.com/generate_204, include-all: true, expected-status: 204, interval: 512, timeout: 2000, max-failed-times: 3, tolerance: 88, lazy: false, filter: "^((?!(直连|拒绝|剩余|官网|订阅|免费|异常|流量|广港|香港|深港|HK|Hong Kong|🇭🇰|HongKong|广台|台湾|台灣|TW|Tai Wan|🇹🇼|🇨🇳|TaiWan|Taiwan|广日|日本|JP|川日|东京|大阪|泉日|埼玉|沪日|深日|🇯🇵|Japan|广新|新加坡|SG|坡|狮城|🇸🇬|Singapore|广韩|韩国|韓國|KR|首尔|春川|🇰🇷|Korea|广美|美|US|纽约|波特兰|达拉斯|俄勒|凤凰城|费利蒙|拉斯|洛杉|圣何塞|圣克拉|西雅|芝加|🇺🇸|United States|🇬🇧)).)*$" }
 
 # ========================
 # 规则锚点（统一命名）
 # ========================
 rule-anchor:
-  ip: &ip { type: http, interval: 172800, behavior: ipcidr, format: mrs }
-  domain: &domain { type: http, interval: 172800, behavior: domain, format: mrs }
-  classical: &classical { type: http, interval: 172800, behavior: classical, format: text }
+  ip: &ip { type: http, interval: 86400, behavior: ipcidr, format: mrs }
+  domain: &domain { type: http, interval: 86400, behavior: domain, format: mrs }
+  classical: &classical { type: http, interval: 86400, behavior: classical, format: text }
 
 # ========================
 # 规则提供者（命名规范化）
