@@ -73,111 +73,13 @@ proxies:
   - { name: 直连, type: direct }
   - { name: 拒绝, type: reject }
 
-port: 7890
-socks-port: 7891
-redir-port: 7892
-mixed-port: 7893
-tproxy-port: 7894
-allow-lan: true
-bind-address: "*"
-ipv6: true
-unified-delay: true
-tcp-concurrent: true
-log-level: info
-find-process-mode: 'off'
-interface-name: eth0
-global-client-fingerprint: random
-keep-alive-idle: 600
-keep-alive-interval: 1800
-disable-keep-alive: false
-profile:
-  store-selected: true
-  store-fake-ip: true
 
-# 自动同步时间以防止时间不准导致无法正常联网
 ntp:
   enable: true
-  # 是否同步至系统时间，需要 root/管理员权限
   write-to-system: false
   server: time.apple.com
   port: 123
   interval: 30
-
-external-controller: 0.0.0.0:9090
-secret: "127853"
-external-ui: "/etc/nikki/run"
-external-ui-name: zashboard
-external-ui-url: "https://github.com/Zephyruso/zashboard/archive/refs/heads/gh-pages.zip"
-
-# enable model auto update, the default is false
-lgbm-auto-update: true
-# model auto update interval, the default is 72 (hours)
-lgbm-update-interval: 168
-# model update url
-lgbm-url: "https://github.com/vernesong/mihomo/releases/download/LightGBM-Model/Model.bin"
-
-geodata-mode: true
-geodata-loader: standard
-geox-url:
-  mmdb: https://testingcf.jsdelivr.net/gh/alecthw/mmdb_china_ip_list@release/lite/Country.mmdb
-  geoip: https://testingcf.jsdelivr.net/gh/Loyalsoldier/v2ray-rules-dat@release/geoip.dat
-  geosite: https://testingcf.jsdelivr.net/gh/Loyalsoldier/v2ray-rules-dat@release/geosite.dat
-  asn: https://testingcf.jsdelivr.net/gh/xishang0128/geoip@release/GeoLite2-ASN.mmdb
-
-
-# 嗅探
-sniffer:
-  enable: true
-  sniff:
-    HTTP:
-      ports: [ 80, 8080-8880 ]
-      override-destination: true
-    TLS:
-      ports: [ 443, 8443 ]
-    QUIC:
-      ports: [ 443, 8443 ]
-  skip-domain:
-    - "+.apple.com"
-    - Mijia Cloud
-    - dlg.io.mi.com
-    - "+.oray.com"
-    - "+.sunlogin.net"
-    - "+.push.apple.com"
-  parse-pure-ip: true
-
-dns:
-  enable: true
-  listen: 0.0.0.0:1053
-  ipv6: true
-  respect-rules: true
-  enhanced-mode: redir-host
-
-  # 上游解析 —— 先走 DoH，减少污染；备份再走公共 DoH
-  nameserver:
-    - https://doh.pub/dns-query
-    - https://dns.alidns.com/dns-query
-    - https://dns.google/dns-query
-  fallback:
-    - https://cloudflare-dns.com/dns-query
-    - https://1.1.1.1/dns-query
-    - https://8.8.8.8/dns-query
-
-  # 仅代理服务器自身的解析可继续使用你原本的 proxy-server-nameserver（已配）
-  proxy-server-nameserver:
-    - https://doh.pub/dns-query
-    - https://dns.alidns.com/dns-query
-    - https://dns.google/dns-query
-
-tun:
-  enable: true
-  stack: system
-  dns-hijack:
-    - any:53
-    - tcp://any:53
-  auto-route: true
-  auto-redirect: true
-  auto-detect-interface: true
-  udp-timeout: 3600
 
 default: &default
   type: select
