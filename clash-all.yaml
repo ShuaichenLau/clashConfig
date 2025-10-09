@@ -96,6 +96,8 @@ default: &default
     - 新韩-自动
     - 日本-自动
     - 所有-自动
+    - 肥猫-自动
+    - 红杏-自动
     - 其他-自动
 
 proxy-groups:
@@ -148,7 +150,9 @@ proxy-groups:
   - { name: 日本-故转, type: fallback, url: https://www.google-analytics.com/generate_204, include-all: true, expected-status: 204, interval: 350, timeout: 2000, max-failed-times: 3, lazy: false, filter: "(?=.*(广日|日本|JP|川日|东京|大阪|泉日|埼玉|沪日|深日|🇯🇵|Japan)).*$" }
   - { name: 新韩-故转, type: fallback, url: https://www.google-analytics.com/generate_204, include-all: true, expected-status: 204, interval: 350, timeout: 2000, max-failed-times: 3, lazy: false, filter: "(?=.*(广新|新加坡|SG|坡|狮城|🇸🇬|Singapore|广韩|韩国|韓國|KR|首尔|春川|🇰🇷|Korea)).*$" }
 
-  - { name: 所有-自动, type: url-test, url: https://www.google-analytics.com/generate_204, include-all: true, expected-status: 204, interval: 512, timeout: 2000, max-failed-times: 3, tolerance: 88, lazy: false, filter: "(?=.*(广日|日本|JP|川日|东京|大阪|泉日|埼玉|沪日|深日|🇯🇵|Japan|广新|新加坡|SG|坡|狮城|🇸🇬|Singapore|广台|台湾|台灣|TW|Tai Wan|🇹🇼|🇨🇳|TaiWan|Taiwan))(?=.*(SV|牛逼|猫2云|YBT|肥猫云|红杏)).*$" }
+  - { name: 所有-自动, type: url-test, url: https://www.google-analytics.com/generate_204, include-all: true, expected-status: 204, interval: 512, timeout: 2000, max-failed-times: 3, tolerance: 88, lazy: false, filter: "(?=.*(广日|日本|JP|川日|东京|大阪|泉日|埼玉|沪日|深日|🇯🇵|Japan|广新|新加坡|SG|坡|狮城|🇸🇬|Singapore|广台|台湾|台灣|TW|Tai Wan|🇹🇼|🇨🇳|TaiWan|Taiwan))(?=.*(SV|牛逼|猫2云|YBT)).*$" }
+  - { name: 肥猫-自动, type: url-test, url: https://www.google-analytics.com/generate_204, include-all: true, expected-status: 204, interval: 512, timeout: 2000, max-failed-times: 3, tolerance: 88, lazy: false, filter: "(?=.*(广日|日本|JP|川日|东京|大阪|泉日|埼玉|沪日|深日|🇯🇵|Japan|广新|新加坡|SG|坡|狮城|🇸🇬|Singapore|广台|台湾|台灣|TW|Tai Wan|🇹🇼|🇨🇳|TaiWan|Taiwan))(?=.*(肥猫云)).*$" }
+  - { name: 红杏-自动, type: url-test, url: https://www.google-analytics.com/generate_204, include-all: true, expected-status: 204, interval: 512, timeout: 2000, max-failed-times: 3, tolerance: 88, lazy: false, filter: "(?=.*(广日|日本|JP|川日|东京|大阪|泉日|埼玉|沪日|深日|🇯🇵|Japan|广新|新加坡|SG|坡|狮城|🇸🇬|Singapore|广台|台湾|台灣|TW|Tai Wan|🇹🇼|🇨🇳|TaiWan|Taiwan))(?=.*(红杏)).*$" }
   - { name: 其他-自动, type: url-test, url: https://www.google-analytics.com/generate_204, include-all: true, expected-status: 204, interval: 512, timeout: 2000, max-failed-times: 3, tolerance: 88, lazy: false, filter: "^((?!(直连|拒绝|剩余|官网|订阅|免费|异常|流量|广港|香港|深港|HK|Hong Kong|🇭🇰|HongKong|广台|台湾|台灣|TW|Tai Wan|🇹🇼|🇨🇳|TaiWan|Taiwan|广日|日本|JP|川日|东京|大阪|泉日|埼玉|沪日|深日|🇯🇵|Japan|广新|新加坡|SG|坡|狮城|🇸🇬|Singapore|广韩|韩国|韓國|KR|首尔|春川|🇰🇷|Korea|广美|美|US|纽约|波特兰|达拉斯|俄勒|凤凰城|费利蒙|拉斯|洛杉|圣何塞|圣克拉|西雅|芝加|🇺🇸|United States|🇬🇧)).)*$" }
 
 # ========================
