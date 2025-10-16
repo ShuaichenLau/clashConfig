@@ -1,1 +1,3 @@
 自定义配置
+支持openClash配置
+支持Nikki配置
