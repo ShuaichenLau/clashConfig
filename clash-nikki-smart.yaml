@@ -1,0 +1,375 @@
+# ========================
+# Clash-ALL 优化配置
+# nikki 用的  适用Niiki版本 1.24.2-r1
+# 支持smart
+# ========================
+
+# 机场节点订阅
+
+proxy-providers:
+
+  cordCloud:
+    url: http://192.168.3.6:3001/T3B9dgzBzdRbBF8Aqx7P/download/cordCloud
+    type: http
+    interval: 86400
+    override:
+      skip-cert-verify: true
+      udp: true
+    proxy: 直连
+
+  肥猫云:
+    url: http://192.168.3.6:3001/T3B9dgzBzdRbBF8Aqx7P/download/%E8%82%A5%E7%8C%AB%E4%BA%91
+    type: http
+    interval: 86400
+    override:
+      skip-cert-verify: true
+      udp: true
+    proxy: 直连
+
+  流量光:
+    url: http://192.168.3.6:3001/T3B9dgzBzdRbBF8Aqx7P/download/%E6%B5%81%E9%87%8F%E5%85%89
+    type: http
+    interval: 86400
+    override:
+      skip-cert-verify: true
+      udp: true
+    proxy: 直连
+
+  神龙:
+    url: http://192.168.3.6:3001/T3B9dgzBzdRbBF8Aqx7P/download/%E7%A5%9E%E9%BE%99
+    type: http
+    interval: 86400
+    override:
+      skip-cert-verify: true
+      udp: true
+    proxy: 直连
+
+  红杏云:
+    url: http://192.168.3.6:3001/T3B9dgzBzdRbBF8Aqx7P/download/%E7%BA%A2%E6%9D%8FME
+    type: http
+    interval: 86400
+    override:
+      skip-cert-verify: true
+      udp: true
+    proxy: 直连
+
+  硅谷云:
+    url: http://192.168.3.6:3001/T3B9dgzBzdRbBF8Aqx7P/download/%E7%A1%85%E8%B0%B7%E4%BA%91?target=ClashMeta
+    type: http
+    interval: 86400
+    override:
+      skip-cert-verify: true
+      udp: true
+    proxy: 直连
+
+  AllProxy:
+    url: http://192.168.3.6:3001/T3B9dgzBzdRbBF8Aqx7P/download/collection/AllProxy
+    type: http
+    interval: 86400
+    override:
+      skip-cert-verify: true
+      udp: true
+    proxy: 直连
+
+proxies:
+  - { name: 直连, type: direct }
+  - { name: 拒绝, type: reject }
+
+port: 7890
+socks-port: 7891
+redir-port: 7892
+mixed-port: 7893
+tproxy-port: 7894
+allow-lan: true
+bind-address: "*"
+ipv6: true
+unified-delay: true
+tcp-concurrent: true
+log-level: info
+find-process-mode: 'off'
+interface-name: eth0
+global-client-fingerprint: random
+keep-alive-idle: 600
+keep-alive-interval: 1800
+disable-keep-alive: false
+profile:
+  store-selected: true
+  store-fake-ip: true
+
+# 自动同步时间以防止时间不准导致无法正常联网
+ntp:
+  enable: true
+  # 是否同步至系统时间，需要 root/管理员权限
+  write-to-system: false
+  server: time.apple.com
+  port: 123
+  interval: 30
+
+external-controller: 0.0.0.0:9090
+secret: "127853"
+external-ui: "/etc/nikki/run"
+external-ui-name: zashboard
+external-ui-url: "https://github.com/Zephyruso/zashboard/archive/refs/heads/gh-pages.zip"
+
+# enable model auto update, the default is false
+lgbm-auto-update: true
+# model auto update interval, the default is 72 (hours)
+lgbm-update-interval: 168
+# model update url
+lgbm-url: "https://github.com/vernesong/mihomo/releases/download/LightGBM-Model/Model.bin"
+
+geodata-mode: true
+geodata-loader: standard
+geox-url:
+  mmdb: https://testingcf.jsdelivr.net/gh/alecthw/mmdb_china_ip_list@release/lite/Country.mmdb
+  geoip: https://testingcf.jsdelivr.net/gh/Loyalsoldier/v2ray-rules-dat@release/geoip.dat
+  geosite: https://testingcf.jsdelivr.net/gh/Loyalsoldier/v2ray-rules-dat@release/geosite.dat
+  asn: https://testingcf.jsdelivr.net/gh/xishang0128/geoip@release/GeoLite2-ASN.mmdb
+
+
+# 嗅探
+sniffer:
+  enable: true
+  sniff:
+    HTTP:
+      ports: [ 80, 8080-8880 ]
+      override-destination: true
+    TLS:
+      ports: [ 443, 8443 ]
+    QUIC:
+      ports: [ 443, 8443 ]
+  skip-domain:
+    - "+.apple.com"
+    - Mijia Cloud
+    - dlg.io.mi.com
+    - "+.oray.com"
+    - "+.sunlogin.net"
+    - "+.push.apple.com"
+  parse-pure-ip: true
+
+dns:
+  enable: true
+  listen: 0.0.0.0:1053
+  ipv6: true
+  respect-rules: true
+  enhanced-mode: redir-host
+
+  # 上游解析 —— 先走 DoH，减少污染；备份再走公共 DoH
+  nameserver:
+    - https://doh.pub/dns-query
+    - https://dns.alidns.com/dns-query
+    - https://dns.google/dns-query
+  fallback:
+    - https://cloudflare-dns.com/dns-query
+    - https://1.1.1.1/dns-query
+    - https://8.8.8.8/dns-query
+
+  # 仅代理服务器自身的解析可继续使用你原本的 proxy-server-nameserver（已配）
+  proxy-server-nameserver:
+    - https://doh.pub/dns-query
+    - https://dns.alidns.com/dns-query
+    - https://dns.google/dns-query
+
+tun:
+  enable: true
+  stack: system
+  dns-hijack:
+    - any:53
+    - tcp://any:53
+  auto-route: true
+  auto-redirect: true
+  auto-detect-interface: true
+  udp-timeout: 3600
+
+default: &default
+  type: select
+  proxies:
+    - 直连
+    - 香港-智能
+    - 台湾-智能
+    - 美国-智能
+    - 新韩-智能
+    - 日本-智能
+    - 香港-自动
+    - 台湾-自动
+    - 美国-自动
+    - 新韩-自动
+    - 日本-自动
+    - 所有-自动
+    - 其他-自动
+
+proxy-groups:
+  - { name: ChatGPT, <<: *default }
+  - { name: Gemini, <<: *default }
+  - { name: Claude, <<: *default }
+  - { name: Meta AI, <<: *default }
+  - { name: Perplexity, <<: *default }
+  - { name: GitHub, <<: *default }
+  - { name: Telegram, <<: *default }
+  - { name: YouTube, <<: *default }
+  - { name: Google, <<: *default }
+  - { name: EMBY, <<: *default }
+  - { name: Netflix, <<: *default }
+  - { name: Microsoft, <<: *default }
+  - { name: Apple, <<: *default }
+  - { name: Crypto, <<: *default }
+  - { name: WhatsApp, <<: *default }
+  - { name: Test, <<: *default }
+  - { name: 国外, <<: *default }
+  - { name: 其他, <<: *default }
+
+  - { name: 香港-智能, type: fallback, url: https://www.google-analytics.com/generate_204, expected-status: 204, interval: 350, timeout: 2000, max-failed-times: 3, lazy: false, proxies: [ 香港-手动, 香港-智选, 香港-自动, 香港-故转 ] }
+  - { name: 台湾-智能, type: fallback, url: https://www.google-analytics.com/generate_204, expected-status: 204, interval: 350, timeout: 2000, max-failed-times: 3, lazy: false, proxies: [ 台湾-手动, 台湾-智选, 台湾-自动, 台湾-故转 ] }
+  - { name: 美国-智能, type: fallback, url: https://www.google-analytics.com/generate_204, expected-status: 204, interval: 350, timeout: 2000, max-failed-times: 3, lazy: false, proxies: [ 美国-手动, 美国-智选, 美国-自动, 美国-故转 ] }
+  - { name: 日本-智能, type: fallback, url: https://www.google-analytics.com/generate_204, expected-status: 204, interval: 350, timeout: 2000, max-failed-times: 3, lazy: false, proxies: [ 日本-手动, 日本-智选, 日本-自动, 日本-故转 ] }
+  - { name: 新韩-智能, type: fallback, url: https://www.google-analytics.com/generate_204, expected-status: 204, interval: 350, timeout: 2000, max-failed-times: 3, lazy: false, proxies: [ 新韩-手动, 新韩-智选, 新韩-自动, 新韩-故转 ] }
+
+  - { name: 香港-手动, type: select, include-all: true, filter: "(?=.*(广港|香港|HK|Hong Kong|🇭🇰|HongKong)).*$" }
+  - { name: 台湾-手动, type: select, include-all: true, filter: "(?=.*(广台|台湾|台灣|TW|Tai Wan|🇹🇼|🇨🇳|TaiWan|Taiwan)).*$" }
+  - { name: 美国-手动, type: select, include-all: true, filter: "(?=.*(广美|美|US|纽约|波特兰|达拉斯|俄勒|凤凰城|费利蒙|拉斯|洛杉|圣何塞|圣克拉|西雅|芝加|🇺🇸|United States)).*$" }
+  - { name: 日本-手动, type: select, include-all: true, filter: "(?=.*(广日|日本|JP|川日|东京|大阪|泉日|埼玉|沪日|深日|🇯🇵|Japan)).*$" }
+  - { name: 新韩-手动, type: select, include-all: true, filter: "(?=.*(广新|新加坡|SG|坡|狮城|🇸🇬|Singapore|广韩|韩国|韓國|KR|首尔|春川|🇰🇷|Korea)).*$" }
+
+  - { name: 香港-智选, type: smart, include-all: true, uselightgbm: true, collectdata: false, interval: 333, url: https://www.google-analytics.com/generate_204, expected-status: 204, timeout: 2000, max-failed-times: 3, strategy: sticky-sessions, lazy: false, filter: '(?=.*(广港|香港|HK|Hong Kong|🇭🇰|HongKong)).*$' }
+  - { name: 台湾-智选, type: smart, include-all: true, uselightgbm: true, collectdata: false, interval: 333, url: https://www.google-analytics.com/generate_204, expected-status: 204, timeout: 2000, max-failed-times: 3, strategy: sticky-sessions, lazy: false, filter: '(?=.*(广台|台湾|台灣|TW|Tai Wan|🇹🇼|🇨🇳|TaiWan|Taiwan)).*$' }
+  - { name: 美国-智选, type: smart, include-all: true, uselightgbm: true, collectdata: false, interval: 333, url: https://www.google-analytics.com/generate_204, expected-status: 204, timeout: 2000, max-failed-times: 3, strategy: sticky-sessions, lazy: false, filter: '(?=.*(广美|美|US|纽约|波特兰|达拉斯|俄勒|凤凰城|费利蒙|拉斯|洛杉|圣何塞|圣克拉|西雅|芝加|🇺🇸|United States)).*$' }
+  - { name: 日本-智选, type: smart, include-all: true, uselightgbm: true, collectdata: false, interval: 333, url: https://www.google-analytics.com/generate_204, expected-status: 204, timeout: 2000, max-failed-times: 3, strategy: sticky-sessions, lazy: false, filter: '(?=.*(广日|日本|JP|川日|东京|大阪|泉日|埼玉|沪日|深日|🇯🇵|Japan)).*$' }
+  - { name: 新韩-智选, type: smart, include-all: true, uselightgbm: true, collectdata: false, interval: 333, url: https://www.google-analytics.com/generate_204, expected-status: 204, timeout: 2000, max-failed-times: 3, strategy: sticky-sessions, lazy: false, filter: '(?=.*(广新|新加坡|SG|坡|狮城|🇸🇬|Singapore|广韩|韩国|韓國|KR|首尔|春川|🇰🇷|Korea)).*$' }
+
+  - { name: 香港-自动, type: url-test, url: https://www.google-analytics.com/generate_204, include-all: true, expected-status: 204, interval: 512, timeout: 2000, max-failed-times: 3, tolerance: 88, lazy: false, filter: "(?=.*(广港|香港|HK|Hong Kong|🇭🇰|HongKong)).*$" }
+  - { name: 台湾-自动, type: url-test, url: https://www.google-analytics.com/generate_204, include-all: true, expected-status: 204, interval: 512, timeout: 2000, max-failed-times: 3, tolerance: 88, lazy: false, filter: "(?=.*(广台|台湾|台灣|TW|Tai Wan|🇹🇼|🇨🇳|TaiWan|Taiwan)).*$" }
+  - { name: 美国-自动, type: url-test, url: https://www.google-analytics.com/generate_204, include-all: true, expected-status: 204, interval: 512, timeout: 2000, max-failed-times: 3, tolerance: 88, lazy: false, filter: "(?=.*(广美|美|US|纽约|波特兰|达拉斯|俄勒|凤凰城|费利蒙|拉斯|洛杉|圣何塞|圣克拉|西雅|芝加|🇺🇸|United States)).*$" }
+  - { name: 日本-自动, type: url-test, url: https://www.google-analytics.com/generate_204, include-all: true, expected-status: 204, interval: 512, timeout: 2000, max-failed-times: 3, tolerance: 88, lazy: false, filter: "(?=.*(广日|日本|JP|川日|东京|大阪|泉日|埼玉|沪日|深日|🇯🇵|Japan)).*$" }
+  - { name: 新韩-自动, type: url-test, url: https://www.google-analytics.com/generate_204, include-all: true, expected-status: 204, interval: 512, timeout: 2000, max-failed-times: 3, tolerance: 88, lazy: false, filter: "(?=.*(广新|新加坡|SG|坡|狮城|🇸🇬|Singapore|广韩|韩国|韓國|KR|首尔|春川|🇰🇷|Korea)).*$" }
+
+  - { name: 香港-故转, type: fallback, url: https://www.google-analytics.com/generate_204, include-all: true, expected-status: 204, interval: 350, timeout: 2000, max-failed-times: 3, lazy: false, filter: "(?=.*(广港|香港|HK|Hong Kong|🇭🇰|HongKong)).*$" }
+  - { name: 台湾-故转, type: fallback, url: https://www.google-analytics.com/generate_204, include-all: true, expected-status: 204, interval: 350, timeout: 2000, max-failed-times: 3, lazy: false, filter: "(?=.*(广台|台湾|台灣|TW|Tai Wan|🇹🇼|🇨🇳|TaiWan|Taiwan)).*$" }
+  - { name: 美国-故转, type: fallback, url: https://www.google-analytics.com/generate_204, include-all: true, expected-status: 204, interval: 350, timeout: 2000, max-failed-times: 3, lazy: false, filter: "(?=.*(广美|美|US|纽约|波特兰|达拉斯|俄勒|凤凰城|费利蒙|拉斯|洛杉|圣何塞|圣克拉|西雅|芝加|🇺🇸|United States)).*$" }
+  - { name: 日本-故转, type: fallback, url: https://www.google-analytics.com/generate_204, include-all: true, expected-status: 204, interval: 350, timeout: 2000, max-failed-times: 3, lazy: false, filter: "(?=.*(广日|日本|JP|川日|东京|大阪|泉日|埼玉|沪日|深日|🇯🇵|Japan)).*$" }
+  - { name: 新韩-故转, type: fallback, url: https://www.google-analytics.com/generate_204, include-all: true, expected-status: 204, interval: 350, timeout: 2000, max-failed-times: 3, lazy: false, filter: "(?=.*(广新|新加坡|SG|坡|狮城|🇸🇬|Singapore|广韩|韩国|韓國|KR|首尔|春川|🇰🇷|Korea)).*$" }
+
+  - { name: 所有-自动, type: url-test, url: https://www.google-analytics.com/generate_204, include-all: true, expected-status: 204, interval: 512, timeout: 2000, max-failed-times: 3, tolerance: 88, lazy: false, filter: "(?=.*(广日|日本|JP|川日|东京|大阪|泉日|埼玉|沪日|深日|🇯🇵|Japan|广新|新加坡|SG|坡|狮城|🇸🇬|Singapore|广台|台湾|台灣|TW|Tai Wan|🇹🇼|🇨🇳|TaiWan|Taiwan))(?=.*(SV|牛逼|猫2云|YBT|肥猫云|红杏)).*$" }
+  - { name: 其他-自动, type: url-test, url: https://www.google-analytics.com/generate_204, include-all: true, expected-status: 204, interval: 512, timeout: 2000, max-failed-times: 3, tolerance: 88, lazy: false, filter: "^((?!(直连|拒绝|剩余|官网|订阅|免费|异常|流量|广港|香港|深港|HK|Hong Kong|🇭🇰|HongKong|广台|台湾|台灣|TW|Tai Wan|🇹🇼|🇨🇳|TaiWan|Taiwan|广日|日本|JP|川日|东京|大阪|泉日|埼玉|沪日|深日|🇯🇵|Japan|广新|新加坡|SG|坡|狮城|🇸🇬|Singapore|广韩|韩国|韓國|KR|首尔|春川|🇰🇷|Korea|广美|美|US|纽约|波特兰|达拉斯|俄勒|凤凰城|费利蒙|拉斯|洛杉|圣何塞|圣克拉|西雅|芝加|🇺🇸|United States|🇬🇧)).)*$" }
+
+# ========================
+# 规则锚点（统一命名）
+# ========================
+rule-anchor:
+  ip: &ip { type: http, interval: 86400, behavior: ipcidr, format: mrs }
+  domain: &domain { type: http, interval: 86400, behavior: domain, format: mrs }
+  classical: &classical { type: http, interval: 86400, behavior: classical, format: text }
+
+# ========================
+# 规则提供者（命名规范化）
+# ========================
+rule-providers:
+  EMBY_Classical_Custom: { <<: *classical, url: "https://raw.githubusercontent.com/ShuaichenLau/clashConfig/refs/heads/main/EmbyCustom.list" }
+  EMBY_Classical_BlackMatrix: { <<: *classical, url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/Emby/Emby.list" }
+  EMBY_IP: { <<: *ip, url: "https://raw.githubusercontent.com/Lanlan13-14/Rules/refs/heads/main/rules/IP/emby-ip.mrs" }
+  Google_Domain: { <<: *domain, url: "https://raw.githubusercontent.com/ShuaichenLau/meta-rules-dat/meta/geo/geosite/google.mrs" }
+  Google_Gemini_Domain: { <<: *domain, url: "https://raw.githubusercontent.com/ShuaichenLau/meta-rules-dat/meta/geo/geosite/google-gemini.mrs" }
+  Google_IP: { <<: *ip, url: "https://raw.githubusercontent.com/ShuaichenLau/meta-rules-dat/meta/geo/geoip/google.mrs" }
+  MetaAI_domain: { <<: *domain, url: "https://raw.githubusercontent.com/ShuaichenLau/meta-rules-dat/refs/heads/meta/geo/geosite/meta.mrs" }
+  x_domain: { <<: *domain, url: "https://raw.githubusercontent.com/ShuaichenLau/meta-rules-dat/refs/heads/meta/geo/geosite/x.mrs" }
+  Facebook_IP: { <<: *ip, url: "https://raw.githubusercontent.com/ShuaichenLau/meta-rules-dat/refs/heads/meta/geo/geoip/facebook.mrs" }
+  Facebook_Domain: { <<: *domain, url: "https://raw.githubusercontent.com/ShuaichenLau/meta-rules-dat/refs/heads/meta/geo/geosite/facebook.mrs" }
+  ChatGPT_Domain: { <<: *domain, url: "https://raw.githubusercontent.com/ShuaichenLau/meta-rules-dat/refs/heads/meta/geo/geosite/openai.mrs" }
+  Claude_Classical: { <<: *classical, url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/Claude/Claude.list" }
+  Perplexity_Domain: { <<: *domain, url: "https://raw.githubusercontent.com/ShuaichenLau/meta-rules-dat/refs/heads/meta/geo/geosite/perplexity.mrs" }
+  GitHub_Domain: { <<: *domain, url: "https://raw.githubusercontent.com/ShuaichenLau/meta-rules-dat/meta/geo/geosite/github.mrs" }
+  Telegram_Domain: { <<: *domain, url: "https://raw.githubusercontent.com/ShuaichenLau/meta-rules-dat/meta/geo/geosite/telegram.mrs" }
+  Telegram_IP: { <<: *ip, url: "https://raw.githubusercontent.com/ShuaichenLau/meta-rules-dat/meta/geo/geoip/telegram.mrs" }
+  Microsoft_Domain: { <<: *domain, url: "https://raw.githubusercontent.com/ShuaichenLau/meta-rules-dat/meta/geo/geosite/microsoft.mrs" }
+  YouTube_Domain: { <<: *domain, url: "https://raw.githubusercontent.com/ShuaichenLau/meta-rules-dat/meta/geo/geosite/youtube.mrs" }
+  Netflix_Domain: { <<: *domain, url: "https://raw.githubusercontent.com/ShuaichenLau/meta-rules-dat/meta/geo/geosite/netflix.mrs" }
+  Netflix_IP: { <<: *ip, url: "https://raw.githubusercontent.com/ShuaichenLau/meta-rules-dat/meta/geo/geoip/netflix.mrs" }
+  Disney_Domain: { <<: *domain, url: "https://raw.githubusercontent.com/ShuaichenLau/meta-rules-dat/meta/geo/geosite/disney.mrs" }
+  HBO_Domain: { <<: *domain, url: "https://raw.githubusercontent.com/ShuaichenLau/meta-rules-dat/meta/geo/geosite/hbo.mrs" }
+  PrimeVideo_Domain: { <<: *domain, url: "https://raw.githubusercontent.com/ShuaichenLau/meta-rules-dat/refs/heads/meta/geo/geosite/primevideo.mrs" }
+  Speedtest_Ookla_Domain: { <<: *domain, url: "https://raw.githubusercontent.com/ShuaichenLau/meta-rules-dat/meta/geo/geosite/ookla-speedtest.mrs" }
+  Speedtest_Domain: { <<: *domain, url: "https://raw.githubusercontent.com/ShuaichenLau/meta-rules-dat/refs/heads/meta/geo/geosite/speedtest.mrs" }
+  Speedtest_Category_Domain: { <<: *domain, url: "https://raw.githubusercontent.com/ShuaichenLau/meta-rules-dat/refs/heads/meta/geo/geosite/category-speedtest.mrs" }
+  Cloudflare_Domain: { <<: *domain, url: "https://raw.githubusercontent.com/ShuaichenLau/meta-rules-dat/refs/heads/meta/geo/geosite/cloudflare.mrs" }
+  Check_Classical: { <<: *classical, url: "https://raw.githubusercontent.com/ShuaichenLau/clashConfig/refs/heads/main/Check.list" }
+  OKX_Domain: { <<: *domain, url: "https://gh-proxy.com/github.com/ShuaichenLau/meta-rules-dat/raw/refs/heads/meta/geo/geosite/okx.mrs" }
+  Bybit_Domain: { <<: *domain, url: "https://gh-proxy.com/github.com/ShuaichenLau/meta-rules-dat/raw/refs/heads/meta/geo/geosite/bybit.mrs" }
+  Binance_Domain: { <<: *domain, url: "https://gh-proxy.com/github.com/ShuaichenLau/meta-rules-dat/raw/refs/heads/meta/geo/geosite/binance.mrs" }
+  WhatsApp_Domain: { <<: *classical, url: "https://gh-proxy.com/raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/Whatsapp/Whatsapp.list" }
+  Jetbrains_Domain: { <<: *domain, url: "https://raw.githubusercontent.com/ShuaichenLau/meta-rules-dat/refs/heads/meta/geo/geosite/jetbrains.mrs" }
+  debian_Domain: { <<: *domain, url: "https://raw.githubusercontent.com/ShuaichenLau/meta-rules-dat/meta/geo/geosite/debian.mrs" }
+  gfw_domain: { <<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/gfw.mrs" }
+  geolocation-!cn: { <<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/geolocation-!cn.mrs" }
+  Direct_Classical: { <<: *classical, url: "https://raw.githubusercontent.com/ShuaichenLau/clashConfig/refs/heads/main/Direct.list" }
+  Private_Domain: { <<: *domain, url: "https://raw.githubusercontent.com/ShuaichenLau/meta-rules-dat/meta/geo/geosite/private.mrs" }
+  Private_IP: { <<: *ip, url: "https://raw.githubusercontent.com/ShuaichenLau/meta-rules-dat/refs/heads/meta/geo/geoip/private.mrs" }
+  Tencent_Domain: { <<: *domain, url: "https://raw.githubusercontent.com/ShuaichenLau/meta-rules-dat/refs/heads/meta/geo/geosite/tencent.mrs" }
+  BankCN_Domain: { <<: *domain, url: "https://raw.githubusercontent.com/ShuaichenLau/meta-rules-dat/refs/heads/meta/geo/geosite/category-bank-cn.mrs" }
+  AppleCN_Domain: { <<: *domain, url: "https://raw.githubusercontent.com/ShuaichenLau/meta-rules-dat/meta/geo/geosite/apple-cn.mrs" }
+  Apple_Domain: { <<: *domain, url: "https://raw.githubusercontent.com/ShuaichenLau/meta-rules-dat/meta/geo/geosite/apple.mrs" }
+  Amap_Domain: { <<: *domain, url: "https://raw.githubusercontent.com/ShuaichenLau/meta-rules-dat/meta/geo/geosite/amap.mrs" }
+  Ali_Domain: { <<: *domain, url: "https://raw.githubusercontent.com/ShuaichenLau/meta-rules-dat/meta/geo/geosite/aliyun.mrs" }
+  JD_Domain: { <<: *domain, url: "https://raw.githubusercontent.com/ShuaichenLau/meta-rules-dat/refs/heads/meta/geo/geosite/jd.mrs" }
+  xiaomi_Domain: { <<: *domain, url: "https://raw.githubusercontent.com/ShuaichenLau/meta-rules-dat/meta/geo/geosite/xiaomi.mrs" }
+  huawei_Domain: { <<: *domain, url: "https://raw.githubusercontent.com/ShuaichenLau/meta-rules-dat/meta/geo/geosite/huawei.mrs" }
+  alibaba_Domain: { <<: *domain, url: "https://raw.githubusercontent.com/ShuaichenLau/meta-rules-dat/refs/heads/meta/geo/geosite/alibaba.mrs" }
+  baidu_Domain: { <<: *domain, url: "https://raw.githubusercontent.com/ShuaichenLau/meta-rules-dat/refs/heads/meta/geo/geosite/baidu.mrs" }
+  China_Domain: { <<: *domain, url: "https://raw.githubusercontent.com/ShuaichenLau/meta-rules-dat/meta/geo/geosite/cn.mrs" }
+  China_IP: { <<: *ip, url: "https://raw.githubusercontent.com/ShuaichenLau/meta-rules-dat/refs/heads/meta/geo/geoip/cn.mrs" }
+
+# ========================
+# 规则列表（同步命名）
+# ========================
+rules:
+  - RULE-SET,Private_IP,直连,no-resolve
+  - RULE-SET,Private_Domain,直连
+  - RULE-SET,Direct_Classical,直连
+  - RULE-SET,BankCN_Domain,直连
+  - RULE-SET,AppleCN_Domain,直连
+  - RULE-SET,Apple_Domain,Apple
+  - RULE-SET,ChatGPT_Domain,ChatGPT
+  - RULE-SET,Google_Gemini_Domain,Gemini
+  - RULE-SET,Claude_Classical,Claude
+  - RULE-SET,MetaAI_domain,Meta AI
+  - RULE-SET,x_domain,Meta AI
+  - RULE-SET,Facebook_IP,Meta AI,no-resolve
+  - RULE-SET,Facebook_Domain,Meta AI
+  - RULE-SET,Perplexity_Domain,Perplexity
+  - RULE-SET,YouTube_Domain,YouTube
+  - RULE-SET,Google_Domain,Google
+  - RULE-SET,Google_IP,Google,no-resolve
+  - RULE-SET,GitHub_Domain,GitHub
+  - RULE-SET,Telegram_Domain,Telegram
+  - RULE-SET,Telegram_IP,Telegram,no-resolve
+  - RULE-SET,Microsoft_Domain,Microsoft
+  - RULE-SET,EMBY_Classical_Custom,EMBY
+  - RULE-SET,EMBY_Classical_BlackMatrix,EMBY
+  - RULE-SET,EMBY_IP,EMBY,no-resolve
+  - RULE-SET,Netflix_Domain,Netflix
+  - RULE-SET,Netflix_IP,Netflix,no-resolve
+  - RULE-SET,Disney_Domain,Netflix
+  - RULE-SET,HBO_Domain,Netflix
+  - RULE-SET,PrimeVideo_Domain,Netflix
+  - RULE-SET,OKX_Domain,Crypto
+  - RULE-SET,Bybit_Domain,Crypto
+  - RULE-SET,Binance_Domain,Crypto
+  - RULE-SET,WhatsApp_Domain,WhatsApp
+  - RULE-SET,Check_Classical,Test
+  - RULE-SET,Speedtest_Ookla_Domain,Test
+  - RULE-SET,Speedtest_Domain,Test
+  - RULE-SET,Speedtest_Category_Domain,Test
+  - RULE-SET,Jetbrains_Domain,国外
+  - RULE-SET,Cloudflare_Domain,国外
+  - RULE-SET,debian_Domain,国外
+  - RULE-SET,gfw_domain,国外
+  - RULE-SET,geolocation-!cn,国外
+  - RULE-SET,Tencent_Domain,直连
+  - RULE-SET,Amap_Domain,直连
+  - RULE-SET,Ali_Domain,直连
+  - RULE-SET,xiaomi_Domain,直连
+  - RULE-SET,huawei_Domain,直连
+  - RULE-SET,JD_Domain,直连
+  - RULE-SET,alibaba_Domain,直连
+  - RULE-SET,baidu_Domain,直连
+  - RULE-SET,China_IP,直连,no-resolve
+  - RULE-SET,China_Domain,直连
+  - MATCH,其他
