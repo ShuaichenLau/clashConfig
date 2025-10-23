@@ -104,6 +104,7 @@ default: &default
     - 新韩-自动
     - 日本-自动
     - 其他-自动
+    - 其他-智选
 
 proxy-groups:
   - { name: ChatGPT, <<: *default }
@@ -157,7 +158,8 @@ proxy-groups:
   - { name: 日本-故转, type: fallback, url: https://www.google-analytics.com/generate_204, include-all: true, expected-status: 204, interval: 364, timeout: 2000, max-failed-times: 3, lazy: false, filter: "(?=.*(广日|日本|JP|川日|东京|大阪|泉日|埼玉|沪日|深日|🇯🇵|Japan)).*$" }
   - { name: 新韩-故转, type: fallback, url: https://www.google-analytics.com/generate_204, include-all: true, expected-status: 204, interval: 365, timeout: 2000, max-failed-times: 3, lazy: false, filter: "(?=.*(广新|新加坡|SG|坡|狮城|🇸🇬|Singapore|广韩|韩国|韓國|KR|首尔|春川|🇰🇷|Korea)).*$" }
 
-  - { name: 其他-自动, type: url-test, url: https://www.google-analytics.com/generate_204, include-all: true, expected-status: 204, interval: 525, timeout: 2000, max-failed-times: 3, tolerance: 66, lazy: false, filter: "^((?!(直连|拒绝|剩余|官网|订阅|免费|异常|流量|广港|香港|深港|HK|Hong Kong|🇭🇰|HongKong|广台|台湾|台灣|TW|Tai Wan|🇹🇼|🇨🇳|TaiWan|Taiwan|广日|日本|JP|川日|东京|大阪|泉日|埼玉|沪日|深日|🇯🇵|Japan|广新|新加坡|SG|坡|狮城|🇸🇬|Singapore|广韩|韩国|韓國|KR|首尔|春川|🇰🇷|Korea|广美|美|US|纽约|波特兰|达拉斯|俄勒|凤凰城|费利蒙|拉斯|洛杉|圣何塞|圣克拉|西雅|芝加|🇺🇸|United States|🇬🇧)).)*$" }
+  - { name: 其他-自动, type: url-test, url: https://www.google-analytics.com/generate_204, include-all: true, expected-status: 204, interval: 500, timeout: 2000, max-failed-times: 3, tolerance: 66, lazy: false, filter: "(?i)^((?!(广港|深港|香港|HK|Hong Kong|🇭🇰|广台|台湾|台灣|TW|Taiwan|🇹🇼|广日|日本|JP|Japan|🇯🇵|广新|新加坡|SG|Singapore|🇸🇬|广韩|韩国|韓國|KR|Korea|🇰🇷|广美|美国|美|US|United States|🇺🇸|免费|异常|剩余|官网|订阅|流量|测试|失效|过期|限速|套餐|续费|公告|提示|支持|机场|限免|不可用)).)*$" }
+  - { name: 其他-智选, type: smart, include-all: true, uselightgbm: true, collectdata: false, interval: 336, url: https://www.google-analytics.com/generate_204, expected-status: 204, timeout: 2000, max-failed-times: 3, strategy: sticky-sessions, lazy: false, filter: "(?i)^((?!(广港|深港|香港|HK|Hong Kong|🇭🇰|广台|台湾|台灣|TW|Taiwan|🇹🇼|广日|日本|JP|Japan|🇯🇵|广新|新加坡|SG|Singapore|🇸🇬|广韩|韩国|韓國|KR|Korea|🇰🇷|广美|美国|美|US|United States|🇺🇸|免费|异常|剩余|官网|订阅|流量|测试|失效|过期|限速|套餐|续费|公告|提示|支持|机场|限免|不可用)).)*$" }
 
 # ========================
 # 规则锚点（统一命名）
