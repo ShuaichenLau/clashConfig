@@ -8,6 +8,24 @@
 
 proxy-providers:
 
+  nbCloud:
+    url: http://192.168.3.6:3001/T3B9dgzBzdRbBF8Aqx7P/download/NB
+    type: http
+    interval: 88888
+    override:
+      skip-cert-verify: true
+      udp: true
+    proxy: 直连
+
+  猫2云:
+    url: http://192.168.3.6:3001/T3B9dgzBzdRbBF8Aqx7P/download/%E7%8C%AB2%E4%BA%91
+    type: http
+    interval: 88888
+    override:
+      skip-cert-verify: true
+      udp: true
+    proxy: 直连
+
   cordCloud:
     url: http://192.168.3.6:3001/T3B9dgzBzdRbBF8Aqx7P/download/cordCloud
     type: http
