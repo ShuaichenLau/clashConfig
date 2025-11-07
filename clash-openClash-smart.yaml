@@ -11,7 +11,7 @@ proxy-providers:
   nbCloud:
     url: http://192.168.3.6:3001/T3B9dgzBzdRbBF8Aqx7P/download/NB
     type: http
-    interval: 88888
+    interval: 86400
     override:
       skip-cert-verify: true
       udp: true
@@ -20,7 +20,7 @@ proxy-providers:
   猫2云:
     url: http://192.168.3.6:3001/T3B9dgzBzdRbBF8Aqx7P/download/%E7%8C%AB2%E4%BA%91
     type: http
-    interval: 88888
+    interval: 86400
     override:
       skip-cert-verify: true
       udp: true
@@ -29,7 +29,7 @@ proxy-providers:
   cordCloud:
     url: http://192.168.3.6:3001/T3B9dgzBzdRbBF8Aqx7P/download/cordCloud
     type: http
-    interval: 88888
+    interval: 86400
     override:
       skip-cert-verify: true
       udp: true
@@ -38,7 +38,7 @@ proxy-providers:
   肥猫云:
     url: http://192.168.3.6:3001/T3B9dgzBzdRbBF8Aqx7P/download/%E8%82%A5%E7%8C%AB%E4%BA%91
     type: http
-    interval: 88888
+    interval: 86400
     override:
       skip-cert-verify: true
       udp: true
@@ -47,7 +47,7 @@ proxy-providers:
   流量光:
     url: http://192.168.3.6:3001/T3B9dgzBzdRbBF8Aqx7P/download/%E6%B5%81%E9%87%8F%E5%85%89
     type: http
-    interval: 88888
+    interval: 86400
     override:
       skip-cert-verify: true
       udp: true
@@ -56,7 +56,7 @@ proxy-providers:
   神龙:
     url: http://192.168.3.6:3001/T3B9dgzBzdRbBF8Aqx7P/download/%E7%A5%9E%E9%BE%99
     type: http
-    interval: 88888
+    interval: 86400
     override:
       skip-cert-verify: true
       udp: true
@@ -65,7 +65,7 @@ proxy-providers:
   红杏云:
     url: http://192.168.3.6:3001/T3B9dgzBzdRbBF8Aqx7P/download/%E7%BA%A2%E6%9D%8FME
     type: http
-    interval: 88888
+    interval: 86400
     override:
       skip-cert-verify: true
       udp: true
@@ -74,7 +74,7 @@ proxy-providers:
   硅谷云:
     url: http://192.168.3.6:3001/T3B9dgzBzdRbBF8Aqx7P/download/%E7%A1%85%E8%B0%B7%E4%BA%91?target=ClashMeta
     type: http
-    interval: 88888
+    interval: 86400
     override:
       skip-cert-verify: true
       udp: true
@@ -83,7 +83,7 @@ proxy-providers:
   AllProxy:
     url: http://192.168.3.6:3001/T3B9dgzBzdRbBF8Aqx7P/download/collection/AllProxy
     type: http
-    interval: 88888
+    interval: 86400
     override:
       skip-cert-verify: true
       udp: true
@@ -183,9 +183,9 @@ proxy-groups:
 # 规则锚点（统一命名）
 # ========================
 rule-anchor:
-  ip: &ip { type: http, interval: 88888, behavior: ipcidr, format: mrs }
-  domain: &domain { type: http, interval: 88888, behavior: domain, format: mrs }
-  classical: &classical { type: http, interval: 88888, behavior: classical, format: text }
+  ip: &ip { type: http, interval: 86400, behavior: ipcidr, format: mrs }
+  domain: &domain { type: http, interval: 86400, behavior: domain, format: mrs }
+  classical: &classical { type: http, interval: 86400, behavior: classical, format: text }
 
 # ========================
 # 规则提供者（命名规范化）
