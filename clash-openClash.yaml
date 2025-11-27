@@ -11,7 +11,7 @@ proxy-providers:
   nbCloud:
     url: http://192.168.3.6:3001/T3B9dgzBzdRbBF8Aqx7P/download/NB
     type: http
-    interval: 86400
+    interval: 86666
     override:
       skip-cert-verify: true
       udp: true
@@ -20,7 +20,7 @@ proxy-providers:
   猫2云:
     url: http://192.168.3.6:3001/T3B9dgzBzdRbBF8Aqx7P/download/%E7%8C%AB2%E4%BA%91
     type: http
-    interval: 86400
+    interval: 86666
     override:
       skip-cert-verify: true
       udp: true
@@ -29,7 +29,7 @@ proxy-providers:
   cordCloud:
     url: http://192.168.3.6:3001/T3B9dgzBzdRbBF8Aqx7P/download/cordCloud
     type: http
-    interval: 86400
+    interval: 86666
     override:
       skip-cert-verify: true
       udp: true
@@ -38,7 +38,7 @@ proxy-providers:
   肥猫云:
     url: http://192.168.3.6:3001/T3B9dgzBzdRbBF8Aqx7P/download/%E8%82%A5%E7%8C%AB%E4%BA%91
     type: http
-    interval: 86400
+    interval: 86666
     override:
       skip-cert-verify: true
       udp: true
@@ -47,7 +47,7 @@ proxy-providers:
   流量光:
     url: http://192.168.3.6:3001/T3B9dgzBzdRbBF8Aqx7P/download/%E6%B5%81%E9%87%8F%E5%85%89
     type: http
-    interval: 86400
+    interval: 86666
     override:
       skip-cert-verify: true
       udp: true
@@ -56,25 +56,25 @@ proxy-providers:
   神龙:
     url: http://192.168.3.6:3001/T3B9dgzBzdRbBF8Aqx7P/download/%E7%A5%9E%E9%BE%99
     type: http
-    interval: 86400
+    interval: 86666
     override:
       skip-cert-verify: true
       udp: true
     proxy: 直连
 
-  红杏云:
-    url: http://192.168.3.6:3001/T3B9dgzBzdRbBF8Aqx7P/download/%E7%BA%A2%E6%9D%8FME
+  山海:
+    url: http://192.168.3.6:3001/T3B9dgzBzdRbBF8Aqx7P/download/%E5%B1%B1%E6%B5%B7
     type: http
-    interval: 86400
+    interval: 86666
     override:
       skip-cert-verify: true
       udp: true
     proxy: 直连
 
-  硅谷云:
-    url: http://192.168.3.6:3001/T3B9dgzBzdRbBF8Aqx7P/download/%E7%A1%85%E8%B0%B7%E4%BA%91?target=ClashMeta
+  闪狐:
+    url: http://192.168.3.6:3001/T3B9dgzBzdRbBF8Aqx7P/download/%E9%97%AA%E7%8B%90
     type: http
-    interval: 86400
+    interval: 86666
     override:
       skip-cert-verify: true
       udp: true
@@ -83,7 +83,7 @@ proxy-providers:
   AllProxy:
     url: http://192.168.3.6:3001/T3B9dgzBzdRbBF8Aqx7P/download/collection/AllProxy
     type: http
-    interval: 86400
+    interval: 0
     override:
       skip-cert-verify: true
       udp: true
@@ -109,11 +109,11 @@ default: &default
     - 美国-智能
     - 新韩-智能
     - 日本-智能
-    - 香港-自动
-    - 台湾-自动
-    - 美国-自动
-    - 新韩-自动
-    - 日本-自动
+    - 香港-负载
+    - 台湾-负载
+    - 美国-负载
+    - 新韩-负载
+    - 日本-负载
     - 其他-自动
 
 proxy-groups:
@@ -141,6 +141,12 @@ proxy-groups:
   - { name: 美国-智能, type: fallback, url: https://www.google-analytics.com/generate_204, expected-status: 204, interval: 352, timeout: 2000, max-failed-times: 3, lazy: false, proxies: [ 美国-手动, 美国-自动, 美国-故转 ] }
   - { name: 日本-智能, type: fallback, url: https://www.google-analytics.com/generate_204, expected-status: 204, interval: 353, timeout: 2000, max-failed-times: 3, lazy: false, proxies: [ 日本-手动, 日本-自动, 日本-故转 ] }
   - { name: 新韩-智能, type: fallback, url: https://www.google-analytics.com/generate_204, expected-status: 204, interval: 354, timeout: 2000, max-failed-times: 3, lazy: false, proxies: [ 新韩-手动, 新韩-自动, 新韩-故转 ] }
+
+  - { name: 香港-负载, type: load-balance, url: https://www.google-analytics.com/generate_204, strategy: consistent-hashing, expected-status: 204, interval: 340, timeout: 2000, max-failed-times: 3, lazy: false, proxies: [ 香港-手动, 香港-自动, 香港-故转 ] }
+  - { name: 台湾-负载, type: load-balance, url: https://www.google-analytics.com/generate_204, strategy: consistent-hashing, expected-status: 204, interval: 341, timeout: 2000, max-failed-times: 3, lazy: false, proxies: [ 台湾-手动, 台湾-自动, 台湾-故转 ] }
+  - { name: 美国-负载, type: load-balance, url: https://www.google-analytics.com/generate_204, strategy: consistent-hashing, expected-status: 204, interval: 342, timeout: 2000, max-failed-times: 3, lazy: false, proxies: [ 美国-手动, 美国-自动, 美国-故转 ] }
+  - { name: 日本-负载, type: load-balance, url: https://www.google-analytics.com/generate_204, strategy: consistent-hashing, expected-status: 204, interval: 343, timeout: 2000, max-failed-times: 3, lazy: false, proxies: [ 日本-手动, 日本-自动, 日本-故转 ] }
+  - { name: 新韩-负载, type: load-balance, url: https://www.google-analytics.com/generate_204, strategy: consistent-hashing, expected-status: 204, interval: 344, timeout: 2000, max-failed-times: 3, lazy: false, proxies: [ 新韩-手动, 新韩-自动, 新韩-故转 ] }
 
   - { name: 香港-手动, type: select, include-all: true, filter: "(?=.*(广港|香港|HK|Hong Kong|🇭🇰|HongKong)).*$" }
   - { name: 台湾-手动, type: select, include-all: true, filter: "(?=.*(广台|台湾|台灣|TW|Tai Wan|🇹🇼|🇨🇳|TaiWan|Taiwan)).*$" }
@@ -231,11 +237,11 @@ rule-providers:
 # 规则列表（同步命名）
 # ========================
 rules:
-  - RULE-SET,Private_IP,直连,no-resolve
-  - RULE-SET,Private_Domain,直连
-  - RULE-SET,Direct_Classical,直连
-  - RULE-SET,BankCN_Domain,直连
-  - RULE-SET,AppleCN_Domain,直连
+  - RULE-SET,Private_IP,direct,no-resolve
+  - RULE-SET,Private_Domain,direct
+  - RULE-SET,Direct_Classical,direct
+  - RULE-SET,BankCN_Domain,direct
+  - RULE-SET,AppleCN_Domain,direct
   - RULE-SET,Apple_Domain,Apple
   - RULE-SET,ChatGPT_Domain,ChatGPT
   - RULE-SET,Google_Gemini_Domain,Gemini
@@ -273,14 +279,14 @@ rules:
   - RULE-SET,debian_Domain,国外
   - RULE-SET,gfw_domain,国外
   - RULE-SET,geolocation-!cn,国外
-  - RULE-SET,Tencent_Domain,直连
-  - RULE-SET,Amap_Domain,直连
-  - RULE-SET,Ali_Domain,直连
-  - RULE-SET,xiaomi_Domain,直连
-  - RULE-SET,huawei_Domain,直连
-  - RULE-SET,JD_Domain,直连
-  - RULE-SET,alibaba_Domain,直连
-  - RULE-SET,baidu_Domain,直连
-  - RULE-SET,China_IP,直连,no-resolve
-  - RULE-SET,China_Domain,直连
+  - RULE-SET,Tencent_Domain,direct
+  - RULE-SET,Amap_Domain,direct
+  - RULE-SET,Ali_Domain,direct
+  - RULE-SET,xiaomi_Domain,direct
+  - RULE-SET,huawei_Domain,direct
+  - RULE-SET,JD_Domain,direct
+  - RULE-SET,alibaba_Domain,direct
+  - RULE-SET,baidu_Domain,direct
+  - RULE-SET,China_IP,direct,no-resolve
+  - RULE-SET,China_Domain,direct
   - MATCH,其他
