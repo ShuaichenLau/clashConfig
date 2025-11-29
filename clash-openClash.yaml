@@ -109,11 +109,11 @@ default: &default
     - 美国-智能
     - 新韩-智能
     - 日本-智能
-    - 香港-自动
-    - 台湾-自动
-    - 美国-自动
-    - 新韩-自动
-    - 日本-自动
+    - 香港-负载
+    - 台湾-负载
+    - 美国-负载
+    - 新韩-负载
+    - 日本-负载
     - 其他-自动
 
 proxy-groups:
@@ -161,6 +161,12 @@ proxy-groups:
   - { name: 新韩-故转, type: fallback, url: https://www.google-analytics.com/generate_204, include-all: true, expected-status: 204, interval: 365, timeout: 2000, max-failed-times: 3, lazy: false, filter: "(?=.*(广新|新加坡|SG|坡|狮城|🇸🇬|Singapore|广韩|韩国|韓國|KR|首尔|春川|🇰🇷|Korea)).*$" }
 
   - { name: 其他-自动, type: url-test, url: https://www.google-analytics.com/generate_204, include-all: true, expected-status: 204, interval: 500, timeout: 2000, max-failed-times: 3, tolerance: 66, lazy: false, filter: "(?i)^((?!(拒绝|直连|广港|深港|香港|HK|Hong Kong|🇭🇰|广台|台湾|台灣|TW|Taiwan|🇹🇼|广日|日本|JP|Japan|🇯🇵|广新|新加坡|SG|Singapore|🇸🇬|广韩|韩国|韓國|KR|Korea|🇰🇷|广美|美国|美|US|United States|🇺🇸|免费|异常|剩余|官网|订阅|测试|失效|过期|限速|套餐|续费|公告|提示|支持|机场|限免|不可用)).)*$" }
+
+  - { name: 香港-负载, type: load-balance, url: https://www.google-analytics.com/generate_204, expected-status: 204, interval: 340, timeout: 2000, max-failed-times: 3, lazy: false, proxies: [ 香港-自动, 香港-故转 ] }
+  - { name: 台湾-负载, type: load-balance, url: https://www.google-analytics.com/generate_204, expected-status: 204, interval: 341, timeout: 2000, max-failed-times: 3, lazy: false, proxies: [ 台湾-自动, 台湾-故转 ] }
+  - { name: 美国-负载, type: load-balance, url: https://www.google-analytics.com/generate_204, expected-status: 204, interval: 342, timeout: 2000, max-failed-times: 3, lazy: false, proxies: [ 美国-自动, 美国-故转 ] }
+  - { name: 日本-负载, type: load-balance, url: https://www.google-analytics.com/generate_204, expected-status: 204, interval: 343, timeout: 2000, max-failed-times: 3, lazy: false, proxies: [ 日本-自动, 日本-故转 ] }
+  - { name: 新韩-负载, type: load-balance, url: https://www.google-analytics.com/generate_204, expected-status: 204, interval: 344, timeout: 2000, max-failed-times: 3, lazy: false, proxies: [ 新韩-自动, 新韩-故转 ] }
 
 # ========================
 # 规则锚点（统一命名）
