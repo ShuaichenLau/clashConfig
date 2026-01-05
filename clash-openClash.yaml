@@ -10,7 +10,7 @@ proxy-providers:
       udp: true
     health-check:
       enable: true
-      url: https://cp.cloudflare.com/generate_204
+      url: https://www.google-analytics.com/generate_204
       expected-status: 204
       interval: 300
       timeout: 1800
@@ -25,7 +25,7 @@ proxy-providers:
       udp: true
     health-check:
       enable: true
-      url: https://cp.cloudflare.com/generate_204
+      url: https://www.google-analytics.com/generate_204
       expected-status: 204
       interval: 300
       timeout: 1800
@@ -40,7 +40,7 @@ proxy-providers:
       udp: true
     health-check:
       enable: true
-      url: https://cp.cloudflare.com/generate_204
+      url: https://www.google-analytics.com/generate_204
       expected-status: 204
       interval: 300
       timeout: 1800
@@ -55,7 +55,7 @@ proxy-providers:
       udp: true
     health-check:
       enable: true
-      url: https://cp.cloudflare.com/generate_204
+      url: https://www.google-analytics.com/generate_204
       expected-status: 204
       interval: 300
       timeout: 1800
@@ -70,7 +70,7 @@ proxy-providers:
       udp: true
     health-check:
       enable: true
-      url: https://cp.cloudflare.com/generate_204
+      url: https://www.google-analytics.com/generate_204
       expected-status: 204
       interval: 300
       timeout: 1800
@@ -85,7 +85,7 @@ proxy-providers:
       udp: true
     health-check:
       enable: true
-      url: https://cp.cloudflare.com/generate_204
+      url: https://www.google-analytics.com/generate_204
       expected-status: 204
       interval: 300
       timeout: 1800
