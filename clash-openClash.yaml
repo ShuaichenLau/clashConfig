@@ -117,6 +117,7 @@ default: &default
     - 新坡-故转
     - 日韩-故转
     - 其他-故转
+    - 流量-故转
 
 proxy-groups:
   - { name: ChatGPT, <<: *default }
@@ -163,6 +164,7 @@ proxy-groups:
   - { name: 新坡-故转, type: fallback, url: https://www.google-analytics.com/generate_204, include-all: true, expected-status: 204, interval: 365, timeout: 1800, max-failed-times: 3, lazy: false, filter: "(?=.*(广新|新加坡|SG|坡|狮城|🇸🇬|Singapore)).*$" }
 
   - { name: 其他-故转, type: fallback, url: https://www.google-analytics.com/generate_204, include-all: true, expected-status: 204, interval: 365, timeout: 1800, max-failed-times: 3, lazy: false, filter: "(?i)^((?!(拒绝|直连|广港|深港|香港|HK|Hong Kong|🇭🇰|广台|台湾|台灣|TW|Taiwan|🇹🇼|广日|日本|JP|Japan|🇯🇵|广新|新加坡|SG|Singapore|🇸🇬|广韩|韩国|韓國|KR|Korea|🇰🇷|广美|美国|美|US|United States|🇺🇸|免费|异常|剩余|官网|订阅|测试|失效|过期|限速|套餐|续费|公告|提示|支持|机场|限免|不可用)).)*$"  }
+  - { name: 流量-故转, type: fallback, url: https://www.google-analytics.com/generate_204, include-all: true, expected-status: 204, interval: 365, timeout: 1800, max-failed-times: 3, lazy: false, filter: "^(?=.*(SV|牛逼|猫2云))(?!.*(直连|拒绝|剩余|官网|订阅|免费|异常|流量)).*$" }
 
 # ========================
 # 规则锚点（统一命名）
