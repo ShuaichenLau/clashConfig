@@ -134,7 +134,6 @@ proxy-groups:
   - { name: Microsoft, <<: *default }
   - { name: Apple, <<: *default }
   - { name: Crypto, <<: *default }
-  - { name: WhatsApp, <<: *default }
   - { name: Test, <<: *default }
   - { name: 国外, <<: *default }
   - { name: 其他, <<: *default }
@@ -165,6 +164,8 @@ proxy-groups:
 
   - { name: 其他-故转, type: fallback, url: https://www.google-analytics.com/generate_204, include-all: true, expected-status: 204, interval: 365, timeout: 1800, max-failed-times: 3, lazy: false, filter: "(?i)^((?!(拒绝|直连|广港|深港|香港|HK|Hong Kong|🇭🇰|广台|台湾|台灣|TW|Taiwan|🇹🇼|广日|日本|JP|Japan|🇯🇵|广新|新加坡|SG|Singapore|🇸🇬|广韩|韩国|韓國|KR|Korea|🇰🇷|广美|美国|美|US|United States|🇺🇸|免费|异常|剩余|官网|订阅|测试|失效|过期|限速|套餐|续费|公告|提示|支持|机场|限免|不可用)).)*$"  }
   - { name: 流量-故转, type: fallback, url: https://www.google-analytics.com/generate_204, include-all: true, expected-status: 204, interval: 365, timeout: 1800, max-failed-times: 3, lazy: false, filter: "^(?=.*(SV|牛逼|猫2云))(?!.*(直连|拒绝|剩余|官网|订阅|免费|异常|流量)).*$" }
+
+  - { name: 直连-自动测速, type: url-test, proxies: [直连], url: https://cp.cloudflare.com/generate_204, expected-status: 204, interval: 366, timeout: 5000, tolerance: 99, lazy: false }
 
 # ========================
 # 规则锚点（统一命名）
@@ -209,7 +210,6 @@ rule-providers:
   OKX_Domain: { <<: *domain, url: "https://gh-proxy.com/github.com/ShuaichenLau/meta-rules-dat/raw/refs/heads/meta/geo/geosite/okx.mrs" }
   Bybit_Domain: { <<: *domain, url: "https://gh-proxy.com/github.com/ShuaichenLau/meta-rules-dat/raw/refs/heads/meta/geo/geosite/bybit.mrs" }
   Binance_Domain: { <<: *domain, url: "https://gh-proxy.com/github.com/ShuaichenLau/meta-rules-dat/raw/refs/heads/meta/geo/geosite/binance.mrs" }
-  WhatsApp_Domain: { <<: *classical, url: "https://gh-proxy.com/raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/Whatsapp/Whatsapp.list" }
   Jetbrains_Domain: { <<: *domain, url: "https://raw.githubusercontent.com/ShuaichenLau/meta-rules-dat/refs/heads/meta/geo/geosite/jetbrains.mrs" }
   debian_Domain: { <<: *domain, url: "https://raw.githubusercontent.com/ShuaichenLau/meta-rules-dat/meta/geo/geosite/debian.mrs" }
   gfw_domain: { <<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/gfw.mrs" }
@@ -235,8 +235,8 @@ rule-providers:
 # 规则列表（同步命名）
 # ========================
 rules:
-  - RULE-SET,Private_IP,直连,no-resolve
   - RULE-SET,Private_Domain,直连
+  - RULE-SET,Private_IP,直连,no-resolve
   - RULE-SET,Direct_Classical,直连
   - RULE-SET,BankCN_Domain,直连
   - RULE-SET,Tencent_Domain,直连
@@ -269,7 +269,6 @@ rules:
   - RULE-SET,OKX_Domain,Crypto
   - RULE-SET,Bybit_Domain,Crypto
   - RULE-SET,Binance_Domain,Crypto
-  - RULE-SET,WhatsApp_Domain,WhatsApp
   - RULE-SET,Check_Classical,Test
   - RULE-SET,Speedtest_Ookla_Domain,Test
   - RULE-SET,Speedtest_Domain,Test
@@ -285,6 +284,6 @@ rules:
   - RULE-SET,JD_Domain,直连
   - RULE-SET,alibaba_Domain,直连
   - RULE-SET,baidu_Domain,直连
-  - RULE-SET,China_IP,直连,no-resolve
   - RULE-SET,China_Domain,直连
+  - RULE-SET,China_IP,直连,no-resolve
   - MATCH,其他
