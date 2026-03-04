@@ -26,8 +26,7 @@ DOMAIN,ubuntu.com
 DOMAIN,ubuntu.net
 DOMAIN,ubuntuforums.org
 DOMAIN,ubuntu-touch.io
-DOMAIN,immortalwrt.org
-DOMAIN,downloads.immortalwrt.org
+
 DOMAIN,api.qrserver.com
 DOMAIN,ip138.com
 DOMAIN,speedtest.net
@@ -103,8 +102,6 @@ DOMAIN-KEYWORD,rgergergergerg6555.saojc.xyz
 
 DOMAIN-KEYWORD,subvonehsy.onesubv.site
 DOMAIN-KEYWORD,apple-bing.sbs
-DOMAIN-KEYWORD,immortalwrt.org
-DOMAIN-KEYWORD,downloads.immortalwrt.org
 DOMAIN-KEYWORD,api.qrserver.com
 DOMAIN-KEYWORD,ip138.com
 
@@ -169,8 +166,7 @@ DOMAIN-SUFFIX,ubuntu.com
 DOMAIN-SUFFIX,ubuntu.net
 DOMAIN-SUFFIX,ubuntuforums.org
 DOMAIN-SUFFIX,ubuntu-touch.io
-DOMAIN-SUFFIX,immortalwrt.org
-DOMAIN-SUFFIX,downloads.immortalwrt.org
+
 DOMAIN-SUFFIX,api.qrserver.com
 DOMAIN-SUFFIX,ip138.com
 
