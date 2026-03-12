@@ -232,17 +232,41 @@ rule-providers:
   China_IP: { <<: *ip, url: "https://raw.githubusercontent.com/ShuaichenLau/meta-rules-dat/refs/heads/meta/geo/geoip/cn.mrs" }
 
 # ========================
-# 规则列表（同步命名）
+# 规则列表（按命中率漏斗模型优化）
 # ========================
 rules:
+  # --- 1. 局域网与基础直连 (最高优先级，防止内网泄露或路由死循环) ---
   - RULE-SET,Private_Domain,直连
   - RULE-SET,Private_IP,直连,no-resolve
   - RULE-SET,Direct_Classical,直连
-  - RULE-SET,BankCN_Domain,直连
+
+  # --- 2. 高频国内大厂直连 (解决80%日常流量，命中即停，极速放行) ---
   - RULE-SET,Tencent_Domain,直连
-  - RULE-SET,AppleCN_Domain,直连
+  - RULE-SET,Ali_Domain,直连
+  - RULE-SET,alibaba_Domain,直连
+  - RULE-SET,baidu_Domain,直连
+  - RULE-SET,JD_Domain,直连
   - RULE-SET,xiaomi_Domain,直连
+  - RULE-SET,huawei_Domain,直连
+  - RULE-SET,AppleCN_Domain,直连
+  - RULE-SET,BankCN_Domain,直连
+  - RULE-SET,Amap_Domain,直连
+
+  # --- 3. 国内全量兜底直连 (处理剩下的国内中低频流量) ---
+  - RULE-SET,China_Domain,直连
+  - RULE-SET,China_IP,直连,no-resolve
+
+  # --- 4. 特定国外服务 (按日常打开频率排序) ---
+  - RULE-SET,Telegram_Domain,Telegram
+  - RULE-SET,Telegram_IP,Telegram,no-resolve
+  - RULE-SET,Google_Domain,Google
+  - RULE-SET,Google_IP,Google,no-resolve
+  - RULE-SET,YouTube_Domain,YouTube
+  - RULE-SET,GitHub_Domain,GitHub
   - RULE-SET,Apple_Domain,Apple
+  - RULE-SET,Microsoft_Domain,Microsoft
+
+  # --- 5. AI 工具专线 ---
   - RULE-SET,ChatGPT_Domain,ChatGPT
   - RULE-SET,Google_Gemini_Domain,Gemini
   - RULE-SET,Claude_Classical,Claude
@@ -251,13 +275,8 @@ rules:
   - RULE-SET,Facebook_IP,Meta AI,no-resolve
   - RULE-SET,Facebook_Domain,Meta AI
   - RULE-SET,Perplexity_Domain,Perplexity
-  - RULE-SET,YouTube_Domain,YouTube
-  - RULE-SET,Google_Domain,Google
-  - RULE-SET,Google_IP,Google,no-resolve
-  - RULE-SET,GitHub_Domain,GitHub
-  - RULE-SET,Telegram_Domain,Telegram
-  - RULE-SET,Telegram_IP,Telegram,no-resolve
-  - RULE-SET,Microsoft_Domain,Microsoft
+
+  # --- 6. 流媒体服务 ---
   - RULE-SET,EMBY_Classical_Custom,EMBY
   - RULE-SET,EMBY_Classical_BlackMatrix,EMBY
   - RULE-SET,EMBY_IP,EMBY,no-resolve
@@ -266,24 +285,24 @@ rules:
   - RULE-SET,Disney_Domain,Netflix
   - RULE-SET,HBO_Domain,Netflix
   - RULE-SET,PrimeVideo_Domain,Netflix
+
+  # --- 7. 加密货币 ---
   - RULE-SET,OKX_Domain,Crypto
   - RULE-SET,Bybit_Domain,Crypto
   - RULE-SET,Binance_Domain,Crypto
-  - RULE-SET,Check_Classical,Test
-  - RULE-SET,Speedtest_Ookla_Domain,Test
-  - RULE-SET,Speedtest_Domain,Test
-  - RULE-SET,Speedtest_Category_Domain,Test
+
+  # --- 8. 开发测试与网络工具 ---
   - RULE-SET,Jetbrains_Domain,国外
   - RULE-SET,Cloudflare_Domain,国外
   - RULE-SET,debian_Domain,国外
+  - RULE-SET,Speedtest_Ookla_Domain,Test
+  - RULE-SET,Speedtest_Domain,Test
+  - RULE-SET,Speedtest_Category_Domain,Test
+  - RULE-SET,Check_Classical,Test
+
+  # --- 9. 国外全量与被墙域名兜底 (包含数万条记录的超大规则集，必须垫底) ---
   - RULE-SET,gfw_domain,国外
   - RULE-SET,geolocation-!cn,国外
-  - RULE-SET,Amap_Domain,直连
-  - RULE-SET,Ali_Domain,直连
-  - RULE-SET,huawei_Domain,直连
-  - RULE-SET,JD_Domain,直连
-  - RULE-SET,alibaba_Domain,直连
-  - RULE-SET,baidu_Domain,直连
-  - RULE-SET,China_Domain,直连
-  - RULE-SET,China_IP,直连,no-resolve
+
+  # --- 10. 最终兜底 (未知流量) ---
   - MATCH,其他
