@@ -79,7 +79,7 @@
   "config/hide-unavailable-proxies": "true",
   "config/connection-history-auto-cleanup-interval": "month",
   "config/auto-upgrade": "false",
-  "config/custom-background-image": "local-image-1773393692678",
+  "config/custom-background-image": "https://wallpapercave.com/wp/wp3801693.jpg",
   "config/split-overview-page": "true",
   "config/show-full-proxy-chain": "true",
   "config/display-now-node-in-rule": "true",
