@@ -12,8 +12,8 @@ proxy-providers:
       enable: true
       url: https://www.google-analytics.com/generate_204
       expected-status: 204
-      interval: 300
-      timeout: 1800
+      interval: 310
+      timeout: 1500
       lazy: true
 
   果冻:
@@ -27,8 +27,8 @@ proxy-providers:
       enable: true
       url: https://www.google-analytics.com/generate_204
       expected-status: 204
-      interval: 300
-      timeout: 1800
+      interval: 320
+      timeout: 1500
       lazy: true
 
   cordCloud:
@@ -42,8 +42,8 @@ proxy-providers:
       enable: true
       url: https://www.google-analytics.com/generate_204
       expected-status: 204
-      interval: 300
-      timeout: 1800
+      interval: 330
+      timeout: 1500
       lazy: true
 
   红杏云:
@@ -57,8 +57,8 @@ proxy-providers:
       enable: true
       url: https://www.google-analytics.com/generate_204
       expected-status: 204
-      interval: 300
-      timeout: 1800
+      interval: 340
+      timeout: 1500
       lazy: true
 
   良心云:
@@ -72,8 +72,8 @@ proxy-providers:
       enable: true
       url: https://www.google-analytics.com/generate_204
       expected-status: 204
-      interval: 300
-      timeout: 1800
+      interval: 350
+      timeout: 1500
       lazy: true
 
   流量光:
@@ -87,8 +87,8 @@ proxy-providers:
       enable: true
       url: https://www.google-analytics.com/generate_204
       expected-status: 204
-      interval: 300
-      timeout: 1800
+      interval: 360
+      timeout: 1500
       lazy: true
 
   神龙:
@@ -102,8 +102,8 @@ proxy-providers:
       enable: true
       url: https://www.google-analytics.com/generate_204
       expected-status: 204
-      interval: 300
-      timeout: 1800
+      interval: 370
+      timeout: 1500
       lazy: true
 
 proxies:
@@ -153,13 +153,13 @@ proxy-groups:
   - { name: 国外, <<: *default }
   - { name: 其他, <<: *default }
 
-  - { name: 香港-智能, type: fallback, url: https://www.google-analytics.com/generate_204, expected-status: 204, interval: 360, timeout: 1800, max-failed-times: 3, proxies: [ 香港-手动, 香港-自动, 香港-故转 ] }
-  - { name: 台湾-智能, type: fallback, url: https://www.google-analytics.com/generate_204, expected-status: 204, interval: 351, timeout: 1800, max-failed-times: 3, proxies: [ 台湾-手动, 台湾-自动, 台湾-故转 ] }
-  - { name: 美国-智能, type: fallback, url: https://www.google-analytics.com/generate_204, expected-status: 204, interval: 342, timeout: 1800, max-failed-times: 3, proxies: [ 美国-手动, 美国-自动, 美国-故转 ] }
-  - { name: 日韩-智能, type: fallback, url: https://www.google-analytics.com/generate_204, expected-status: 204, interval: 333, timeout: 1800, max-failed-times: 3, proxies: [ 日韩-手动, 日韩-自动, 日韩-故转 ] }
-  - { name: 新坡-智能, type: fallback, url: https://www.google-analytics.com/generate_204, expected-status: 204, interval: 324, timeout: 1800, max-failed-times: 3, proxies: [ 新坡-手动, 新坡-自动, 新坡-故转 ] }
-  - { name: 流量-智能, type: fallback, url: https://www.google-analytics.com/generate_204, expected-status: 204, interval: 314, timeout: 1800, max-failed-times: 3, proxies: [ 流量-自动, 流量-故转 ] }
-  - { name: 其他-智能, type: fallback, url: https://www.google-analytics.com/generate_204, expected-status: 204, interval: 314, timeout: 1800, max-failed-times: 3, proxies: [ 其他-自动, 其他-故转 ] }
+  - { name: 香港-智能, type: fallback, url: https://www.google-analytics.com/generate_204, expected-status: 204, interval: 360, timeout: 1500, max-failed-times: 3, proxies: [ 香港-手动, 香港-自动, 香港-故转 ] }
+  - { name: 台湾-智能, type: fallback, url: https://www.google-analytics.com/generate_204, expected-status: 204, interval: 351, timeout: 1500, max-failed-times: 3, proxies: [ 台湾-手动, 台湾-自动, 台湾-故转 ] }
+  - { name: 美国-智能, type: fallback, url: https://www.google-analytics.com/generate_204, expected-status: 204, interval: 342, timeout: 1500, max-failed-times: 3, proxies: [ 美国-手动, 美国-自动, 美国-故转 ] }
+  - { name: 日韩-智能, type: fallback, url: https://www.google-analytics.com/generate_204, expected-status: 204, interval: 333, timeout: 1500, max-failed-times: 3, proxies: [ 日韩-手动, 日韩-自动, 日韩-故转 ] }
+  - { name: 新坡-智能, type: fallback, url: https://www.google-analytics.com/generate_204, expected-status: 204, interval: 324, timeout: 1500, max-failed-times: 3, proxies: [ 新坡-手动, 新坡-自动, 新坡-故转 ] }
+  - { name: 流量-智能, type: fallback, url: https://www.google-analytics.com/generate_204, expected-status: 204, interval: 314, timeout: 1500, max-failed-times: 3, proxies: [ 流量-自动, 流量-故转 ] }
+  - { name: 其他-智能, type: fallback, url: https://www.google-analytics.com/generate_204, expected-status: 204, interval: 304, timeout: 1500, max-failed-times: 3, proxies: [ 其他-自动, 其他-故转 ] }
 
   - { name: 香港-手动, type: select, include-all: true, filter: "(?=.*(广港|香港|HK|Hong Kong|🇭🇰|HongKong)).*$" }
   - { name: 台湾-手动, type: select, include-all: true, filter: "(?=.*(广台|台湾|台灣|TW|Tai Wan|🇹🇼|🇨🇳|TaiWan|Taiwan)).*$" }
@@ -167,23 +167,23 @@ proxy-groups:
   - { name: 日韩-手动, type: select, include-all: true, filter: "(?=.*(广日|日本|JP|川日|东京|大阪|泉日|埼玉|沪日|深日|🇯🇵|Japan|广韩|韩国|韓國|KR|首尔|春川|🇰🇷|Korea)).*$" }
   - { name: 新坡-手动, type: select, include-all: true, filter: "(?=.*(广新|新加坡|SG|坡|狮城|🇸🇬|Singapore)).*$" }
 
-  - { name: 香港-自动, type: url-test, url: https://www.google-analytics.com/generate_204, include-all: true, expected-status: 204, interval: 460, timeout: 1800, tolerance: 99, filter: "(?=.*(广港|香港|HK|Hong Kong|🇭🇰|HongKong)).*$" }
-  - { name: 台湾-自动, type: url-test, url: https://www.google-analytics.com/generate_204, include-all: true, expected-status: 204, interval: 450, timeout: 1800, tolerance: 99, filter: "(?=.*(广台|台湾|台灣|TW|Tai Wan|🇹🇼|🇨🇳|TaiWan|Taiwan)).*$" }
-  - { name: 美国-自动, type: url-test, url: https://www.google-analytics.com/generate_204, include-all: true, expected-status: 204, interval: 440, timeout: 1800, tolerance: 99, filter: "(?=.*(广美|美|US|纽约|波特兰|达拉斯|俄勒|凤凰城|费利蒙|拉斯|洛杉|圣何塞|圣克拉|西雅|芝加|🇺🇸|United States)).*$" }
-  - { name: 日韩-自动, type: url-test, url: https://www.google-analytics.com/generate_204, include-all: true, expected-status: 204, interval: 430, timeout: 1800, tolerance: 99, filter: "(?=.*(广日|日本|JP|川日|东京|大阪|泉日|埼玉|沪日|深日|🇯🇵|Japan|广韩|韩国|韓國|KR|首尔|春川|🇰🇷|Korea)).*$" }
-  - { name: 新坡-自动, type: url-test, url: https://www.google-analytics.com/generate_204, include-all: true, expected-status: 204, interval: 420, timeout: 1800, tolerance: 99, filter: "(?=.*(广新|新加坡|SG|坡|狮城|🇸🇬|Singapore)).*$" }
-  - { name: 流量-自动, type: url-test, url: https://www.google-analytics.com/generate_204, include-all: true, expected-status: 204, interval: 410, timeout: 1800, tolerance: 99, filter: "^(?=.*(PROXY))(?!.*(直连|拒绝|剩余|官网|订阅|免费|异常|流量)).*$" }
-  - { name: 其他-自动, type: url-test, url: https://www.google-analytics.com/generate_204, include-all: true, expected-status: 204, interval: 410, timeout: 1800, tolerance: 99, filter: "(?i)^((?!(拒绝|直连|广港|深港|香港|HK|Hong Kong|🇭🇰|广台|台湾|台灣|TW|Taiwan|🇹🇼|广日|日本|JP|Japan|🇯🇵|广新|新加坡|SG|Singapore|🇸🇬|广韩|韩国|韓國|KR|Korea|🇰🇷|广美|美国|美|US|United States|🇺🇸|免费|异常|剩余|官网|订阅|测试|失效|过期|限速|套餐|续费|公告|提示|支持|机场|限免|不可用)).)*$"  }
+  - { name: 香港-自动, type: url-test, url: https://www.google-analytics.com/generate_204, include-all: true, expected-status: 204, interval: 460, timeout: 1500, lazy: false, tolerance: 99, filter: "(?=.*(广港|香港|HK|Hong Kong|🇭🇰|HongKong)).*$" }
+  - { name: 台湾-自动, type: url-test, url: https://www.google-analytics.com/generate_204, include-all: true, expected-status: 204, interval: 450, timeout: 1500, lazy: false, tolerance: 99, filter: "(?=.*(广台|台湾|台灣|TW|Tai Wan|🇹🇼|🇨🇳|TaiWan|Taiwan)).*$" }
+  - { name: 美国-自动, type: url-test, url: https://www.google-analytics.com/generate_204, include-all: true, expected-status: 204, interval: 440, timeout: 1500, lazy: false, tolerance: 99, filter: "(?=.*(广美|美|US|纽约|波特兰|达拉斯|俄勒|凤凰城|费利蒙|拉斯|洛杉|圣何塞|圣克拉|西雅|芝加|🇺🇸|United States)).*$" }
+  - { name: 日韩-自动, type: url-test, url: https://www.google-analytics.com/generate_204, include-all: true, expected-status: 204, interval: 430, timeout: 1500, lazy: false, tolerance: 99, filter: "(?=.*(广日|日本|JP|川日|东京|大阪|泉日|埼玉|沪日|深日|🇯🇵|Japan|广韩|韩国|韓國|KR|首尔|春川|🇰🇷|Korea)).*$" }
+  - { name: 新坡-自动, type: url-test, url: https://www.google-analytics.com/generate_204, include-all: true, expected-status: 204, interval: 420, timeout: 1500, lazy: false, tolerance: 99, filter: "(?=.*(广新|新加坡|SG|坡|狮城|🇸🇬|Singapore)).*$" }
+  - { name: 流量-自动, type: url-test, url: https://www.google-analytics.com/generate_204, include-all: true, expected-status: 204, interval: 410, timeout: 1500, lazy: false, tolerance: 99, filter: "^(?=.*(PROXY))(?!.*(直连|拒绝|剩余|官网|订阅|免费|异常|流量)).*$" }
+  - { name: 其他-自动, type: url-test, url: https://www.google-analytics.com/generate_204, include-all: true, expected-status: 204, interval: 410, timeout: 1500, lazy: false, tolerance: 99, filter: "(?i)^((?!(拒绝|直连|广港|深港|香港|HK|Hong Kong|🇭🇰|广台|台湾|台灣|TW|Taiwan|🇹🇼|广日|日本|JP|Japan|🇯🇵|广新|新加坡|SG|Singapore|🇸🇬|广韩|韩国|韓國|KR|Korea|🇰🇷|广美|美国|美|US|United States|🇺🇸|免费|异常|剩余|官网|订阅|测试|失效|过期|限速|套餐|续费|公告|提示|支持|机场|限免|不可用)).)*$"  }
 
-  - { name: 香港-故转, type: fallback, url: https://www.google-analytics.com/generate_204, include-all: true, expected-status: 204, interval: 410, timeout: 1800, max-failed-times: 3, filter: "(?=.*(广港|香港|HK|Hong Kong|🇭🇰|HongKong)).*$" }
-  - { name: 台湾-故转, type: fallback, url: https://www.google-analytics.com/generate_204, include-all: true, expected-status: 204, interval: 420, timeout: 1800, max-failed-times: 3, filter: "(?=.*(广台|台湾|台灣|TW|Tai Wan|🇹🇼|🇨🇳|TaiWan|Taiwan)).*$" }
-  - { name: 美国-故转, type: fallback, url: https://www.google-analytics.com/generate_204, include-all: true, expected-status: 204, interval: 430, timeout: 1800, max-failed-times: 3, filter: "(?=.*(广美|美|US|纽约|波特兰|达拉斯|俄勒|凤凰城|费利蒙|拉斯|洛杉|圣何塞|圣克拉|西雅|芝加|🇺🇸|United States)).*$" }
-  - { name: 日韩-故转, type: fallback, url: https://www.google-analytics.com/generate_204, include-all: true, expected-status: 204, interval: 440, timeout: 1800, max-failed-times: 3, filter: "(?=.*(广日|日本|JP|川日|东京|大阪|泉日|埼玉|沪日|深日|🇯🇵|Japan|广韩|韩国|韓國|KR|首尔|春川|🇰🇷|Korea)).*$" }
-  - { name: 新坡-故转, type: fallback, url: https://www.google-analytics.com/generate_204, include-all: true, expected-status: 204, interval: 450, timeout: 1800, max-failed-times: 3, filter: "(?=.*(广新|新加坡|SG|坡|狮城|🇸🇬|Singapore)).*$" }
-  - { name: 流量-故转, type: fallback, url: https://www.google-analytics.com/generate_204, include-all: true, expected-status: 204, interval: 460, timeout: 1800, max-failed-times: 3, filter: "^(?=.*(PROXY))(?!.*(直连|拒绝|剩余|官网|订阅|免费|异常|流量)).*$" }
-  - { name: 其他-故转, type: fallback, url: https://www.google-analytics.com/generate_204, include-all: true, expected-status: 204, interval: 400, timeout: 1800, max-failed-times: 3, filter: "(?i)^((?!(拒绝|直连|广港|深港|香港|HK|Hong Kong|🇭🇰|广台|台湾|台灣|TW|Taiwan|🇹🇼|广日|日本|JP|Japan|🇯🇵|广新|新加坡|SG|Singapore|🇸🇬|广韩|韩国|韓國|KR|Korea|🇰🇷|广美|美国|美|US|United States|🇺🇸|免费|异常|剩余|官网|订阅|测试|失效|过期|限速|套餐|续费|公告|提示|支持|机场|限免|不可用)).)*$"  }
+  - { name: 香港-故转, type: fallback, url: https://www.google-analytics.com/generate_204, include-all: true, expected-status: 204, interval: 310, timeout: 1500, max-failed-times: 3, filter: "(?=.*(广港|香港|HK|Hong Kong|🇭🇰|HongKong)).*$" }
+  - { name: 台湾-故转, type: fallback, url: https://www.google-analytics.com/generate_204, include-all: true, expected-status: 204, interval: 320, timeout: 1500, max-failed-times: 3, filter: "(?=.*(广台|台湾|台灣|TW|Tai Wan|🇹🇼|🇨🇳|TaiWan|Taiwan)).*$" }
+  - { name: 美国-故转, type: fallback, url: https://www.google-analytics.com/generate_204, include-all: true, expected-status: 204, interval: 330, timeout: 1500, max-failed-times: 3, filter: "(?=.*(广美|美|US|纽约|波特兰|达拉斯|俄勒|凤凰城|费利蒙|拉斯|洛杉|圣何塞|圣克拉|西雅|芝加|🇺🇸|United States)).*$" }
+  - { name: 日韩-故转, type: fallback, url: https://www.google-analytics.com/generate_204, include-all: true, expected-status: 204, interval: 340, timeout: 1500, max-failed-times: 3, filter: "(?=.*(广日|日本|JP|川日|东京|大阪|泉日|埼玉|沪日|深日|🇯🇵|Japan|广韩|韩国|韓國|KR|首尔|春川|🇰🇷|Korea)).*$" }
+  - { name: 新坡-故转, type: fallback, url: https://www.google-analytics.com/generate_204, include-all: true, expected-status: 204, interval: 350, timeout: 1500, max-failed-times: 3, filter: "(?=.*(广新|新加坡|SG|坡|狮城|🇸🇬|Singapore)).*$" }
+  - { name: 流量-故转, type: fallback, url: https://www.google-analytics.com/generate_204, include-all: true, expected-status: 204, interval: 360, timeout: 1500, max-failed-times: 3, filter: "^(?=.*(PROXY))(?!.*(直连|拒绝|剩余|官网|订阅|免费|异常|流量)).*$" }
+  - { name: 其他-故转, type: fallback, url: https://www.google-analytics.com/generate_204, include-all: true, expected-status: 204, interval: 370, timeout: 1500, max-failed-times: 3, filter: "(?i)^((?!(拒绝|直连|广港|深港|香港|HK|Hong Kong|🇭🇰|广台|台湾|台灣|TW|Taiwan|🇹🇼|广日|日本|JP|Japan|🇯🇵|广新|新加坡|SG|Singapore|🇸🇬|广韩|韩国|韓國|KR|Korea|🇰🇷|广美|美国|美|US|United States|🇺🇸|免费|异常|剩余|官网|订阅|测试|失效|过期|限速|套餐|续费|公告|提示|支持|机场|限免|不可用)).)*$"  }
 
-  - { name: 直连-自动测速, type: url-test, proxies: [直连], url: https://cp.cloudflare.com/generate_204, expected-status: 204, interval: 500, timeout: 5000, tolerance: 99 }
+  - { name: 直连-自动测速, type: url-test, proxies: [直连], url: https://cp.cloudflare.com/generate_204, expected-status: 204, interval: 500, timeout: 1500, tolerance: 99 }
 
 # ========================
 # 规则锚点（统一命名）
@@ -266,7 +266,6 @@ rules:
   - RULE-SET,JD_Domain,直连
   - RULE-SET,xiaomi_Domain,直连
   - RULE-SET,huawei_Domain,直连
-  - RULE-SET,AppleCN_Domain,直连
   - RULE-SET,BankCN_Domain,直连
   - RULE-SET,Amap_Domain,直连
 
@@ -281,6 +280,7 @@ rules:
   - RULE-SET,Google_IP,Google,no-resolve
   - RULE-SET,YouTube_Domain,Google
   - RULE-SET,GitHub_Domain,GitHub
+  - RULE-SET,AppleCN_Domain,Apple
   - RULE-SET,Apple_Domain,Apple
   - RULE-SET,Microsoft_Domain,Microsoft
 
