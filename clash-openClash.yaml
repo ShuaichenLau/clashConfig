@@ -1,8 +1,8 @@
 
 proxy-providers:
 
-  AllProxy:
-    url: http://192.168.3.6:3001/T3B9dgzBzdRbBF8Aqx7P/download/collection/AllProxy
+  fallback:
+    url: http://192.168.3.6:3001/T3B9dgzBzdRbBF8Aqx7P/download/collection/fallback
     type: http
     interval: 0
     override:
@@ -12,14 +12,14 @@ proxy-providers:
       enable: true
       url: https://www.google-analytics.com/generate_204
       expected-status: 204
-      interval: 310
+      interval: 333
       timeout: 1500
       lazy: true
 
-  果冻:
-    url: http://192.168.3.6:3001/T3B9dgzBzdRbBF8Aqx7P/download/%E6%9E%9C%E5%86%BB
+  auto:
+    url: http://192.168.3.6:3001/T3B9dgzBzdRbBF8Aqx7P/download/collection/auto
     type: http
-    interval: 88888
+    interval: 0
     override:
       skip-cert-verify: true
       udp: true
@@ -27,82 +27,7 @@ proxy-providers:
       enable: true
       url: https://www.google-analytics.com/generate_204
       expected-status: 204
-      interval: 320
-      timeout: 1500
-      lazy: true
-
-  cordCloud:
-    url: http://192.168.3.6:3001/T3B9dgzBzdRbBF8Aqx7P/download/cordCloud
-    type: http
-    interval: 88888
-    override:
-      skip-cert-verify: true
-      udp: true
-    health-check:
-      enable: true
-      url: https://www.google-analytics.com/generate_204
-      expected-status: 204
-      interval: 330
-      timeout: 1500
-      lazy: true
-
-  红杏云:
-    url: http://192.168.3.6:3001/T3B9dgzBzdRbBF8Aqx7P/download/%E7%BA%A2%E6%9D%8FME
-    type: http
-    interval: 88888
-    override:
-      skip-cert-verify: true
-      udp: true
-    health-check:
-      enable: true
-      url: https://www.google-analytics.com/generate_204
-      expected-status: 204
-      interval: 340
-      timeout: 1500
-      lazy: true
-
-  良心云:
-    url: http://192.168.3.6:3001/T3B9dgzBzdRbBF8Aqx7P/download/%E8%89%AF%E5%BF%83%E4%BA%91
-    type: http
-    interval: 88888
-    override:
-      skip-cert-verify: true
-      udp: true
-    health-check:
-      enable: true
-      url: https://www.google-analytics.com/generate_204
-      expected-status: 204
-      interval: 350
-      timeout: 1500
-      lazy: true
-
-  流量光:
-    url: http://192.168.3.6:3001/T3B9dgzBzdRbBF8Aqx7P/download/%E6%B5%81%E9%87%8F%E5%85%89
-    type: http
-    interval: 88888
-    override:
-      skip-cert-verify: true
-      udp: true
-    health-check:
-      enable: true
-      url: https://www.google-analytics.com/generate_204
-      expected-status: 204
-      interval: 360
-      timeout: 1500
-      lazy: true
-
-  神龙:
-    url: http://192.168.3.6:3001/T3B9dgzBzdRbBF8Aqx7P/download/%E7%A5%9E%E9%BE%99
-    type: http
-    interval: 88888
-    override:
-      skip-cert-verify: true
-      udp: true
-    health-check:
-      enable: true
-      url: https://www.google-analytics.com/generate_204
-      expected-status: 204
-      interval: 370
+      interval: 444
       timeout: 1500
       lazy: true
 
@@ -115,7 +40,7 @@ ntp:
   write-to-system: false
   server: time.apple.com
   port: 123
-  interval: 30
+  interval: 300
 
 default: &default
   type: select
