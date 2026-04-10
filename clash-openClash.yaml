@@ -1,8 +1,8 @@
 
 proxy-providers:
 
-  fallback:
-    url: http://192.168.3.6:3001/T3B9dgzBzdRbBF8Aqx7P/download/collection/fallback
+  ProxyA:
+    url: http://192.168.3.6:3001/T3B9dgzBzdRbBF8Aqx7P/download/collection/ProxyA
     type: http
     interval: 0
     override:
@@ -16,8 +16,8 @@ proxy-providers:
       timeout: 1500
       lazy: true
 
-  auto:
-    url: http://192.168.3.6:3001/T3B9dgzBzdRbBF8Aqx7P/download/collection/auto
+  ProxyB:
+    url: http://192.168.3.6:3001/T3B9dgzBzdRbBF8Aqx7P/download/collection/ProxyB
     type: http
     interval: 0
     override:
@@ -30,6 +30,22 @@ proxy-providers:
       interval: 444
       timeout: 1500
       lazy: true
+
+  ProxyC:
+    url: http://192.168.3.6:3001/T3B9dgzBzdRbBF8Aqx7P/download/collection/ProxyC
+    type: http
+    interval: 0
+    override:
+      skip-cert-verify: true
+      udp: true
+    health-check:
+      enable: true
+      url: https://www.google-analytics.com/generate_204
+      expected-status: 204
+      interval: 444
+      timeout: 1500
+      lazy: true
+
 
 proxies:
   - { name: 直连, type: direct }
