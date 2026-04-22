@@ -26,7 +26,7 @@
   "config/table-column-width": "{\"close\":50,\"host\":320,\"chains\":320,\"rule\":200,\"dl\":80,\"dlSpeed\":80,\"ul\":80,\"ulSpeed\":80,\"type\":150,\"process\":150,\"sourceIP\":150,\"sourcePort\":100,\"sniffHost\":200,\"destination\":150,\"connectTime\":100}",
   "config/display-latency-in-rule": "true",
   "config/scroll-animation-effect": "false",
-  "config/custom-background-image": "https://i01piccdn.sogoucdn.com/31efc0a2c299557d",
+  "config/custom-background-image": "http://192.168.3.6:19080/remote.php/dav/files/admin/Documents/zashboard.jpg",
   "config/log-retention-limit": "1000",
   "config/medium-latency": "800",
   "config/number-of-charts-in-sidebar": "3",
