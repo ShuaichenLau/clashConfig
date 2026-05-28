@@ -100,11 +100,11 @@ proxy-groups:
   - { name: 国内, <<: *default }
   - { name: 其他, <<: *default }
 
-  - { name: 香港-自动, type: url-test, url: https://www.gstatic.com/generate_204, include-all: true, expected-status: 204, interval: 360, timeout: 2000, lazy: true, tolerance: 80, filter: *hk }
-  - { name: 台湾-自动, type: url-test, url: https://www.gstatic.com/generate_204, include-all: true, expected-status: 204, interval: 350, timeout: 2000, lazy: true, tolerance: 80, filter: *tw }
-  - { name: 美国-自动, type: url-test, url: https://www.gstatic.com/generate_204, include-all: true, expected-status: 204, interval: 390, timeout: 2000, lazy: true, tolerance: 80, filter: *us }
-  - { name: 日韩-自动, type: url-test, url: https://www.gstatic.com/generate_204, include-all: true, expected-status: 204, interval: 380, timeout: 2000, lazy: true, tolerance: 80, filter: *jp }
-  - { name: 新坡-自动, type: url-test, url: https://www.gstatic.com/generate_204, include-all: true, expected-status: 204, interval: 320, timeout: 2000, lazy: true, tolerance: 80, filter: *sg }
+  - { name: 香港-自动, type: url-test, url: https://www.gstatic.com/generate_204, include-all: true, expected-status: 204, interval: 360, timeout: 2000, lazy: false, tolerance: 80, filter: *hk }
+  - { name: 台湾-自动, type: url-test, url: https://www.gstatic.com/generate_204, include-all: true, expected-status: 204, interval: 350, timeout: 2000, lazy: false, tolerance: 80, filter: *tw }
+  - { name: 美国-自动, type: url-test, url: https://www.gstatic.com/generate_204, include-all: true, expected-status: 204, interval: 390, timeout: 2000, lazy: false, tolerance: 80, filter: *us }
+  - { name: 日韩-自动, type: url-test, url: https://www.gstatic.com/generate_204, include-all: true, expected-status: 204, interval: 380, timeout: 2000, lazy: false, tolerance: 80, filter: *jp }
+  - { name: 新坡-自动, type: url-test, url: https://www.gstatic.com/generate_204, include-all: true, expected-status: 204, interval: 320, timeout: 2000, lazy: false, tolerance: 80, filter: *sg }
 
   - { name: 香港-故转, type: fallback, url: https://www.gstatic.com/generate_204, include-all: true, expected-status: 204, interval: 310, timeout: 2000, max-failed-times: 3, lazy: false, filter: *hk }
   - { name: 台湾-故转, type: fallback, url: https://www.gstatic.com/generate_204, include-all: true, expected-status: 204, interval: 320, timeout: 2000, max-failed-times: 3, lazy: false, filter: *tw }
