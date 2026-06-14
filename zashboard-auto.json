@@ -85,7 +85,7 @@
   "config/proxy-search-mode": "group",
   "config/proxy-sort-type": "defaultsort",
   "config/quick-filter-enabled": "true",
-  "config/quick-filter-regex": "direct|dns-out|inner",
+  "config/quick-filter-regex": "direct|dns-out|inner|直连",
   "config/scroll-animation-effect": "false",
   "config/settings-menu-order": "[\"backendSettings\",\"generalSettings\",\"overviewSettings\",\"proxySettings\",\"connectionSettings\"]",
   "config/settings-page-two-columns": "true",
