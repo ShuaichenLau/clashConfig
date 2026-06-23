@@ -64,7 +64,6 @@ x-regex-pool:
 default: &default
   type: select
   proxies:
-    - 直连
     - 香港-智能
     - 台湾-智能
     - 美国-智能
@@ -97,7 +96,6 @@ proxy-groups:
   - { name: Microsoft, <<: *default }
   - { name: Crypto, <<: *default }
   - { name: 国外, <<: *default }
-  - { name: 国内, <<: *default }
   - { name: 其他, <<: *default }
 
   - { name: 香港-自动, type: url-test, url: https://www.gstatic.com/generate_204, include-all: true, expected-status: 204, interval: 360, timeout: 2000, lazy: false, tolerance: 80, filter: *hk }
@@ -196,20 +194,18 @@ rule-providers:
 rules:
   - RULE-SET,Private_Domain,直连
   - RULE-SET,Private_IP,直连,no-resolve
-
-  - RULE-SET,Direct_Classical,国内
-  - RULE-SET,Tencent_Domain,国内
-  - RULE-SET,Ali_Domain,国内
-  - RULE-SET,alibaba_Domain,国内
-  - RULE-SET,baidu_Domain,国内
-  - RULE-SET,JD_Domain,国内
-  - RULE-SET,xiaomi_Domain,国内
-  - RULE-SET,huawei_Domain,国内
-  - RULE-SET,BankCN_Domain,国内
-  - RULE-SET,Amap_Domain,国内
-
-  - RULE-SET,China_Domain,国内
-  - RULE-SET,China_IP,国内,no-resolve
+  - RULE-SET,Direct_Classical,直连
+  - RULE-SET,Tencent_Domain,直连
+  - RULE-SET,Ali_Domain,直连
+  - RULE-SET,alibaba_Domain,直连
+  - RULE-SET,baidu_Domain,直连
+  - RULE-SET,JD_Domain,直连
+  - RULE-SET,xiaomi_Domain,直连
+  - RULE-SET,huawei_Domain,直连
+  - RULE-SET,BankCN_Domain,直连
+  - RULE-SET,Amap_Domain,直连
+  - RULE-SET,China_Domain,直连
+  - RULE-SET,China_IP,直连,no-resolve
 
   - RULE-SET,ChatGPT_Domain,ChatGPT
   - RULE-SET,YouTube_Domain,YouTube
@@ -253,7 +249,6 @@ rules:
   - RULE-SET,Speedtest_Ookla_Domain,国外
   - RULE-SET,Speedtest_Domain,国外
   - RULE-SET,Speedtest_Category_Domain,国外
-
   - RULE-SET,gfw_domain,国外
   - RULE-SET,geolocation-!cn,国外
 
