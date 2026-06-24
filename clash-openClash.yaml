@@ -82,6 +82,7 @@ default: &default
     - 新坡-自动
 
 proxy-groups:
+  - { name: Gemini, <<: *default }
   - { name: Google, <<: *default }
   - { name: ChatGPT, <<: *default }
   - { name: Claude, <<: *default }
@@ -208,8 +209,8 @@ rules:
   - RULE-SET,China_IP,直连,no-resolve
 
   - RULE-SET,ChatGPT_Domain,ChatGPT
+  - RULE-SET,Google_Gemini_Domain,Gemini
   - RULE-SET,YouTube_Domain,YouTube
-  - RULE-SET,Google_Gemini_Domain,Google
   - RULE-SET,Google_Domain,Google
   - RULE-SET,Google_IP,Google,no-resolve
   - RULE-SET,Claude_Classical,Claude
