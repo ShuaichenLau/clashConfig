@@ -13,6 +13,7 @@ proxy-providers:
       interval: 333
       timeout: 2000
       lazy: false
+
   airport2:
     url: http://192.168.3.6:3001/T3B9dgzBzdRbBF8Aqx7P/download/collection/ProxyB
     type: http
@@ -27,6 +28,7 @@ proxy-providers:
       interval: 444
       timeout: 2000
       lazy: false
+
   airport3:
     url: http://192.168.3.6:3001/T3B9dgzBzdRbBF8Aqx7P/download/collection/ProxyC
     type: http
@@ -69,17 +71,13 @@ default: &default
     - 美国-智能
     - 日韩-智能
     - 新坡-智能
-    - 香港-故转
-    - 台湾-故转
-    - 美国-故转
-    - 日韩-故转
-    - 新坡-故转
-    - 其他-故转
     - 香港-自动
     - 台湾-自动
     - 美国-自动
     - 日韩-自动
     - 新坡-自动
+    - 其他-故转
+    - 直连
 
 proxy-groups:
   - { name: Gemini, <<: *default }
@@ -87,14 +85,13 @@ proxy-groups:
   - { name: ChatGPT, <<: *default }
   - { name: Claude, <<: *default }
   - { name: Meta AI, <<: *default }
-  - { name: Perplexity, <<: *default }
-  - { name: GitHub, <<: *default }
-  - { name: Telegram, <<: *default }
   - { name: YouTube, <<: *default }
   - { name: EMBY, <<: *default }
-  - { name: Netflix, <<: *default }
+  - { name: GitHub, <<: *default }
+  - { name: Telegram, <<: *default }
   - { name: Apple, <<: *default }
-  - { name: Microsoft, <<: *default }
+  - { name: Perplexity, <<: *default }
+  - { name: Netflix, <<: *default }
   - { name: Crypto, <<: *default }
   - { name: 国外, <<: *default }
   - { name: 其他, <<: *default }
@@ -223,11 +220,10 @@ rules:
   - RULE-SET,Telegram_Domain,Telegram
   - RULE-SET,Telegram_IP,Telegram,no-resolve
 
-  - RULE-SET,GitHub_Domain,GitHub
   - RULE-SET,AppleCN_Domain,Apple
   - RULE-SET,Apple_Domain,Apple
-
-  - RULE-SET,Microsoft_Domain,Microsoft
+  - RULE-SET,GitHub_Domain,GitHub
+  - RULE-SET,Microsoft_Domain,GitHub
 
   - RULE-SET,EMBY_Classical_Custom,EMBY
   - RULE-SET,EMBY_Classical_BlackMatrix,EMBY
