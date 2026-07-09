@@ -98,7 +98,7 @@
   "config/speedtest-mode": "dashboard",
   "config/speedtest-timeout": "1500",
   "config/speedtest-url": "https://www.gstatic.com/generate_204",
-  "config/split-overview-page": "true",
+  "config/split-overview-page": "false",
   "config/swipe-in-pages": "true",
   "config/swipe-in-tabs": "false",
   "config/table-column-pinning": "{\"left\":[],\"right\":[]}",
