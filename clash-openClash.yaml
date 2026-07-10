@@ -125,7 +125,7 @@ proxy-groups:
 # 规则锚点（统一命名）
 # ========================
 rule-anchor:
-  ip: &ip { type: http, interval: 88870, behavior: ipcidr, format: mrs }
+  ip: &ip { type: http, interval: 88800, behavior: ipcidr, format: mrs }
   domain: &domain { type: http, interval: 88888, behavior: domain, format: mrs }
   classical: &classical { type: http, interval: 88900, behavior: classical, format: text }
 
