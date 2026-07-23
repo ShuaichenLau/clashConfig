@@ -195,6 +195,7 @@ rule-providers:
 # 规则列表（按命中率漏斗模型优化）
 # ========================
 rules:
+  - RULE-SET,Adobe_Classical,拒绝
   - RULE-SET,Private_Domain,直连
   - RULE-SET,Private_IP,直连,no-resolve
   - RULE-SET,Direct_Classical,直连
@@ -244,7 +245,6 @@ rules:
   - RULE-SET,Binance_Domain,Crypto
 
   - RULE-SET,Check_Classical,国外
-  - RULE-SET,Adobe_Classical,国外
   - RULE-SET,Jetbrains_Domain,国外
   - RULE-SET,Cloudflare_Domain,国外
   - RULE-SET,debian_Domain,国外
