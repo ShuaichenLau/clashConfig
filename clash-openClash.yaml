@@ -1,48 +1,48 @@
+# 1. 定义公共模板 (必须放在被引用的位置之前，x- 开头不会影响 Mihomo 解析)
+x-provider-template: &provider-template
+  type: http
+  interval: 0
+  override:
+    skip-cert-verify: true
+    udp: true
+  health-check:
+    enable: true
+    url: https://www.gstatic.com/generate_204
+    expected-status: 204
+    interval: 300
+    timeout: 2000
+    lazy: false
+
+# 2. 实际的 proxy-providers 节点
 proxy-providers:
-  airport1:
-    url: http://192.168.3.6:3001/T3B9dgzBzdRbBF8Aqx7P/download/collection/ProxyA
-    type: http
-    interval: 0
-    override:
-      skip-cert-verify: true
-      udp: true
-    health-check:
-      enable: true
-      url: https://www.gstatic.com/generate_204
-      expected-status: 204
-      interval: 333
-      timeout: 2000
-      lazy: false
 
-  airport2:
-    url: http://192.168.3.6:3001/T3B9dgzBzdRbBF8Aqx7P/download/collection/ProxyB
-    type: http
-    interval: 0
-    override:
-      skip-cert-verify: true
-      udp: true
-    health-check:
-      enable: true
-      url: https://www.gstatic.com/generate_204
-      expected-status: 204
-      interval: 444
-      timeout: 2000
-      lazy: false
+  cordCloud:
+    <<: *provider-template
+    url: http://192.168.3.6:3001/T3B9dgzBzdRbBF8Aqx7P/download/cordCloud
 
-  airport3:
-    url: http://192.168.3.6:3001/T3B9dgzBzdRbBF8Aqx7P/download/collection/ProxyC
-    type: http
-    interval: 0
-    override:
-      skip-cert-verify: true
-      udp: true
-    health-check:
-      enable: true
-      url: https://www.gstatic.com/generate_204
-      expected-status: 204
-      interval: 400
-      timeout: 2000
-      lazy: false
+  良心云:
+    <<: *provider-template
+    url: http://192.168.3.6:3001/T3B9dgzBzdRbBF8Aqx7P/download/%E8%89%AF%E5%BF%83%E4%BA%91
+
+  雨燕云:
+    <<: *provider-template
+    url: http://192.168.3.6:3001/T3B9dgzBzdRbBF8Aqx7P/download/%E9%9B%A8%E7%87%95%E4%BA%91
+
+  红杏云:
+    <<: *provider-template
+    url: http://192.168.3.6:3001/T3B9dgzBzdRbBF8Aqx7P/download/%E7%BA%A2%E6%9D%8F%E4%BA%91
+
+  nb:
+    <<: *provider-template
+    url: http://192.168.3.6:3001/T3B9dgzBzdRbBF8Aqx7P/download/NB
+
+  神龙:
+    <<: *provider-template
+    url: http://192.168.3.6:3001/T3B9dgzBzdRbBF8Aqx7P/download/%E7%A5%9E%E9%BE%99
+
+  果冻加速:
+    <<: *provider-template
+    url: http://192.168.3.6:3001/T3B9dgzBzdRbBF8Aqx7P/download/%E6%9E%9C%E5%86%BB
 
 proxies:
   - { name: 直连, type: direct }
