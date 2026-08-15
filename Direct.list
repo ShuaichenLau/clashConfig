@@ -607,3 +607,36 @@ DOMAIN-SUFFIX,zhimg.com
 DOMAIN-SUFFIX,zhipin.com
 DOMAIN-SUFFIX,zhongsou.com
 DOMAIN-SUFFIX,zhuihd.com
+
+DOMAIN-SUFFIX,hisense.com
+DOMAIN-SUFFIX,hisensedata.com
+DOMAIN-SUFFIX,hisense.com
+DOMAIN-SUFFIX,hisense.cn
+DOMAIN-SUFFIX,hisensecloud.com
+DOMAIN-SUFFIX,hismarttv.com
+DOMAIN-SUFFIX,kelon.com
+
+# 1. 小米/米家生态 (miot, xiaomi)
+DOMAIN-SUFFIX,xiaomi.com
+DOMAIN-SUFFIX,mi.com
+DOMAIN-SUFFIX,mijia.cloud
+DOMAIN-SUFFIX,xiaomiev.com
+DOMAIN-KEYWORD,xiaomi
+DOMAIN-KEYWORD,mijia
+
+# 2. 美家智能 (美的 Midea)
+DOMAIN-SUFFIX,midea.com
+DOMAIN-SUFFIX,midea.com.cn
+DOMAIN-KEYWORD,midea
+
+# 3. 海尔智家 (Haier)
+DOMAIN-SUFFIX,haier.com
+DOMAIN-SUFFIX,haier.net
+DOMAIN-KEYWORD,haier
+
+# 4. 格力电器 (Gree)
+DOMAIN-SUFFIX,gree.com
+
+# 5. 戴森 (Dyson - 部分国际服务可能需要走代理，中国区及基础控制建议直连)
+DOMAIN-SUFFIX,dyson.com
+DOMAIN-SUFFIX,dyson.cn
