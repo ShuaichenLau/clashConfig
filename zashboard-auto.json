@@ -112,7 +112,5 @@
   "config/dark-theme": "custom",
   "config/quick-filter-enabled": "true",
   "config/connection-card-lines": "[[\"host\",\"connectTime\"],[\"type\",\"dl\",\"ul\"],[\"chains\",\"dlSpeed\",\"close\"]]",
-  "config/disable-pull-to-refresh": "false",
-  "active-backend-uuid": "default-backend",
-  "backends": [{"uuid": "default-backend", "name": "OpenClash", "protocol": "http", "host": "192.168.3.3", "port": 9090, "secret": "127853"}]
+  "config/disable-pull-to-refresh": "false"
 }
