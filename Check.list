@@ -81,19 +81,8 @@ DOMAIN,mifjun.com
 DOMAIN,inv01.ffaff.cc
 DOMAIN,ffweb01.flashfox.cc
 DOMAIN,sub.wxhby.com
-DOMAIN-SUFFIX,speedcheck.org
-DOMAIN-SUFFIX,speedtest.net
-DOMAIN-SUFFIX,speedtest.cn
-DOMAIN-SUFFIX,custom.tbcnet.net
-DOMAIN-SUFFIX,dailijichang.com
-DOMAIN-SUFFIX,cordc.co
-DOMAIN-SUFFIX,cordc.cc
-DOMAIN-KEYWORD,speedtest
-DOMAIN-SUFFIX,ooklaserver.net
-DOMAIN-SUFFIX,speed.cloudflare.com
-DOMAIN-SUFFIX,speed.dler.io
-DOMAIN-SUFFIX,speedcheck.org
-DOMAIN-SUFFIX,speedtestph.subiway.net
+DOMAIN,良心云.com
+
 DOMAIN-KEYWORD,speedtest
 DOMAIN-KEYWORD,speedtestph
 DOMAIN-KEYWORD,poxiao888.com
@@ -102,6 +91,7 @@ DOMAIN-KEYWORD,speed.coe
 DOMAIN-KEYWORD,speed.udx
 DOMAIN-KEYWORD,speedtestkv2a
 DOMAIN-KEYWORD,new4.yuyan.online
+DOMAIN-KEYWORD,良心云.com
 DOMAIN-KEYWORD,new3.yuyan.online
 DOMAIN-KEYWORD,api.yuyan.vin
 
@@ -177,6 +167,21 @@ DOMAIN-SUFFIX,rgergergergerg6555.saojc.xyz
 DOMAIN-SUFFIX,skk.moe
 DOMAIN-SUFFIX,duangks.com
 
+
+DOMAIN-SUFFIX,speedcheck.org
+DOMAIN-SUFFIX,speedtest.net
+DOMAIN-SUFFIX,良心云.com
+DOMAIN-SUFFIX,speedtest.cn
+DOMAIN-SUFFIX,custom.tbcnet.net
+DOMAIN-SUFFIX,dailijichang.com
+DOMAIN-SUFFIX,cordc.co
+DOMAIN-SUFFIX,cordc.cc
+DOMAIN-SUFFIX,ooklaserver.net
+DOMAIN-SUFFIX,speed.cloudflare.com
+DOMAIN-SUFFIX,speed.dler.io
+DOMAIN-SUFFIX,speedcheck.org
+DOMAIN-SUFFIX,speedtestph.subiway.net
+
 DOMAIN-SUFFIX,subvonehsy.onesubv.site
 DOMAIN-SUFFIX,surfshark.com
 DOMAIN-SUFFIX,surfsharkdns.com
@@ -194,7 +199,3 @@ DOMAIN-SUFFIX,ubuntu-touch.io
 
 DOMAIN-SUFFIX,api.qrserver.com
 DOMAIN-SUFFIX,ip138.com
-
-DOMAIN,良心云.com
-DOMAIN-KEYWORD,良心云.com
-DOMAIN-SUFFIX,良心云.com
