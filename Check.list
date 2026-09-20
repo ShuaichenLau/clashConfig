@@ -81,6 +81,7 @@ DOMAIN,mifjun.com
 DOMAIN,inv01.ffaff.cc
 DOMAIN,ffweb01.flashfox.cc
 DOMAIN,sub.wxhby.com
+DOMAIN,dog.ssrdog.com
 DOMAIN,良心云.com
 
 DOMAIN-KEYWORD,speedtest
@@ -91,7 +92,6 @@ DOMAIN-KEYWORD,speed.coe
 DOMAIN-KEYWORD,speed.udx
 DOMAIN-KEYWORD,speedtestkv2a
 DOMAIN-KEYWORD,new4.yuyan.online
-DOMAIN-KEYWORD,良心云.com
 DOMAIN-KEYWORD,new3.yuyan.online
 DOMAIN-KEYWORD,api.yuyan.vin
 
@@ -120,6 +120,7 @@ DOMAIN-KEYWORD,ip138.com
 DOMAIN-KEYWORD,tytycloud.pro
 
 DOMAIN-SUFFIX,index.docker.io
+DOMAIN-SUFFIX,DOMAIN,dog.ssrdog.com
 DOMAIN-SUFFIX,6666b.idsduf.com
 DOMAIN-SUFFIX,userbenchmark.com
 DOMAIN-SUFFIX,6bsub.zhunchuanpb.com
