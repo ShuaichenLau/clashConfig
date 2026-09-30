@@ -76,6 +76,12 @@ default: &default
     - 美国-自动
     - 日韩-自动
     - 新坡-自动
+    - 香港-故转
+    - 台湾-故转
+    - 美国-故转
+    - 日韩-故转
+    - 新坡-故转
+    - 其他-故转
     - 直连
 
 proxy-groups:
@@ -91,7 +97,6 @@ proxy-groups:
   - { name: Apple, <<: *default }
   - { name: Perplexity, <<: *default }
   - { name: Netflix, <<: *default }
-  - { name: Crypto, <<: *default }
   - { name: 国外, <<: *default }
   - { name: 其他, <<: *default }
 
@@ -161,13 +166,10 @@ rule-providers:
   Speedtest_Category_Domain: { <<: *domain, url: "https://raw.githubusercontent.com/ShuaichenLau/meta-rules-dat/refs/heads/meta/geo/geosite/category-speedtest.mrs" }
   Cloudflare_Domain: { <<: *domain, url: "https://raw.githubusercontent.com/ShuaichenLau/meta-rules-dat/refs/heads/meta/geo/geosite/cloudflare.mrs" }
   Check_Classical: { <<: *classical, url: "https://raw.githubusercontent.com/ShuaichenLau/clashConfig/refs/heads/main/Check.list" }
-  OKX_Domain: { <<: *domain, url: "https://raw.githubusercontent.com/ShuaichenLau/meta-rules-dat/refs/heads/meta/geo/geosite/okx.mrs" }
-  Bybit_Domain: { <<: *domain, url: "https://raw.githubusercontent.com/ShuaichenLau/meta-rules-dat/refs/heads/meta/geo/geosite/bybit.mrs" }
-  Binance_Domain: { <<: *domain, url: "https://raw.githubusercontent.com/ShuaichenLau/meta-rules-dat/refs/heads/meta/geo/geosite/binance.mrs" }
   Jetbrains_Domain: { <<: *domain, url: "https://raw.githubusercontent.com/ShuaichenLau/meta-rules-dat/refs/heads/meta/geo/geosite/jetbrains.mrs" }
   debian_Domain: { <<: *domain, url: "https://raw.githubusercontent.com/ShuaichenLau/meta-rules-dat/meta/geo/geosite/debian.mrs" }
   gfw_domain: { <<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/gfw.mrs" }
-  geolocation-!cn: { <<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/geolocation-!cn.mrs" }
+#  geolocation-!cn: { <<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/geolocation-!cn.mrs" }
   Direct_Classical: { <<: *classical, url: "https://raw.githubusercontent.com/ShuaichenLau/clashConfig/refs/heads/main/Direct.list" }
   Private_Domain: { <<: *domain, url: "https://raw.githubusercontent.com/ShuaichenLau/meta-rules-dat/meta/geo/geosite/private.mrs" }
   Private_IP: { <<: *ip, url: "https://raw.githubusercontent.com/ShuaichenLau/meta-rules-dat/refs/heads/meta/geo/geoip/private.mrs" }
@@ -234,10 +236,6 @@ rules:
   - RULE-SET,HBO_Domain,Netflix
   - RULE-SET,PrimeVideo_Domain,Netflix
 
-  - RULE-SET,OKX_Domain,Crypto
-  - RULE-SET,Bybit_Domain,Crypto
-  - RULE-SET,Binance_Domain,Crypto
-
   - RULE-SET,Check_Classical,国外
   - RULE-SET,Jetbrains_Domain,国外
   - RULE-SET,Cloudflare_Domain,国外
@@ -246,6 +244,6 @@ rules:
   - RULE-SET,Speedtest_Domain,国外
   - RULE-SET,Speedtest_Category_Domain,国外
   - RULE-SET,gfw_domain,国外
-  - RULE-SET,geolocation-!cn,国外
+#  - RULE-SET,geolocation-!cn,国外
 
   - MATCH,其他
