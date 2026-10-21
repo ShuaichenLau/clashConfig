@@ -16,13 +16,13 @@ x-provider-template: &provider-template
 # 2. 实际的 proxy-providers 节点
 proxy-providers:
 
+  ProxyA:
+    <<: *provider-template
+    url: http://192.168.3.6:3001/T3B9dgzBzdRbBF8Aqx7P/download/collection/ProxyA
+
   cordCloud:
     <<: *provider-template
     url: http://192.168.3.6:3001/T3B9dgzBzdRbBF8Aqx7P/download/cordCloud
-
-  上帝世界:
-    <<: *provider-template
-    url: http://192.168.3.6:3001/T3B9dgzBzdRbBF8Aqx7P/download/%E4%B8%8A%E5%B8%9D%E4%B8%96%E7%95%8C
 
   良心云:
     <<: *provider-template
