@@ -20,10 +20,6 @@ proxy-providers:
     <<: *provider-template
     url: http://192.168.3.6:3001/T3B9dgzBzdRbBF8Aqx7P/download/collection/ProxyA
 
-  cordCloud:
-    <<: *provider-template
-    url: http://192.168.3.6:3001/T3B9dgzBzdRbBF8Aqx7P/download/cordCloud
-
   良心云:
     <<: *provider-template
     url: http://192.168.3.6:3001/T3B9dgzBzdRbBF8Aqx7P/download/%E8%89%AF%E5%BF%83%E4%BA%91
@@ -184,8 +180,8 @@ rule-providers:
   huawei_Domain: { <<: *domain, url: "https://raw.githubusercontent.com/ShuaichenLau/meta-rules-dat/meta/geo/geosite/huawei.mrs" }
   alibaba_Domain: { <<: *domain, url: "https://raw.githubusercontent.com/ShuaichenLau/meta-rules-dat/refs/heads/meta/geo/geosite/alibaba.mrs" }
   baidu_Domain: { <<: *domain, url: "https://raw.githubusercontent.com/ShuaichenLau/meta-rules-dat/refs/heads/meta/geo/geosite/baidu.mrs" }
-  China_Domain: { <<: *domain, url: "https://raw.githubusercontent.com/ShuaichenLau/meta-rules-dat/meta/geo/geosite/cn.mrs" }
-  China_IP: { <<: *ip, url: "https://raw.githubusercontent.com/ShuaichenLau/meta-rules-dat/refs/heads/meta/geo/geoip/cn.mrs" }
+#  China_Domain: { <<: *domain, url: "https://raw.githubusercontent.com/ShuaichenLau/meta-rules-dat/meta/geo/geosite/cn.mrs" }
+#  China_IP: { <<: *ip, url: "https://raw.githubusercontent.com/ShuaichenLau/meta-rules-dat/refs/heads/meta/geo/geoip/cn.mrs" }
 
 # ========================
 # 规则列表（按命中率漏斗模型优化）
@@ -204,8 +200,8 @@ rules:
   - RULE-SET,huawei_Domain,直连
   - RULE-SET,BankCN_Domain,直连
   - RULE-SET,Amap_Domain,直连
-  - RULE-SET,China_Domain,直连
-  - RULE-SET,China_IP,直连,no-resolve
+#  - RULE-SET,China_Domain,直连
+#  - RULE-SET,China_IP,直连,no-resolve
 
   - RULE-SET,ChatGPT_Domain,ChatGPT
   - RULE-SET,Google_Gemini_Domain,Gemini
