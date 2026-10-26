@@ -96,6 +96,12 @@ proxy-groups:
   - { name: 国外, <<: *default }
   - { name: 其他, <<: *default }
 
+  - { name: 香港-智能, type: fallback, url: https://www.gstatic.com/generate_204, expected-status: 204, interval: 350, timeout: 2000, max-failed-times: 3, lazy: false, proxies: [ 香港-手动, 香港-故转, 香港-自动 ] }
+  - { name: 台湾-智能, type: fallback, url: https://www.gstatic.com/generate_204, expected-status: 204, interval: 340, timeout: 2000, max-failed-times: 3, lazy: false, proxies: [ 台湾-手动, 台湾-故转, 台湾-自动 ] }
+  - { name: 美国-智能, type: fallback, url: https://www.gstatic.com/generate_204, expected-status: 204, interval: 330, timeout: 2000, max-failed-times: 3, lazy: false, proxies: [ 美国-手动, 美国-故转, 美国-自动 ] }
+  - { name: 日韩-智能, type: fallback, url: https://www.gstatic.com/generate_204, expected-status: 204, interval: 320, timeout: 2000, max-failed-times: 3, lazy: false, proxies: [ 日韩-手动, 日韩-故转, 日韩-自动 ] }
+  - { name: 新坡-智能, type: fallback, url: https://www.gstatic.com/generate_204, expected-status: 204, interval: 310, timeout: 2000, max-failed-times: 3, lazy: false, proxies: [ 新坡-手动, 新坡-故转, 新坡-自动 ] }
+
   - { name: 香港-自动, type: url-test, url: https://www.gstatic.com/generate_204, include-all: true, expected-status: 204, interval: 360, timeout: 2000, lazy: false, tolerance: 80, filter: *hk }
   - { name: 台湾-自动, type: url-test, url: https://www.gstatic.com/generate_204, include-all: true, expected-status: 204, interval: 350, timeout: 2000, lazy: false, tolerance: 80, filter: *tw }
   - { name: 美国-自动, type: url-test, url: https://www.gstatic.com/generate_204, include-all: true, expected-status: 204, interval: 390, timeout: 2000, lazy: false, tolerance: 80, filter: *us }
@@ -108,12 +114,6 @@ proxy-groups:
   - { name: 日韩-故转, type: fallback, url: https://www.gstatic.com/generate_204, include-all: true, expected-status: 204, interval: 390, timeout: 2000, max-failed-times: 3, lazy: false, filter: *jp }
   - { name: 新坡-故转, type: fallback, url: https://www.gstatic.com/generate_204, include-all: true, expected-status: 204, interval: 350, timeout: 2000, max-failed-times: 3, lazy: false, filter: *sg }
   - { name: 其他-故转, type: fallback, url: https://www.gstatic.com/generate_204, include-all: true, expected-status: 204, interval: 350, timeout: 2000, max-failed-times: 3, lazy: false, filter: *other }
-
-  - { name: 香港-智能, type: fallback, url: https://www.gstatic.com/generate_204, expected-status: 204, interval: 450, timeout: 2000, max-failed-times: 3, lazy: false, proxies: [ 香港-手动, 香港-故转, 香港-自动 ] }
-  - { name: 台湾-智能, type: fallback, url: https://www.gstatic.com/generate_204, expected-status: 204, interval: 440, timeout: 2000, max-failed-times: 3, lazy: false, proxies: [ 台湾-手动, 台湾-故转, 台湾-自动 ] }
-  - { name: 美国-智能, type: fallback, url: https://www.gstatic.com/generate_204, expected-status: 204, interval: 430, timeout: 2000, max-failed-times: 3, lazy: false, proxies: [ 美国-手动, 美国-故转, 美国-自动 ] }
-  - { name: 日韩-智能, type: fallback, url: https://www.gstatic.com/generate_204, expected-status: 204, interval: 420, timeout: 2000, max-failed-times: 3, lazy: false, proxies: [ 日韩-手动, 日韩-故转, 日韩-自动 ] }
-  - { name: 新坡-智能, type: fallback, url: https://www.gstatic.com/generate_204, expected-status: 204, interval: 410, timeout: 2000, max-failed-times: 3, lazy: false, proxies: [ 新坡-手动, 新坡-故转, 新坡-自动 ] }
 
   - { name: 香港-手动, type: select, include-all: true, filter: *hk }
   - { name: 台湾-手动, type: select, include-all: true, filter: *tw }
