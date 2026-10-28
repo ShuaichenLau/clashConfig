@@ -16,9 +16,9 @@ x-provider-template: &provider-template
 # 2. 实际的 proxy-providers 节点
 proxy-providers:
 
-  cordCloud:
+  ProxyA:
     <<: *provider-template
-    url: http://192.168.3.6:3001/T3B9dgzBzdRbBF8Aqx7P/download/cordCloud
+    url: http://192.168.3.6:3001/T3B9dgzBzdRbBF8Aqx7P/download/collection/ProxyA
 
   良心云:
     <<: *provider-template
@@ -31,10 +31,6 @@ proxy-providers:
   红杏云:
     <<: *provider-template
     url: http://192.168.3.6:3001/T3B9dgzBzdRbBF8Aqx7P/download/%E7%BA%A2%E6%9D%8F%E4%BA%91
-
-  nb:
-    <<: *provider-template
-    url: http://192.168.3.6:3001/T3B9dgzBzdRbBF8Aqx7P/download/NB
 
   神龙:
     <<: *provider-template
@@ -97,9 +93,14 @@ proxy-groups:
   - { name: Apple, <<: *default }
   - { name: Perplexity, <<: *default }
   - { name: Netflix, <<: *default }
-  - { name: Crypto, <<: *default }
   - { name: 国外, <<: *default }
   - { name: 其他, <<: *default }
+
+  - { name: 香港-智能, type: fallback, url: https://www.gstatic.com/generate_204, expected-status: 204, interval: 350, timeout: 2000, max-failed-times: 3, lazy: false, proxies: [ 香港-手动, 香港-故转, 香港-自动 ] }
+  - { name: 台湾-智能, type: fallback, url: https://www.gstatic.com/generate_204, expected-status: 204, interval: 340, timeout: 2000, max-failed-times: 3, lazy: false, proxies: [ 台湾-手动, 台湾-故转, 台湾-自动 ] }
+  - { name: 美国-智能, type: fallback, url: https://www.gstatic.com/generate_204, expected-status: 204, interval: 330, timeout: 2000, max-failed-times: 3, lazy: false, proxies: [ 美国-手动, 美国-故转, 美国-自动 ] }
+  - { name: 日韩-智能, type: fallback, url: https://www.gstatic.com/generate_204, expected-status: 204, interval: 320, timeout: 2000, max-failed-times: 3, lazy: false, proxies: [ 日韩-手动, 日韩-故转, 日韩-自动 ] }
+  - { name: 新坡-智能, type: fallback, url: https://www.gstatic.com/generate_204, expected-status: 204, interval: 310, timeout: 2000, max-failed-times: 3, lazy: false, proxies: [ 新坡-手动, 新坡-故转, 新坡-自动 ] }
 
   - { name: 香港-自动, type: url-test, url: https://www.gstatic.com/generate_204, include-all: true, expected-status: 204, interval: 360, timeout: 2000, lazy: false, tolerance: 80, filter: *hk }
   - { name: 台湾-自动, type: url-test, url: https://www.gstatic.com/generate_204, include-all: true, expected-status: 204, interval: 350, timeout: 2000, lazy: false, tolerance: 80, filter: *tw }
@@ -113,12 +114,6 @@ proxy-groups:
   - { name: 日韩-故转, type: fallback, url: https://www.gstatic.com/generate_204, include-all: true, expected-status: 204, interval: 390, timeout: 2000, max-failed-times: 3, lazy: false, filter: *jp }
   - { name: 新坡-故转, type: fallback, url: https://www.gstatic.com/generate_204, include-all: true, expected-status: 204, interval: 350, timeout: 2000, max-failed-times: 3, lazy: false, filter: *sg }
   - { name: 其他-故转, type: fallback, url: https://www.gstatic.com/generate_204, include-all: true, expected-status: 204, interval: 350, timeout: 2000, max-failed-times: 3, lazy: false, filter: *other }
-
-  - { name: 香港-智能, type: fallback, url: https://www.gstatic.com/generate_204, expected-status: 204, interval: 450, timeout: 2000, max-failed-times: 3, lazy: false, proxies: [ 香港-手动, 香港-故转, 香港-自动 ] }
-  - { name: 台湾-智能, type: fallback, url: https://www.gstatic.com/generate_204, expected-status: 204, interval: 440, timeout: 2000, max-failed-times: 3, lazy: false, proxies: [ 台湾-手动, 台湾-故转, 台湾-自动 ] }
-  - { name: 美国-智能, type: fallback, url: https://www.gstatic.com/generate_204, expected-status: 204, interval: 430, timeout: 2000, max-failed-times: 3, lazy: false, proxies: [ 美国-手动, 美国-故转, 美国-自动 ] }
-  - { name: 日韩-智能, type: fallback, url: https://www.gstatic.com/generate_204, expected-status: 204, interval: 420, timeout: 2000, max-failed-times: 3, lazy: false, proxies: [ 日韩-手动, 日韩-故转, 日韩-自动 ] }
-  - { name: 新坡-智能, type: fallback, url: https://www.gstatic.com/generate_204, expected-status: 204, interval: 410, timeout: 2000, max-failed-times: 3, lazy: false, proxies: [ 新坡-手动, 新坡-故转, 新坡-自动 ] }
 
   - { name: 香港-手动, type: select, include-all: true, filter: *hk }
   - { name: 台湾-手动, type: select, include-all: true, filter: *tw }
@@ -167,13 +162,10 @@ rule-providers:
   Speedtest_Category_Domain: { <<: *domain, url: "https://raw.githubusercontent.com/ShuaichenLau/meta-rules-dat/refs/heads/meta/geo/geosite/category-speedtest.mrs" }
   Cloudflare_Domain: { <<: *domain, url: "https://raw.githubusercontent.com/ShuaichenLau/meta-rules-dat/refs/heads/meta/geo/geosite/cloudflare.mrs" }
   Check_Classical: { <<: *classical, url: "https://raw.githubusercontent.com/ShuaichenLau/clashConfig/refs/heads/main/Check.list" }
-  OKX_Domain: { <<: *domain, url: "https://raw.githubusercontent.com/ShuaichenLau/meta-rules-dat/refs/heads/meta/geo/geosite/okx.mrs" }
-  Bybit_Domain: { <<: *domain, url: "https://raw.githubusercontent.com/ShuaichenLau/meta-rules-dat/refs/heads/meta/geo/geosite/bybit.mrs" }
-  Binance_Domain: { <<: *domain, url: "https://raw.githubusercontent.com/ShuaichenLau/meta-rules-dat/refs/heads/meta/geo/geosite/binance.mrs" }
   Jetbrains_Domain: { <<: *domain, url: "https://raw.githubusercontent.com/ShuaichenLau/meta-rules-dat/refs/heads/meta/geo/geosite/jetbrains.mrs" }
   debian_Domain: { <<: *domain, url: "https://raw.githubusercontent.com/ShuaichenLau/meta-rules-dat/meta/geo/geosite/debian.mrs" }
   gfw_domain: { <<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/gfw.mrs" }
-  geolocation-!cn: { <<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/geolocation-!cn.mrs" }
+#  geolocation-!cn: { <<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/geolocation-!cn.mrs" }
   Direct_Classical: { <<: *classical, url: "https://raw.githubusercontent.com/ShuaichenLau/clashConfig/refs/heads/main/Direct.list" }
   Private_Domain: { <<: *domain, url: "https://raw.githubusercontent.com/ShuaichenLau/meta-rules-dat/meta/geo/geosite/private.mrs" }
   Private_IP: { <<: *ip, url: "https://raw.githubusercontent.com/ShuaichenLau/meta-rules-dat/refs/heads/meta/geo/geoip/private.mrs" }
@@ -188,8 +180,8 @@ rule-providers:
   huawei_Domain: { <<: *domain, url: "https://raw.githubusercontent.com/ShuaichenLau/meta-rules-dat/meta/geo/geosite/huawei.mrs" }
   alibaba_Domain: { <<: *domain, url: "https://raw.githubusercontent.com/ShuaichenLau/meta-rules-dat/refs/heads/meta/geo/geosite/alibaba.mrs" }
   baidu_Domain: { <<: *domain, url: "https://raw.githubusercontent.com/ShuaichenLau/meta-rules-dat/refs/heads/meta/geo/geosite/baidu.mrs" }
-  China_Domain: { <<: *domain, url: "https://raw.githubusercontent.com/ShuaichenLau/meta-rules-dat/meta/geo/geosite/cn.mrs" }
-  China_IP: { <<: *ip, url: "https://raw.githubusercontent.com/ShuaichenLau/meta-rules-dat/refs/heads/meta/geo/geoip/cn.mrs" }
+#  China_Domain: { <<: *domain, url: "https://raw.githubusercontent.com/ShuaichenLau/meta-rules-dat/meta/geo/geosite/cn.mrs" }
+#  China_IP: { <<: *ip, url: "https://raw.githubusercontent.com/ShuaichenLau/meta-rules-dat/refs/heads/meta/geo/geoip/cn.mrs" }
 
 # ========================
 # 规则列表（按命中率漏斗模型优化）
@@ -208,8 +200,8 @@ rules:
   - RULE-SET,huawei_Domain,直连
   - RULE-SET,BankCN_Domain,直连
   - RULE-SET,Amap_Domain,直连
-  - RULE-SET,China_Domain,直连
-  - RULE-SET,China_IP,直连,no-resolve
+#  - RULE-SET,China_Domain,直连
+#  - RULE-SET,China_IP,直连,no-resolve
 
   - RULE-SET,ChatGPT_Domain,ChatGPT
   - RULE-SET,Google_Gemini_Domain,Gemini
@@ -240,10 +232,6 @@ rules:
   - RULE-SET,HBO_Domain,Netflix
   - RULE-SET,PrimeVideo_Domain,Netflix
 
-  - RULE-SET,OKX_Domain,Crypto
-  - RULE-SET,Bybit_Domain,Crypto
-  - RULE-SET,Binance_Domain,Crypto
-
   - RULE-SET,Check_Classical,国外
   - RULE-SET,Jetbrains_Domain,国外
   - RULE-SET,Cloudflare_Domain,国外
@@ -252,6 +240,6 @@ rules:
   - RULE-SET,Speedtest_Domain,国外
   - RULE-SET,Speedtest_Category_Domain,国外
   - RULE-SET,gfw_domain,国外
-  - RULE-SET,geolocation-!cn,国外
+#  - RULE-SET,geolocation-!cn,国外
 
   - MATCH,其他
