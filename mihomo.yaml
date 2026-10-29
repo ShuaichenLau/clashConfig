@@ -1,4 +1,72 @@
+# ============================================================
+# 全局自定义 Clash 配置模板
+# ============================================================
+#
+# 📖 功能说明：
+#   此模板允许你自定义 Clash 的配置，覆盖订阅的默认设置。
+#   - 节点信息（proxies）自动从订阅获取，无需在模板中定义
+#   - 你可以自定义：DNS、策略组、规则等配置
+#   - 可额外添加自己的节点（如自有落地 IP），并用 dialer-proxy 做链式代理
+#   - 支持部分覆盖：只写需要自定义的部分即可
+#
+# 🔄 DNS 配置优先级（重要）：
+#   软件 DNS 设置（覆盖开关）> 自定义模板 > 订阅配置
+#   - 如果模板中定义了 DNS，会完全替换订阅的 DNS
+#   - 如果开启了软件"覆盖 DNS"开关，模板的 DNS 不会生效
+#   - 建议：使用模板自定义 DNS 时，关闭软件的"覆盖 DNS"开关
+#
+# ⚠️ 重要提示：
+#   1. 如果你不熟悉 Clash 配置，请勿随意修改此模板！
+#   2. 错误的配置可能导致代理无法正常工作
+#   3. 如果出现问题，删除模板即可恢复使用订阅的默认配置
+#   4. 请勿在模板中定义 port、socks-port 等字段
+#   5. 模板中的 proxies 只会“追加”自定义节点，不会替换订阅节点；
+#      与订阅节点重名的自定义节点会被忽略
+#
+# 💡 使用技巧：
+#   - 只想改规则？只保留 rules 部分即可
+#   - 只想改 DNS？只保留 dns 部分即可
+#   - 想要完整控制？保留下面所有配置
+#
+# 📝 占位符说明：
+#   - {{proxies}}         : 引用订阅的所有节点
+#   - {{proxies:香港}}    : 筛选包含"香港"的节点
+#   - {{proxies:HK}}      : 筛选包含"HK"的节点
+#   - 可以在策略组的 proxies 列表中使用这些占位符
+#   - 占位符只包含订阅节点，不包含你自己添加的自定义节点
+#
+# ============================================================
 
+# ==================== 自定义节点 / 链式代理（示例，默认不启用） ====================
+# 说明：添加自己的节点（例如自建或购买的落地 IP），并让它“通过机场节点连接”，
+#       实现 本机 → 机场节点（前置） → 你的落地节点 → 目标网站 的链式代理。
+#       常用于需要固定 IP / 住宅 IP 的场景（如 ChatGPT、TikTok、海外电商账号）。
+#
+# 使用方法：
+#   1. 去掉下面 proxies 部分每行开头的 "# "，按你的落地节点信息修改
+#   2. dialer-proxy 填“前置”策略组名（也可以直接填某个订阅节点名）
+#   3. 在下面的 proxy-groups 中取消注释“🔗 前置节点”组，
+#      并把“我的落地”加入你要使用的策略组（如 🔰 节点选择），否则界面上选不到它
+#
+# ⚠️ 注意：
+#   - 自定义节点名称不要和订阅节点重名，否则会被忽略
+#   - “前置”组里不能包含落地节点本身，否则会形成循环导致无法连接
+#   - 不需要链式代理时，删掉 dialer-proxy 这一行即可作为普通自定义节点使用
+#   - 落地节点支持 socks5 / http / ss / vmess / vless / trojan 等 Clash 支持的类型
+#
+# proxies:
+#   - name: 我的落地
+#     type: socks5                        # 落地节点类型
+#     server: 1.2.3.4                     # 落地节点地址
+#     port: 1080                          # 落地节点端口
+#     username: user                      # 无认证可删除
+#     password: pass                      # 无认证可删除
+#     udp: true
+#     dialer-proxy: 🔗 前置节点           # 通过此策略组（机场节点）连接落地节点
+
+# ==================== DNS 配置 ====================
+# 说明：配置 DNS 解析服务器，提升域名解析速度和准确性
+# 如果不需要自定义 DNS，可以删除整个 dns 部分
 
 dns:
   enable: true                          # 启用 DNS
@@ -28,52 +96,91 @@ dns:
     ipcidr:
       - 240.0.0.0/4
 
+# ==================== 策略组配置 ====================
+# 说明：定义代理策略组，控制流量如何转发
+# 如果不需要自定义策略组，可以删除整个 proxy-groups 部分
+#
+# 策略组类型说明：
+#   - select: 手动选择节点
+#   - url-test: 自动选择延迟最低的节点
+#   - fallback: 按顺序选择可用节点
+#   - load-balance: 负载均衡
+#
+# ⚠️ 注意：策略组名称不要与订阅默认的冲突（建议使用 emoji 前缀）
+
 proxy-groups:
-  # 自动选择：自动测速，选择延迟最低的节点
-  - name: 节点选择
+  # 🚀 自动选择：自动测速，选择延迟最低的节点
+  - name: 🚀 自动选择
     type: url-test
     proxies:
       - {{proxies}}                     # 引用所有订阅节点
     url: http://www.gstatic.com/generate_204
     interval: 300                       # 测速间隔（秒）
 
-  - name: 国际流量
+  # 🇭🇰 香港节点：筛选香港节点
+  - name: 🇭🇰 香港节点
     type: select
     proxies:
-      - 节点选择
+      - {{proxies:香港}}                # 筛选包含"香港"的节点
+      - {{proxies:HK}}                  # 筛选包含"HK"的节点
+      - DIRECT                          # 直连（不走代理）
+
+  # 🇺🇸 美国节点：筛选美国节点
+  - name: 🇺🇸 美国节点
+    type: select
+    proxies:
+      - {{proxies:美国}}                # 筛选包含"美国"的节点
+      - {{proxies:US}}                  # 筛选包含"US"的节点
       - DIRECT
 
+  # 📺 流媒体：专门用于流媒体服务
+  - name: 📺 流媒体
+    type: select
+    proxies:
+      - 🇭🇰 香港节点                   # 引用上面定义的策略组
+      - 🇺🇸 美国节点
+      - 🚀 自动选择
+      - DIRECT
 
-rule-providers:
-  reject: { type: http, behavior: domain, url: 'https://b2.zvnamj.cn/github/Loyalsoldier/clash-rules/release/reject.txt', path: ./ruleset/reject.yaml, interval: 86400 }
-  icloud: { type: http, behavior: domain, url: 'https://b2.zvnamj.cn/github/Loyalsoldier/clash-rules/release/icloud.txt', path: ./ruleset/icloud.yaml, interval: 86400 }
-  apple: { type: http, behavior: domain, url: 'https://b2.zvnamj.cn/github/Loyalsoldier/clash-rules/release/apple.txt', path: ./ruleset/apple.yaml, interval: 86400 }
-  google: { type: http, behavior: domain, url: 'https://b2.zvnamj.cn/github/blackmatrix7/ios_rule_script/master/rule/Clash/Google/Google.yaml', path: ./ruleset/google.yaml, interval: 86400 }
-  proxy: { type: http, behavior: domain, url: 'https://b2.zvnamj.cn/github/Loyalsoldier/clash-rules/release/proxy.txt', path: ./ruleset/proxy.yaml, interval: 86400 }
-  direct: { type: http, behavior: domain, url: 'https://b2.zvnamj.cn/github/Loyalsoldier/clash-rules/release/direct.txt', path: ./ruleset/direct.yaml, interval: 86400 }
-  private: { type: http, behavior: domain, url: 'https://b2.zvnamj.cn/github/Loyalsoldier/clash-rules/release/private.txt', path: ./ruleset/private.yaml, interval: 86400 }
-  gfw: { type: http, behavior: domain, url: 'https://b2.zvnamj.cn/github/Loyalsoldier/clash-rules/release/gfw.txt', path: ./ruleset/gfw.yaml, interval: 86400 }
-  tld-not-cn: { type: http, behavior: domain, url: 'https://b2.zvnamj.cn/github/Loyalsoldier/clash-rules/release/tld-not-cn.txt', path: ./ruleset/tld-not-cn.yaml, interval: 86400 }
-  telegramcidr: { type: http, behavior: ipcidr, url: 'https://b2.zvnamj.cn/github/Loyalsoldier/clash-rules/release/telegramcidr.txt', path: ./ruleset/telegramcidr.yaml, interval: 86400 }
-  cncidr: { type: http, behavior: ipcidr, url: 'https://b2.zvnamj.cn/github/Loyalsoldier/clash-rules/release/cncidr.txt', path: ./ruleset/cncidr.yaml, interval: 86400 }
-  lancidr: { type: http, behavior: ipcidr, url: 'https://b2.zvnamj.cn/github/Loyalsoldier/clash-rules/release/lancidr.txt', path: ./ruleset/lancidr.yaml, interval: 86400 }
-  applications: { type: http, behavior: classical, url: 'https://b2.zvnamj.cn/github/Loyalsoldier/clash-rules/release/applications.txt', path: ./ruleset/applications.yaml, interval: 86400 }
-  netflix: { type: http, behavior: classical, url: 'https://b2.zvnamj.cn/github/blackmatrix7/ios_rule_script/master/rule/Clash/Netflix/Netflix.yaml', path: ./ruleset/netflix.yaml, interval: 86400 }
-  hbo: { type: http, behavior: classical, url: 'https://b2.zvnamj.cn/github/blackmatrix7/ios_rule_script/master/rule/Clash/HBO/HBO.yaml', path: ./ruleset/hbo.yaml, interval: 86400 }
-  disney: { type: http, behavior: classical, url: 'https://b2.zvnamj.cn/github/blackmatrix7/ios_rule_script/master/rule/Clash/Disney/Disney.yaml', path: ./ruleset/disney.yaml, interval: 86400 }
-  youtube: { type: http, behavior: classical, url: 'https://b2.zvnamj.cn/github/blackmatrix7/ios_rule_script/master/rule/Clash/YouTube/YouTube.yaml', path: ./ruleset/youtube.yaml, interval: 86400 }
-  bilibili: { type: http, behavior: classical, url: 'https://b2.zvnamj.cn/github/blackmatrix7/ios_rule_script/master/rule/Clash/BiliBili/BiliBili.yaml', path: ./ruleset/bilibili.yaml, interval: 86400 }
-  tiktok: { type: http, behavior: classical, url: 'https://b2.zvnamj.cn/github/blackmatrix7/ios_rule_script/master/rule/Clash/TikTok/TikTok.yaml', path: ./ruleset/tiktok.yaml, interval: 86400 }
-  telegram: { type: http, behavior: classical, url: 'https://b2.zvnamj.cn/github/blackmatrix7/ios_rule_script/master/rule/Clash/Telegram/Telegram.yaml', path: ./ruleset/telegram.yaml, interval: 86400 }
-  openai: { type: http, behavior: classical, url: 'https://b2.zvnamj.cn/github/blackmatrix7/ios_rule_script/master/rule/Clash/OpenAI/OpenAI.yaml', path: ./ruleset/openai.yaml, interval: 86400 }
-  claude: { type: http, behavior: classical, url: 'https://b2.zvnamj.cn/github/blackmatrix7/ios_rule_script/master/rule/Clash/Claude/Claude.yaml', path: ./ruleset/claude.yaml, interval: 86400 }
-  gemini: { type: http, behavior: classical, url: 'https://b2.zvnamj.cn/github/blackmatrix7/ios_rule_script/master/rule/Clash/Gemini/Gemini.yaml', path: ./ruleset/gemini.yaml, interval: 86400 }
-  microsoft: { type: http, behavior: classical, url: 'https://b2.zvnamj.cn/github/blackmatrix7/ios_rule_script/master/rule/Clash/Microsoft/Microsoft.yaml', path: ./ruleset/microsoft.yaml, interval: 86400 }
-  steamcn: { type: http, behavior: classical, url: 'https://b2.zvnamj.cn/github/blackmatrix7/ios_rule_script/master/rule/Clash/SteamCN/SteamCN.yaml', path: ./ruleset/steamcn.yaml, interval: 86400 }
-  steam: { type: http, behavior: classical, url: 'https://b2.zvnamj.cn/github/blackmatrix7/ios_rule_script/master/rule/Clash/Steam/Steam.yaml', path: ./ruleset/steam.yaml, interval: 86400 }
-  xbox: { type: http, behavior: classical, url: 'https://b2.zvnamj.cn/github/blackmatrix7/ios_rule_script/master/rule/Clash/Xbox/Xbox.yaml', path: ./ruleset/xbox.yaml, interval: 86400 }
-  crypto: { type: http, behavior: classical, url: 'https://b2.zvnamj.cn/github/blackmatrix7/ios_rule_script/master/rule/Clash/Crypto/Crypto.yaml', path: ./ruleset/crypto.yaml, interval: 86400 }
-  scholar: { type: http, behavior: classical, url: 'https://b2.zvnamj.cn/github/blackmatrix7/ios_rule_script/master/rule/Clash/Scholar/Scholar.yaml', path: ./ruleset/scholar.yaml, interval: 86400 }
+  # 🔗 前置节点：链式代理的第一跳（配合上面的自定义节点示例使用，取消注释即可）
+  # - name: 🔗 前置节点
+  #   type: select
+  #   proxies:
+  #     - {{proxies:香港}}              # 只放订阅节点，不要放“我的落地”
+  #     - {{proxies:日本}}
+
+  # 🔰 节点选择：手动选择模式
+  - name: 🔰 节点选择
+    type: select
+    proxies:
+      # - 我的落地                      # 启用自定义节点后取消注释，即可在界面中选择
+      - 🚀 自动选择
+      - 🇭🇰 香港节点
+      - 🇺🇸 美国节点
+      - DIRECT
+      - {{proxies}}                     # 包含所有节点供手动选择
+
+  # 🌍 国际流量：默认的国际流量策略
+  - name: 🌍 国际流量
+    type: select
+    proxies:
+      - 🔰 节点选择
+      - 🚀 自动选择
+      - DIRECT
+
+# ==================== 规则配置 ====================
+# 说明：定义流量分流规则，决定哪些流量走代理，哪些直连
+# 如果不需要自定义规则，可以删除整个 rules 部分
+#
+# 规则类型说明：
+#   - DOMAIN-SUFFIX: 域名后缀匹配
+#   - DOMAIN-KEYWORD: 域名关键词匹配
+#   - GEOIP: 根据 IP 地理位置匹配
+#   - IP-CIDR: IP 地址段匹配
+#   - MATCH: 兜底规则（匹配所有剩余流量）
+#
+# ⚠️ 注意：规则从上到下匹配，匹配到第一条规则后就不再继续
+
 rules:
   # 局域网地址直连（不走代理）
   - DOMAIN-SUFFIX,local,DIRECT
@@ -81,48 +188,32 @@ rules:
   - IP-CIDR,172.16.0.0/12,DIRECT
   - IP-CIDR,192.168.0.0/16,DIRECT
   - IP-CIDR,10.0.0.0/8,DIRECT
-  - 'DOMAIN,127.0.0.1:7010,DIRECT'
-  - 'RULE-SET,private,DIRECT'
-  - 'RULE-SET,lancidr,DIRECT,no-resolve'
-  - 'RULE-SET,reject,REJECT'
-  - 'RULE-SET,icloud,国际流量'
-  - 'RULE-SET,apple,国际流量'
-  - 'RULE-SET,microsoft,国际流量'
-  - 'RULE-SET,applications,DIRECT'
-  - 'RULE-SET,direct,DIRECT'
-  - 'DOMAIN-SUFFIX,crates.io,DIRECT'
-  - 'DOMAIN-SUFFIX,rsproxy.cn,DIRECT'
-  - 'DOMAIN-SUFFIX,ustc.edu.cn,DIRECT'
-  - 'DOMAIN-SUFFIX,tsinghua.edu.cn,DIRECT'
-  - 'DOMAIN-SUFFIX,sjtug.sjtu.edu.cn,DIRECT'
-  - 'DOMAIN,static.rust-lang.org,DIRECT'
-  - 'DOMAIN,doc.rust-lang.org,DIRECT'
-  - 'RULE-SET,bilibili,国际流量'
-  - 'RULE-SET,netflix,国际流量'
-  - 'RULE-SET,hbo,国际流量'
-  - 'RULE-SET,disney,国际流量'
-  - 'RULE-SET,youtube,国际流量'
-  - 'DOMAIN,mytvsuperlimited.hb.omtrdc.net,国际流量'
-  - 'DOMAIN,mytvsuperlimited.sc.omtrdc.net,国际流量'
-  - 'DOMAIN-SUFFIX,mytvsuper.com,国际流量'
-  - 'DOMAIN-SUFFIX,tvb.com,国际流量'
-  - 'RULE-SET,tiktok,国际流量'
-  - 'RULE-SET,telegram,国际流量'
-  - 'RULE-SET,telegramcidr,国际流量,no-resolve'
-  - 'RULE-SET,openai,国际流量'
-  - 'RULE-SET,claude,国际流量'
-  - 'RULE-SET,gemini,国际流量'
-  - 'RULE-SET,steamcn,DIRECT'
-  - 'RULE-SET,steam,国际流量'
-  - 'RULE-SET,xbox,国际流量'
-  - 'RULE-SET,google,国际流量'
-  - 'RULE-SET,crypto,国际流量'
-  - 'RULE-SET,scholar,国际流量'
-  - 'RULE-SET,gfw,国际流量'
-  - 'RULE-SET,proxy,国际流量'
-  - 'RULE-SET,cncidr,DIRECT,no-resolve'
-  - 'GEOIP,CN,DIRECT'
-  - 'RULE-SET,tld-not-cn,国际流量'
-  - 'MATCH,DIRECT'
 
+  # 流媒体服务使用专门的策略组
+  - DOMAIN-SUFFIX,netflix.com,📺 流媒体
+  - DOMAIN-SUFFIX,youtube.com,📺 流媒体
+  - DOMAIN-KEYWORD,youtube,📺 流媒体
 
+  # 中国大陆 IP 直连
+  - GEOIP,CN,DIRECT
+
+  # 其他所有国际流量走代理
+  - MATCH,🌍 国际流量
+
+# ============================================================
+# 📚 更多配置参考：
+#   https://github.com/Dreamacro/clash/wiki/configuration
+#
+# 💡 常见问题：
+#   Q: 保存后代理无法使用？
+#   A: 检查策略组名称是否与订阅冲突，建议使用 emoji 前缀
+#
+#   Q: 节点筛选不生效？
+#   A: 检查筛选关键词是否与节点名称匹配（区分大小写）
+#
+#   Q: 规则不生效？
+#   A: 检查规则语法是否正确，注意逗号分隔
+#
+#   Q: 想恢复默认配置？
+#   A: 删除此模板即可使用订阅的默认配置
+# ============================================================
